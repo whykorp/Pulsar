@@ -6,8 +6,9 @@ public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed;
 
-    public Rigidbody2d rb;
-    private Vector3 velocity = Vector3.zero;
+    public Rigidbody2D rb;
+    private Vector3 horizontalVelocity = Vector3.zero;
+    private Vector3 verticalVelocity = Vector3.zero;
 
 
     // Start is called before the first frame update
@@ -19,6 +20,24 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        float horizontalMovement = Input.GetAxis("Horizontal")
+        float horizontalMovement = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
+        float verticalMovement = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
+
+        MovePlayerHorizontal(horizontalMovement);
+        MovePlayerVertical(verticalMovement);
+    }
+
+    void MovePlayerHorizontal(float _horizontalMovement)
+    {
+        Vector3 targetVelocity = new Vector2(_horizontalMovement, rb.velocity.y);
+        rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref horizontalVelocity, .05f);
+        
+    }
+
+    void MovePlayerVertical(float _verticalMovement)
+    {
+        Vector3 targetVelocity = new Vector2(_verticalMovement, rb.velocity.x);
+        rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref verticalVelocity, .05f);
+        
     }
 }
