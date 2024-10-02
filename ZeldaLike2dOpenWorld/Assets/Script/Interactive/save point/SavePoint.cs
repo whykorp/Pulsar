@@ -14,11 +14,11 @@ public class SavePoint : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if(isInRange==true)
         {
-            if(Input.GetKeyDown("e"))
+            if(Input.GetKeyDown(KeyCode.E))
             {
                 Debug.Log("you saved your game");
             }
