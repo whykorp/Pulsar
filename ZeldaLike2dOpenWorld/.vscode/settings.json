@@ -56,5 +56,6 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "ZeldaLike2dOpenWorld.sln"
+    "dotnet.defaultSolution": "ZeldaLike2dOpenWorld.sln",
+    "dotnet.preferCSharpExtension": true
 }
