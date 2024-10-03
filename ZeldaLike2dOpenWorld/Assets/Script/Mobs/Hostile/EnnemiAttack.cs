@@ -6,12 +6,20 @@ public class EnnemiAttack : MonoBehaviour
 {
     public PlayerHealth playerHealth;
     public int damage = 20;
+    public new Transform transform;
+    public GameObject enemyGraphics;
+    public float knockbackForce;
+
+    void Awake()
+    {
+        transform=enemyGraphics.GetComponent<Transform>();
+    }
     
     void OnTriggerStay2D(Collider2D collision)
     {
         if(collision.CompareTag("Player"))
         {
-            playerHealth.TakeDamage(20);
+            playerHealth.TakeDamage(20, transform, knockbackForce, true);
         }
     }
 }

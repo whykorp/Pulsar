@@ -4622,6 +4622,7 @@ MonoBehaviour:
   currentHealth: 0
   damageCooldown: 2
   text: {fileID: 1829497960}
+  transform: {fileID: 0}
   healthBar: {fileID: 384244359}
 --- !u!114 &45671234
 MonoBehaviour:
@@ -4635,7 +4636,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56285ff5cc13549969b28e7aeeb561e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 45671227}
 --- !u!1 &47363566
 GameObject:
   m_ObjectHideFlags: 0
@@ -6507,6 +6507,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 45671233}
   damage: 20
+  transform: {fileID: 0}
+  enemyGraphics: {fileID: 0}
 --- !u!1 &1816708138
 GameObject:
   m_ObjectHideFlags: 0
