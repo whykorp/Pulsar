@@ -8,7 +8,6 @@ public class EnemyDetection : MonoBehaviour
     public GameObject targetPlayer;
     public int damageOnCollision = 20;
     public SpriteRenderer graphics;
-    private Transform target;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
