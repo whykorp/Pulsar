@@ -7,7 +7,8 @@ public class EnemyMovement : MonoBehaviour
     public float speed;
     public Transform[] waypoints;
 
-    public int damageOnCollision = 20;
+    public int speedWhilePlayerDetected = 2;
+    
 
     public SpriteRenderer graphics;
     private Transform target;
@@ -30,7 +31,7 @@ public class EnemyMovement : MonoBehaviour
             destPoint = (destPoint + 1) % waypoints.Length;
             Debug.Log("New Waypoint:"+destPoint);
             target = waypoints[destPoint];
-            graphics.flipX = !graphics.flipX;
+            
         }
     }
 
@@ -40,7 +41,7 @@ public class EnemyMovement : MonoBehaviour
         destPoint = (destPoint + 1) % waypoints.Length;
         Debug.Log("New Waypoint:"+destPoint);
         target = waypoints[destPoint];
-        graphics.flipX = !graphics.flipX;
+        speed*=speedWhilePlayerDetected;
     }
 
 }

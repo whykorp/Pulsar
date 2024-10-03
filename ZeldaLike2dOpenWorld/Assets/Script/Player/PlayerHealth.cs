@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,8 @@ public class PlayerHealth : MonoBehaviour
 {
     public int maxHealth = 100;
     public int currentHealth;
+    public float damageCooldown=2;
+    public Text text;
 
     public HealthBar healthBar;
     void Start()
@@ -18,17 +21,15 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.R))
-        {
-            Debug.Log("OUCH");
-            TakeDamage(20);
-            
-        }
+        damageCooldown-=Time.deltaTime;
     }
 
-    void TakeDamage(int _damage)
+    public void TakeDamage(int _damage)
     {
-        currentHealth-=_damage;
-        healthBar.SetHealth(currentHealth);
+        if(damageCooldown<=0){
+            healthBar.SetHealth(currentHealth-=_damage);
+            damageCooldown=2;
+            text.text = currentHealth+"/"+maxHealth;
+        }
     }
 }
