@@ -34,4 +34,13 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
+    public void PlayerDetected()
+    {
+        Debug.Log("Player Detected");
+        destPoint = (destPoint + 1) % waypoints.Length;
+        Debug.Log("New Waypoint:"+destPoint);
+        target = waypoints[destPoint];
+        graphics.flipX = !graphics.flipX;
+    }
+
 }

@@ -16,11 +16,12 @@ public class PlayerDetection : MonoBehaviour
             if(isDetected==false)
             {
                 isDetected=true;
-                for(int i=0;i <= enemyMovement.waypoints.Length;i++)
+                for(int i=0;i < enemyMovement.waypoints.Length;i++)
                 {
                     enemyMovement.waypoints[i]=playerTransform;
                     Debug.Log("tour de boucle:"+i);
                 }
+                enemyMovement.PlayerDetected();
             }
         } 
     }
