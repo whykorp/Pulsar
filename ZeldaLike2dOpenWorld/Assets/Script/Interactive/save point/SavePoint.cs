@@ -28,6 +28,8 @@ public class SavePoint : MonoBehaviour
             {
                 Debug.Log("you saved your game");
                 RedSpriteBase.sprite=BlueSpriteBase;
+                RedSprite1.sprite=BlueSprite1;
+                RedSprite2.sprite=BlueSprite2;
 
             }
         }
