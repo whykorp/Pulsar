@@ -6,6 +6,12 @@ public class SavePoint : MonoBehaviour
 {
 
     public bool isInRange;
+    public SpriteRenderer RedSpriteBase;
+    public SpriteRenderer RedSprite1;
+    public SpriteRenderer RedSprite2;
+    public Sprite BlueSpriteBase;
+    public Sprite BlueSprite1;
+    public Sprite BlueSprite2;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +27,8 @@ public class SavePoint : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.E))
             {
                 Debug.Log("you saved your game");
+                RedSpriteBase.sprite=BlueSpriteBase;
+
             }
         }
     }

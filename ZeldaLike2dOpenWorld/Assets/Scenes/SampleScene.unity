@@ -4631,7 +4631,7 @@ GameObject:
   - component: {fileID: 47363568}
   - component: {fileID: 47363567}
   m_Layer: 0
-  m_Name: STerminal2_Ennemy
+  m_Name: STerminal1_Ennemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4697,12 +4697,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 47363566}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.5012, y: 0.4994, z: 0}
-  m_LocalScale: {x: 3.113277, y: 3.1306891, z: 3.1482}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.00028862242, y: 0.32034603, z: 0}
+  m_LocalScale: {x: 0.9983683, y: 1.0024027, z: 3.1482}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1714882923}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &139517698
 GameObject:
@@ -6129,7 +6129,7 @@ GameObject:
   - component: {fileID: 1426839523}
   - component: {fileID: 1426839522}
   m_Layer: 0
-  m_Name: STerminal3_Ennemy
+  m_Name: STerminal2_Ennemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6195,12 +6195,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1426839521}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.5004, y: 1.5003, z: 0}
-  m_LocalScale: {x: 3.1149542, y: 3.140876, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.000032111635, y: 0.6408202, z: 0}
+  m_LocalScale: {x: 0.9989062, y: 1.0056645, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1714882923}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1714882918
 GameObject:
@@ -6214,7 +6214,7 @@ GameObject:
   - component: {fileID: 1714882922}
   - component: {fileID: 1714882920}
   m_Layer: 0
-  m_Name: save point
+  m_Name: STerminalBase_Ennemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6331,6 +6331,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1724116963}
+  - {fileID: 47363568}
+  - {fileID: 1426839523}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1724116962
@@ -6379,6 +6381,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInRange: 0
+  RedSpriteBase: {fileID: 1714882922}
+  RedSprite1: {fileID: 47363567}
+  RedSprite2: {fileID: 1426839522}
+  BlueSpriteBase: {fileID: 21300000, guid: 98571a42a65e4458c9656907fcb27310, type: 3}
+  BlueSprite1: {fileID: 21300000, guid: 7dbbdf68060e848c9b2cbfbabe62bf8e, type: 3}
+  BlueSprite2: {fileID: 21300000, guid: 2ca354661d9f64d8193c0cabb52cd315, type: 3}
 --- !u!61 &1724116965
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6874,5 +6882,3 @@ SceneRoots:
   - {fileID: 1978751249}
   - {fileID: 202192439}
   - {fileID: 404142019}
-  - {fileID: 47363568}
-  - {fileID: 1426839523}
