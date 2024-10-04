@@ -5,7 +5,8 @@ using UnityEngine.AI;
 
 public class EnemyPathFinding : MonoBehaviour
 {
-    NavMeshAgent agent;
+    public NavMeshAgent agent;
+    public PlayerDetectionNavhMesh playerDetectionNavhMesh;
     public Transform[] targetPosition;
     public Transform target;
 
@@ -25,7 +26,7 @@ public class EnemyPathFinding : MonoBehaviour
     {
         agent.SetDestination(target.position);
         //Debug.Log(Vector3.Distance(transform.position, target.position));
-        if(Vector3.Distance(transform.position, target.position) < 1f)
+        if(Vector3.Distance(transform.position, target.position) < 1f && playerDetectionNavhMesh.isAttackingPlayer==false)
         {
             //Debug.Log("WAYPOINT REACHED");
             target = targetPosition[Random.Range(0,targetPosition.Length)];
