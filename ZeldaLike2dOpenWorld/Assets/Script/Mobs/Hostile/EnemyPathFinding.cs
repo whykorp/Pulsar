@@ -5,8 +5,14 @@ using UnityEngine.AI;
 
 public class EnemyPathFinding : MonoBehaviour
 {
-    [SerializeField] Transform target;
     NavMeshAgent agent;
+    public Transform[] targetPosition;
+    public Transform target;
+
+    void Awake(){
+        target = targetPosition[Random.Range(0,targetPosition.Length)];
+    }
+    
 
     private void Start()
     {
@@ -18,5 +24,12 @@ public class EnemyPathFinding : MonoBehaviour
     private void Update()
     {
         agent.SetDestination(target.position);
+        //Debug.Log(Vector3.Distance(transform.position, target.position));
+        if(Vector3.Distance(transform.position, target.position) < 1f)
+        {
+            //Debug.Log("WAYPOINT REACHED");
+            target = targetPosition[Random.Range(0,targetPosition.Length)];
+        }
+       
     }
 }
