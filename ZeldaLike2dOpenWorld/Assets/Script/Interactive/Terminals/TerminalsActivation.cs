@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SavePoint : MonoBehaviour
+public class TerminalsActivation : MonoBehaviour
 {
 
     public bool isInRange;
@@ -12,14 +12,9 @@ public class SavePoint : MonoBehaviour
     public Sprite BlueSpriteBase;
     public Sprite BlueSprite1;
     public Sprite BlueSprite2;
+    public string zoneName;
+    public TerminalZoneList terminalZoneList;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if(isInRange==true)
@@ -30,8 +25,10 @@ public class SavePoint : MonoBehaviour
                 RedSpriteBase.sprite=BlueSpriteBase;
                 RedSprite1.sprite=BlueSprite1;
                 RedSprite2.sprite=BlueSprite2;
+                terminalZoneList.ZoneList[zoneName]=true;
 
             }
+            Debug.Log(terminalZoneList.ZoneList[zoneName]);
         }
     }
 

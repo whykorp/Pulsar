@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class ShowTextUi : MonoBehaviour
 {
+<<<<<<< Updated upstream
     private Text text;
     public SavePoint savePoint;
     void Awake(){
@@ -12,5 +13,11 @@ public class ShowTextUi : MonoBehaviour
     }
     void Update(){
         text.enabled=savePoint.isInRange;
+=======
+    public Text text;
+    public TerminalsActivation terminalsActivation;
+    void Update(){
+            text.enabled=terminalsActivation.isInRange;
+>>>>>>> Stashed changes
     }
 }

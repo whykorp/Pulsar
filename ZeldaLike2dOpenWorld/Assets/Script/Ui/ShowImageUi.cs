@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class ShowImageUi : MonoBehaviour
 {
     public Image image;
-    public SavePoint savePoint;
+    public TerminalsActivation terminalsActivation;
     void Update(){
-            image.enabled=savePoint.isInRange;
+            image.enabled=terminalsActivation.isInRange;
     }
     
     

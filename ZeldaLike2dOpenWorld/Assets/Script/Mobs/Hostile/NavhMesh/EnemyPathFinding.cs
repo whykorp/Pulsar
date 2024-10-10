@@ -26,10 +26,11 @@ public class EnemyPathFinding : MonoBehaviour
     {
         agent.SetDestination(target.position);
         //Debug.Log(Vector3.Distance(transform.position, target.position));
-        if(Vector3.Distance(transform.position, target.position) < 1f && playerDetectionNavhMesh.isAttackingPlayer==false)
+        if((Vector3.Distance(transform.position, target.position) < 1f && playerDetectionNavhMesh.isAttackingPlayer==false)||playerDetectionNavhMesh.isPlayerExiting==true)
         {
             //Debug.Log("WAYPOINT REACHED");
             target = targetPosition[Random.Range(0,targetPosition.Length)];
+            playerDetectionNavhMesh.isPlayerExiting=false;
         }
        
     }
