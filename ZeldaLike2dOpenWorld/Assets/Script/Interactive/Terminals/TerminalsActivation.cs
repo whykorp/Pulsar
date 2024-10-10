@@ -13,6 +13,7 @@ public class TerminalsActivation : MonoBehaviour
     public Sprite BlueSprite1;
     public Sprite BlueSprite2;
     public string zoneName;
+    public bool refreshEnemyDetection=false;
     public TerminalZoneList terminalZoneList;
 
     void Update()
@@ -26,9 +27,10 @@ public class TerminalsActivation : MonoBehaviour
                 RedSprite1.sprite=BlueSprite1;
                 RedSprite2.sprite=BlueSprite2;
                 terminalZoneList.ZoneList[zoneName]=true;
+                refreshEnemyDetection=true;
+
 
             }
-            Debug.Log(terminalZoneList.ZoneList[zoneName]);
         }
     }
 

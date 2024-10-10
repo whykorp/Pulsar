@@ -7,6 +7,7 @@ public class EnemyPathFinding : MonoBehaviour
 {
     public NavMeshAgent agent;
     public PlayerDetectionNavhMesh playerDetectionNavhMesh;
+    public TerminalsActivation terminalsActivation;
     public Transform[] targetPosition;
     public Transform target;
 
@@ -26,11 +27,12 @@ public class EnemyPathFinding : MonoBehaviour
     {
         agent.SetDestination(target.position);
         //Debug.Log(Vector3.Distance(transform.position, target.position));
-        if((Vector3.Distance(transform.position, target.position) < 1f && playerDetectionNavhMesh.isAttackingPlayer==false)||playerDetectionNavhMesh.isPlayerExiting==true)
+        if((Vector3.Distance(transform.position, target.position) < 1f && playerDetectionNavhMesh.isAttackingPlayer==false)||playerDetectionNavhMesh.isPlayerExiting==true||terminalsActivation.refreshEnemyDetection==true)
         {
             //Debug.Log("WAYPOINT REACHED");
             target = targetPosition[Random.Range(0,targetPosition.Length)];
             playerDetectionNavhMesh.isPlayerExiting=false;
+            terminalsActivation.refreshEnemyDetection=false;
         }
        
     }
