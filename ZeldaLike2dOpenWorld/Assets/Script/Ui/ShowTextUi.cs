@@ -5,9 +5,12 @@ using UnityEngine.UI;
 
 public class ShowTextUi : MonoBehaviour
 {
-    public Text text;
+    private Text text;
     public SavePoint savePoint;
+    void Awake(){
+        text = GetComponent<Text>();
+    }
     void Update(){
-            text.enabled=savePoint.isInRange;
+        text.enabled=savePoint.isInRange;
     }
 }
