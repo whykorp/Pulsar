@@ -29,8 +29,9 @@ public class EnemyPathFinding : MonoBehaviour
         //Debug.Log(Vector3.Distance(transform.position, target.position));
         if((Vector3.Distance(transform.position, target.position) < 1f && playerDetectionNavhMesh.isAttackingPlayer==false)||playerDetectionNavhMesh.isPlayerExiting==true||terminalsActivation.refreshEnemyDetection==true)
         {
-            //Debug.Log("WAYPOINT REACHED");
+            Debug.Log("WAYPOINT REACHED");
             target = targetPosition[Random.Range(0,targetPosition.Length)];
+            Debug.Log(target);
             playerDetectionNavhMesh.isPlayerExiting=false;
             terminalsActivation.refreshEnemyDetection=false;
         }
