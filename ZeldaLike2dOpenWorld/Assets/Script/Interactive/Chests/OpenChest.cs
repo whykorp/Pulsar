@@ -2,19 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TerminalsActivation : MonoBehaviour
+public class OpenChest : MonoBehaviour
 {
-
     private bool isInRange;
-    public SpriteRenderer RedSpriteBase;
-    public SpriteRenderer RedSprite1;
-    public SpriteRenderer RedSprite2;
-    public Sprite BlueSpriteBase;
-    public Sprite BlueSprite1;
-    public Sprite BlueSprite2;
-    public string zoneName;
-    public bool refreshEnemyDetection=false;
-    public TerminalZoneList terminalZoneList;
+    public SpriteRenderer spriteRenderer;
+    public Sprite BlueOpenedChest;
     public ShowInteractUI showInteractUI;
 
     void Update()
@@ -23,19 +15,12 @@ public class TerminalsActivation : MonoBehaviour
         {
             if(Input.GetKeyDown(KeyCode.E))
             {
-                Debug.Log("you saved your game");
-                RedSpriteBase.sprite=BlueSpriteBase;
-                RedSprite1.sprite=BlueSprite1;
-                RedSprite2.sprite=BlueSprite2;
-                terminalZoneList.ZoneList[zoneName]=true;
-                refreshEnemyDetection=true;
-
-
+                OnChestOpened();
+                spriteRenderer.sprite=BlueOpenedChest;
             }
         }
         showInteractUI.ShowUiInteract(isInRange);
     }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("IN RANGE");
@@ -51,5 +36,9 @@ public class TerminalsActivation : MonoBehaviour
         {
             isInRange = false;
         }
+    }
+
+    public void OnChestOpened(){
+        Debug.Log("chest opened");
     }
 }
