@@ -7,7 +7,7 @@ public class OpenChest : MonoBehaviour
     private bool isInRange;
     public SpriteRenderer spriteRenderer;
     public Sprite BlueOpenedChest;
-    public ShowInteractUI showInteractUI;
+    public InteractUI interactUI;
 
     void Update()
     {
@@ -19,13 +19,13 @@ public class OpenChest : MonoBehaviour
                 spriteRenderer.sprite=BlueOpenedChest;
             }
         }
-        showInteractUI.ShowUiInteract(isInRange);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("IN RANGE");
         if (collision.CompareTag("Player"))
         {
+            interactUI.ShowUiInteract();
             isInRange = true;
         }
     }
@@ -34,11 +34,12 @@ public class OpenChest : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            interactUI.HideUiInteract();
             isInRange = false;
         }
     }
 
     public void OnChestOpened(){
-        Debug.Log("chest opened");
+        Debug.Log("chest openede");
     }
 }

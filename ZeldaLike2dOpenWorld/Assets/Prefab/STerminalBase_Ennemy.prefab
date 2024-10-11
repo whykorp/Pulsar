@@ -313,7 +313,7 @@ GameObject:
   - component: {fileID: 7240376039170383517}
   - component: {fileID: 2910608455684956154}
   m_Layer: 0
-  m_Name: SavePointTriger
+  m_Name: Terminal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -391,10 +391,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5f9a95fff4b7034699ea050d2703771, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInRange: 0
   RedSpriteBase: {fileID: 6144405491149798823}
   RedSprite1: {fileID: 8779527675531183887}
   RedSprite2: {fileID: 9191198629039148929}
   BlueSpriteBase: {fileID: 21300000, guid: 98571a42a65e4458c9656907fcb27310, type: 3}
   BlueSprite1: {fileID: 21300000, guid: 7dbbdf68060e848c9b2cbfbabe62bf8e, type: 3}
   BlueSprite2: {fileID: 21300000, guid: 2ca354661d9f64d8193c0cabb52cd315, type: 3}
+  zoneName: palace
+  refreshEnemyDetection: 0
+  terminalZoneList: {fileID: 0}
+  interactUI: {fileID: 0}

@@ -369,14 +369,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2766411425251633017, guid: 7447dbe9e0431e343861cfa6d22f64e9, type: 3}
-      propertyPath: objects.Array.data[0]
-      value: 
-      objectReference: {fileID: 1170584532}
-    - target: {fileID: 2766411425251633017, guid: 7447dbe9e0431e343861cfa6d22f64e9, type: 3}
-      propertyPath: objects.Array.data[1]
-      value: 
-      objectReference: {fileID: 1724994015}
     - target: {fileID: 5592892142855836886, guid: 7447dbe9e0431e343861cfa6d22f64e9, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -56523,11 +56515,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8308bce3e458ae14380766ccfb4aa1f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1170584532 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7643220243162783340, guid: 8bae22f1477864f23a651458f9c08dc7, type: 3}
-  m_PrefabInstance: {fileID: 1266891550}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1266891550
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -56779,11 +56766,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4ce8baf424154a9c86ee0bb471fe5b0, type: 3}
---- !u!1 &1724994015 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5319701961131445515, guid: d4ce8baf424154a9c86ee0bb471fe5b0, type: 3}
-  m_PrefabInstance: {fileID: 1674356795}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1724994021 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5102311281794079978, guid: d4ce8baf424154a9c86ee0bb471fe5b0, type: 3}
