@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class TerminalZoneList : MonoBehaviour
 {
-    public List<StringIntPair> exposedZoneList; 
+    //public List<StringIntPair> exposedZoneList; 
     public Dictionary<string, bool> ZoneList = new Dictionary<string, bool>
     {
         {"palace",false},
