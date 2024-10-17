@@ -5,7 +5,7 @@ using UnityEngine;
 public class OpenChest : MonoBehaviour
 {
     private bool isInRange;
-    public bool isOpen;
+    private bool isOpen;
     public SpriteRenderer spriteRenderer;
     public Sprite BlueOpenedChest;
     public InteractUI interactUI;
