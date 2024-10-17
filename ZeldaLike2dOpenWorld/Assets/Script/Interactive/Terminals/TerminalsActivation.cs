@@ -15,7 +15,7 @@ public class TerminalsActivation : MonoBehaviour
     public string zoneName;
     public bool refreshEnemyDetection=false;
     public TerminalZoneList terminalZoneList;
-    public ShowInteractUI showInteractUI;
+    public InteractUI interactUI;
 
     void Update()
     {
@@ -33,7 +33,6 @@ public class TerminalsActivation : MonoBehaviour
 
             }
         }
-        showInteractUI.ShowUiInteract(isInRange);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -41,6 +40,7 @@ public class TerminalsActivation : MonoBehaviour
         Debug.Log("IN RANGE");
         if (collision.CompareTag("Player"))
         {
+            interactUI.ShowUiInteract();
             isInRange = true;
         }
     }
@@ -49,6 +49,7 @@ public class TerminalsActivation : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            interactUI.HideUiInteract();
             isInRange = false;
         }
     }
