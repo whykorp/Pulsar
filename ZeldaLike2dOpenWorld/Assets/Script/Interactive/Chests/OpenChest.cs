@@ -8,7 +8,7 @@ public class OpenChest : MonoBehaviour
     public bool isOpen;
     public SpriteRenderer spriteRenderer;
     public Sprite BlueOpenedChest;
-    public InteractUI InteractUI;
+    public InteractUI interactUI;
 
     void Update()
     {
@@ -18,7 +18,7 @@ public class OpenChest : MonoBehaviour
             {
                 isOpen = true;
                 OnChestOpened();
-                InteractUI.HideUiInteract();
+                interactUI.HideUiInteract();
             }
         }
 
@@ -29,7 +29,7 @@ public class OpenChest : MonoBehaviour
         if (collision.CompareTag("Player"))
         {   
             if(isOpen==false){
-                InteractUI.ShowUiInteract();
+                interactUI.ShowUiInteract();
             } 
             isInRange = true;
         }
@@ -39,7 +39,7 @@ public class OpenChest : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            InteractUI.HideUiInteract();
+            interactUI.HideUiInteract();
             isInRange = false;
         }
     }
