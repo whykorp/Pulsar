@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,7 +20,8 @@ public class EnnemiAttack : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
-            playerHealth.TakeDamage(20, transform, knockbackForce, true);
+            playerHealth.TakeDamage(transform, knockbackForce, true);
+            Debug.Log("Fight !");
         }
     }
 }

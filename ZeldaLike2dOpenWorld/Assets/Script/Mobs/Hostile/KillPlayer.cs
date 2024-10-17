@@ -8,7 +8,7 @@ public class KillPlayer : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
-           Debug.Log("YOU ARE DEAD");
+           Debug.Log("Fight !");
         }
     }
 }

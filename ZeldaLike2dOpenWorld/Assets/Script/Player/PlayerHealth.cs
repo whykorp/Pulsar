@@ -37,10 +37,10 @@ public class PlayerHealth : MonoBehaviour
         damageCooldown-=Time.deltaTime;
     }
 
-    public void TakeDamage(int _damage,Transform _collision, float _knockbackForce, bool _knockBack=false)
+    public void TakeDamage(Transform _collision, float _knockbackForce, bool _knockBack=false)
     {
         if(damageCooldown<=0){
-            healthBar.SetHealth(currentHealth-=_damage);
+            
             damageCooldown=damageMaxCooldown;
             text.text = currentHealth+"/"+maxHealth;
             if(_knockBack==true)
