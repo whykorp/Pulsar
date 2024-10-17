@@ -5,9 +5,10 @@ using UnityEngine;
 public class OpenChest : MonoBehaviour
 {
     private bool isInRange;
+    public bool isOpen;
     public SpriteRenderer spriteRenderer;
     public Sprite BlueOpenedChest;
-    public InteractUI interactUI;
+    public InteractUI InteractUI;
 
     void Update()
     {
@@ -15,17 +16,23 @@ public class OpenChest : MonoBehaviour
         {
             if(Input.GetKeyDown(KeyCode.E))
             {
-                OnChestOpened();
-                spriteRenderer.sprite=BlueOpenedChest;
+                isOpen = true;
             }
+        }
+        if(isOpen==true)
+        {
+            OnChestOpened();
+            InteractUI.HideUiInteract();
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("IN RANGE");
         if (collision.CompareTag("Player"))
-        {
-            interactUI.ShowUiInteract();
+        {   
+            if(isOpen==false){
+                InteractUI.ShowUiInteract();
+            } 
             isInRange = true;
         }
     }
@@ -34,12 +41,13 @@ public class OpenChest : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            interactUI.HideUiInteract();
+            InteractUI.HideUiInteract();
             isInRange = false;
         }
     }
 
     public void OnChestOpened(){
         Debug.Log("chest openede");
+        spriteRenderer.sprite=BlueOpenedChest;
     }
 }
