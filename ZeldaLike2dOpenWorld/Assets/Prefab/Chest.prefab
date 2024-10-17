@@ -90,9 +90,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d89e18d7d431064c969667fe381fbf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isOpen: 0
   spriteRenderer: {fileID: 3012646319960513538}
   BlueOpenedChest: {fileID: 21300000, guid: 6a79246bc86318c498a1ab933a160969, type: 3}
-  interactUI: {fileID: 0}
+  InteractUI: {fileID: 0}
 --- !u!1 &9130002643817472941
 GameObject:
   m_ObjectHideFlags: 0

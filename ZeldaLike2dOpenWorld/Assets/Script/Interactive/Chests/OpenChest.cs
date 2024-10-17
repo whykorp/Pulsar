@@ -17,13 +17,11 @@ public class OpenChest : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.E))
             {
                 isOpen = true;
+                OnChestOpened();
+                InteractUI.HideUiInteract();
             }
         }
-        if(isOpen==true)
-        {
-            OnChestOpened();
-            InteractUI.HideUiInteract();
-        }
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
