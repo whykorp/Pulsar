@@ -5,21 +5,15 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class MainMenu : MonoBehaviour
+public class PauseMenu : MonoBehaviour
 {
-    public string levelToLoad;
     public GameObject settingsWindow;
     public GameObject mainWindow;
+    public GameObject pauseMenu;
+    public string mainMenu = "MainMenu";
     public void GameStart(){
-        Debug.Log("GameStart called");
-        SceneManager.LoadScene(levelToLoad);
-        Debug.Log("Loading" + levelToLoad);
+        pauseMenu.SetActive(false);
     }
-
-    public void TestButton(){
-    Debug.Log("Button Clicked!");
-}
-
 
     public void SettingsButton(){
         settingsWindow.SetActive(true);
@@ -32,6 +26,6 @@ public class MainMenu : MonoBehaviour
     }
 
     public void QuitGame(){
-        Application.Quit();
+        SceneManager.LoadScene(mainMenu);
     }
 }
