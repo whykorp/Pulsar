@@ -25,8 +25,8 @@ RectTransform:
   m_GameObject: {fileID: 39315193419667829}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2.3, y: 2.3, z: 2.3}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1322616781294292587}
   - {fileID: 1917730444902915240}
@@ -395,8 +395,8 @@ RectTransform:
   m_GameObject: {fileID: 1515517161913030598}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2.3, y: 2.3, z: 2.3}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8633392155133092409}
   - {fileID: 8309939150650575098}
@@ -885,7 +885,7 @@ GameObject:
   - component: {fileID: 501711186463452970}
   - component: {fileID: 9008780747749281653}
   m_Layer: 5
-  m_Name: NbHpText
+  m_Name: NbHpTextEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1088,8 +1088,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -102.4, y: 189.29}
-  m_SizeDelta: {x: 74.4412, y: 30}
+  m_AnchoredPosition: {x: -86.38853, y: 189.29}
+  m_SizeDelta: {x: 86.9247, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3303784885189795306
 CanvasRenderer:
@@ -1126,13 +1126,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 9
     m_MaxSize: 40
-    m_Alignment: 4
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Lvl 2
+  m_Text: Lvl 343
 --- !u!1 &4154265690443219673
 GameObject:
   m_ObjectHideFlags: 0
@@ -1321,7 +1321,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 189.29}
+  m_AnchoredPosition: {x: 3.3, y: 189.29}
   m_SizeDelta: {x: 174.0862, y: 50.1231}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &698460318613359228
@@ -1354,7 +1354,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: cf6b52a83abdd484ea3ceddc573639b8, type: 3}
-    m_FontSize: 30
+    m_FontSize: 28
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -1662,8 +1662,8 @@ RectTransform:
   m_GameObject: {fileID: 6631785625559806690}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2.3, y: 2.3, z: 2.3}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 687116826793879527}
   - {fileID: 1981481385211162006}
@@ -1710,8 +1710,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 102.7, y: 190.09}
-  m_SizeDelta: {x: 91.9906, y: 30}
+  m_AnchoredPosition: {x: 85.9767, y: 190.09}
+  m_SizeDelta: {x: 89.3148, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1946788069919667379
 CanvasRenderer:
@@ -1748,13 +1748,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 40
-    m_Alignment: 4
+    m_Alignment: 5
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Lvl 2
+  m_Text: Lvl 324
 --- !u!1 &7295867720748643944
 GameObject:
   m_ObjectHideFlags: 0
@@ -2029,7 +2029,7 @@ GameObject:
   - component: {fileID: 1143625124814890445}
   - component: {fileID: 3124328996347523487}
   m_Layer: 5
-  m_Name: NbHpText
+  m_Name: PlayerNbHpText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2250,8 +2250,8 @@ RectTransform:
   m_GameObject: {fileID: 8064787366430326287}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2.3, y: 2.3, z: 2.3}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 9213122949766354975}
   m_Father: {fileID: 7049609653042259657}
