@@ -13,7 +13,7 @@ public class InFightMainMenu : MonoBehaviour
     public Text playerLvlText;
     public PlayerLeveling playerLeveling;
 
-    
+    public FightManager fightManager;
     public InFightEnemyData[] enemyList;
 
     void Awake()
@@ -48,6 +48,7 @@ public class InFightMainMenu : MonoBehaviour
         enemyHealthText.text=_inFightEnemyData.baseHp+"/"+_inFightEnemyData.baseHp;
         playerLvlText.text="Lvl "+playerLeveling.playerLvl;
         enemyLvlText.text="Lvl "+_lvl;
+        fightManager.FightAnnouncer(_inFightEnemyData);
 
     }
 
