@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 8712378196684164629}
   - component: {fileID: 7841120147468029306}
   - component: {fileID: 6260007710157149093}
+  - component: {fileID: 4529038463408337513}
+  - component: {fileID: 7280485477874608949}
   m_Layer: 0
   m_Name: FightManager
   m_TagString: Untagged
@@ -71,3 +73,31 @@ MonoBehaviour:
   announcerFont: {fileID: 0}
   announcerText: {fileID: 0}
   inFightMainMenu: {fileID: 7841120147468029306}
+  playerHealth: {fileID: 0}
+  enemyHealthBar: {fileID: 0}
+  playerHealthBar: {fileID: 0}
+--- !u!114 &4529038463408337513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843790168172240685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5afc71d17d47d4ad4b7a22d2818730f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7280485477874608949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843790168172240685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43cb677387ea741339c2a35a816c2349, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fightManager: {fileID: 6260007710157149093}

@@ -12,6 +12,7 @@ public class InFightMainMenu : MonoBehaviour
     public Text enemyLvlText;
     public Text playerLvlText;
     public PlayerLeveling playerLeveling;
+    public static float enemyCurrentHealthForThisFight;
 
     public FightManager fightManager;
     public InFightEnemyData[] enemyList;
@@ -45,10 +46,11 @@ public class InFightMainMenu : MonoBehaviour
         Time.timeScale = 0;
         inFight = true;
         enemyNameText.text=_inFightEnemyData.enemyName;
-        enemyHealthText.text=_inFightEnemyData.baseHp+"/"+_inFightEnemyData.baseHp;
+        enemyHealthText.text=_inFightEnemyData.baseHp+"/";
         playerLvlText.text="Lvl "+playerLeveling.playerLvl;
         enemyLvlText.text="Lvl "+_lvl;
-        fightManager.FightAnnouncer(_inFightEnemyData);
+        enemyCurrentHealthForThisFight=_inFightEnemyData.baseHp;
+        StartCoroutine(fightManager.FightAnnouncer(_inFightEnemyData));
 
     }
 

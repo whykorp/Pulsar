@@ -186,9 +186,17 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 6256831820354369428, guid: d4ce8baf424154a9c86ee0bb471fe5b0, type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 1000270371}
+    - target: {fileID: 6256831820354369428, guid: d4ce8baf424154a9c86ee0bb471fe5b0, type: 3}
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1884100469}
+    - target: {fileID: 6256831820354369428, guid: d4ce8baf424154a9c86ee0bb471fe5b0, type: 3}
+      propertyPath: playerNbHpText
+      value: 
+      objectReference: {fileID: 1000270371}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -210,23 +218,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dee3c7416b8604cc88ec1c1880306c82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &334344637 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6256831820354369428, guid: d4ce8baf424154a9c86ee0bb471fe5b0, type: 3}
+  m_PrefabInstance: {fileID: 334344628}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 334344629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80e67d8dd3c2180468b0304ab4ce4c53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &382357470 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 843790168172240685, guid: d0b23b59426014dddab2dcbd803644d1, type: 3}
   m_PrefabInstance: {fileID: 167069780923275758}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &382357476
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 382357470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5afc71d17d47d4ad4b7a22d2818730f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &414470474
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -300,6 +307,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7303153728011378038, guid: 8bae22f1477864f23a651458f9c08dc7, type: 3}
   m_PrefabInstance: {fileID: 1288680557}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1000270371 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1143625124814890445, guid: 8bae22f1477864f23a651458f9c08dc7, type: 3}
+  m_PrefabInstance: {fileID: 1288680557}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1143529932 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4227772953961592474, guid: 8bae22f1477864f23a651458f9c08dc7, type: 3}
@@ -412,10 +430,6 @@ PrefabInstance:
     - target: {fileID: 7643220243162783340, guid: 8bae22f1477864f23a651458f9c08dc7, type: 3}
       propertyPath: m_Name
       value: Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 7987831283144932910, guid: 8bae22f1477864f23a651458f9c08dc7, type: 3}
-      propertyPath: m_Name
-      value: PlayerHealthBar
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -558,6 +572,10 @@ PrefabInstance:
       value: FightManager
       objectReference: {fileID: 0}
     - target: {fileID: 6260007710157149093, guid: d0b23b59426014dddab2dcbd803644d1, type: 3}
+      propertyPath: playerHealth
+      value: 
+      objectReference: {fileID: 334344637}
+    - target: {fileID: 6260007710157149093, guid: d0b23b59426014dddab2dcbd803644d1, type: 3}
       propertyPath: announcerFont
       value: 
       objectReference: {fileID: 1143529932}
@@ -569,6 +587,10 @@ PrefabInstance:
       propertyPath: enemyHealthBar
       value: 
       objectReference: {fileID: 670508224}
+    - target: {fileID: 6260007710157149093, guid: d0b23b59426014dddab2dcbd803644d1, type: 3}
+      propertyPath: playerHealthBar
+      value: 
+      objectReference: {fileID: 1884100469}
     - target: {fileID: 7841120147468029306, guid: d0b23b59426014dddab2dcbd803644d1, type: 3}
       propertyPath: enemyLvlText
       value: 
@@ -636,10 +658,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 843790168172240685, guid: d0b23b59426014dddab2dcbd803644d1, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 382357476}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0b23b59426014dddab2dcbd803644d1, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
