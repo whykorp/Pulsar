@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6260007710157149093}
   - component: {fileID: 4529038463408337513}
   - component: {fileID: 7280485477874608949}
+  - component: {fileID: 1538773057319759085}
   m_Layer: 0
   m_Name: FightManager
   m_TagString: Untagged
@@ -73,6 +74,7 @@ MonoBehaviour:
   announcerFont: {fileID: 0}
   announcerText: {fileID: 0}
   inFightMainMenu: {fileID: 7841120147468029306}
+  enemyAttack: {fileID: 4529038463408337513}
   playerHealth: {fileID: 0}
   enemyHealthBar: {fileID: 0}
   playerHealthBar: {fileID: 0}
@@ -88,6 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5afc71d17d47d4ad4b7a22d2818730f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyTechniques: {fileID: 1538773057319759085}
 --- !u!114 &7280485477874608949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,3 +104,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fightManager: {fileID: 6260007710157149093}
+--- !u!114 &1538773057319759085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843790168172240685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10bf8ca34a257499090a10e0cf3a3ace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealth: {fileID: 0}

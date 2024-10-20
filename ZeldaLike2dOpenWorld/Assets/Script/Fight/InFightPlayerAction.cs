@@ -5,10 +5,6 @@ using UnityEngine;
 public class InFightPlayerAction : MonoBehaviour
 {
     public FightManager fightManager;
-    void Start()
-    {
-        Debug.Log("satart");
-    }
 
     // Update is called once per frame
     void Update()
@@ -23,7 +19,7 @@ public class InFightPlayerAction : MonoBehaviour
     {
         fightManager.EnemyTakeDamage(_damage);
         Debug.Log("player had attacked");
-        FightManager.playerAction="Kriss utilise attaque de base (30)";
+        FightManager.playerAction="Kriss utilise attaque de base";
         FightManager.isPlayerTurn=false;
     }
 }

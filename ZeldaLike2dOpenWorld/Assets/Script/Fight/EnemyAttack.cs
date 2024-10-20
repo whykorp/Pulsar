@@ -4,11 +4,28 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
+    int techniquesUtilised;
+    public EnemyTechniques enemyTechniques;
     
-    public void EnnemyAttack(int _mind,int[] _techniques)
+    public void EnnemyTurn(InFightEnemyData _inFightEnemyData)
     {
-        switch(_mind)
+        switch(_inFightEnemyData.mind)
         {
+            case 0:
+            
+
+                techniquesUtilised=Random.Range(0,_inFightEnemyData.techniques.Length-1);
+                switch(_inFightEnemyData.techniques[techniquesUtilised])
+                {
+                    case 0:
+                        enemyTechniques.BaseEnemyAttack(_inFightEnemyData);
+                        break;
+
+
+                    
+                }
+                break;
+
             
                 
         }

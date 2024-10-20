@@ -9,11 +9,14 @@ public class FightManager : MonoBehaviour
     public GameObject announcerFont;
     public GameObject announcerText;
     public InFightMainMenu inFightMainMenu;
+    public EnemyAttack enemyAttack;
     public PlayerHealth playerHealth;
     public static bool isPlayerTurn=false;
     public HealthBar enemyHealthBar;
     public HealthBar playerHealthBar;
     public static string playerAction = "";
+    public static string enemyAction = "";
+    
     void Awake()
     {
         announcerFont.SetActive(false);
@@ -44,15 +47,22 @@ public class FightManager : MonoBehaviour
             yield return new WaitUntil(() => playerAction != "");
             announcerText.GetComponent<Text>().text=playerAction;
             playerAction="";
+
             if(InFightMainMenu.enemyCurrentHealthForThisFight<=0)
             {
                 announcerText.GetComponent<Text>().text="Vous avez vaincu "+_inFightEnemyData.enemyName+" ennemi";
                 break;
             }
+
             yield return new WaitForSecondsRealtime(3);
             announcerText.GetComponent<Text>().text="C'est au tour de l'enemi d'agir";
             yield return new WaitForSecondsRealtime(3);
-            //RESTE A FAIRE LE TOUR DE L'ENEMI
+            enemyAttack.EnnemyTurn(_inFightEnemyData);
+            yield return new WaitUntil(() => enemyAction!="");
+            announcerText.GetComponent<Text>().text=enemyAction;
+            enemyAction="";
+            yield return new WaitForSecondsRealtime(3);
+            
             if(playerHealth.currentHealth<=0)
             {
                 announcerText.GetComponent<Text>().text="An ally as been slained";

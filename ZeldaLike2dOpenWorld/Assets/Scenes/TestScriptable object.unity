@@ -571,6 +571,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FightManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1538773057319759085, guid: d0b23b59426014dddab2dcbd803644d1, type: 3}
+      propertyPath: playerHealth
+      value: 
+      objectReference: {fileID: 334344637}
     - target: {fileID: 6260007710157149093, guid: d0b23b59426014dddab2dcbd803644d1, type: 3}
       propertyPath: playerHealth
       value: 
