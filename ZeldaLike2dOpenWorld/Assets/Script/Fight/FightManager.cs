@@ -26,6 +26,9 @@ public class FightManager : MonoBehaviour
     public static float enemyCurrentAttack;
     public static float enemyCurrentDefense;
 
+    public static Dictionary<string, BuffManager.Buff> activeBuffs = new Dictionary<string, BuffManager.Buff>();
+
+
     // Méthode appelée au réveil du script
     void Awake()
     {
@@ -48,6 +51,56 @@ public class FightManager : MonoBehaviour
         PlayerStats.currentPlayerAttack = PlayerStats.basePlayerAttack;     // Attaque de base du joueur
         PlayerStats.currentPlayerDefense = PlayerStats.basePlayerDefense;   // Défense de base du joueur
         PlayerStats.currentPlayerAccuracy = PlayerStats.basePlayerAccuracy; // Précision de base du joueur
+    }
+
+    void UpdateBuffs()
+    {
+        List<string> buffsToRemove = new List<string>();
+
+        // Parcourir tous les buffs actifs
+        foreach (KeyValuePair<string, BuffManager.Buff> buff in activeBuffs)
+        {
+            buff.Value.duration--;
+
+            // Vérifie si le buff expire
+            if (buff.Value.duration <= 0)
+            {
+                buffsToRemove.Add(buff.Key);
+                RemoveBuffEffect(buff.Key);
+            }
+        }
+
+        // Supprimer les buffs expirés
+        foreach (string buffKey in buffsToRemove)
+        {
+            activeBuffs.Remove(buffKey);
+        }
+    }
+
+    void RemoveBuffEffect(string buffType)
+    {
+        // En fonction du type de buff, on réinitialise les stats du joueur
+        if (buffType == "attack")
+        {
+            PlayerStats.attackCoeficien /= 1.15f;  // Annule l'augmentation d'attaque
+            Debug.Log("Buff d'attaque expiré");
+        }
+        else if (buffType == "defense")
+        {
+            PlayerStats.defenseCoeficien /= 1.2f;  // Annule l'augmentation de défense
+            Debug.Log("Buff de défense expiré");
+        }
+        else if (buffType == "SynergisticBuff")
+        {
+            PlayerStats.currentPlayerAttack /= 1.5f;  // Annule l'augmentation du SynergisticBuff
+            Debug.Log("Synergistic Buff expiré");
+        }
+        else if (buffType == "FirewallUpgrade")
+        {
+            PlayerStats.currentPlayerDefense /= 1.5f;  // Annule l'augmentation du SynergisticBuff
+            Debug.Log("Firewall Upgrade expiré");
+        }
+        // Ajouter d'autres types de buff ici...
     }
 
     // Coroutine pour gérer le déroulement du combat
@@ -79,7 +132,7 @@ public class FightManager : MonoBehaviour
             yield return new WaitUntil(() => playerAction != "");
             announcerText.GetComponent<Text>().text = playerAction;   // Afficher l'action du joueur
             playerAction = ""; // Réinitialiser l'action du joueur
-
+            UpdateBuffs();
             // Vérification de la santé de l'ennemi après l'action du joueur
             if (enemyCurrentHealth <= 0)
             {

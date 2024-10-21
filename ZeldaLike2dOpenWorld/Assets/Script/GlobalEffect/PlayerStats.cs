@@ -6,8 +6,8 @@ public class PlayerStats : MonoBehaviour
 {
     public static int playerlvl;
     
-    public static float basePlayerAttack=2;
-    public static float basePlayerDefense=2;
+    public static float basePlayerAttack=1;
+    public static float basePlayerDefense=1;
     public static float basePlayerAccuracy=1;
 
     public static float currentPlayerAttack;

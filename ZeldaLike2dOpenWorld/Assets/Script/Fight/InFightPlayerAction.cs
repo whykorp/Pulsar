@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +16,37 @@ public class InFightPlayerAction : MonoBehaviour
         {
             SimpleAttack();
         }
+        if(Input.GetKeyDown(KeyCode.T)&&FightManager.isPlayerTurn==true)
+        {
+            PowerAttack();
+        }
+        if(Input.GetKeyDown(KeyCode.Y)&&FightManager.isPlayerTurn==true)
+        {
+            HealingQuery();
+        }
+        if(Input.GetKeyDown(KeyCode.U)&&FightManager.isPlayerTurn==true)
+        {
+            SynergisticBuff();
+        }
+        if(Input.GetKeyDown(KeyCode.I)&&FightManager.isPlayerTurn==true)
+        {
+            FirewallUpgrade();
+        }
+    }
+
+    void CreateBuff(string _buffType, string _buffName, BuffManager.Buff _buff)
+    {
+        FightManager.activeBuffs.Add(_buffName, _buff);
+        if(_buffType=="attack")
+        {
+            PlayerStats.currentPlayerAttack *= _buff.value;  // Applique le buff immédiatement
+        }
+        else if(_buffType=="defense")
+        {
+            PlayerStats.currentPlayerDefense *= _buff.value;  // Applique le buff immédiatement
+        }
+
+        Debug.Log("Buff "+ _buff.type+ " appliqué ! "+_buff.value+" % "+_buffType+" pour " +(_buff.duration-1)+ " tours.");
     }
 
 
@@ -32,7 +64,7 @@ public class InFightPlayerAction : MonoBehaviour
 
     void PowerAttack()
     {
-        float rand = Random.Range(0f, 1f);
+        float rand = UnityEngine.Random.Range(0f, 1f);
         if(rand > 0.49f)  // 70% chance to succeed
         {
             FightManager.enemyCurrentHealth -= 50 * PlayerStats.currentPlayerAttack * PlayerStats.attackCoeficien / FightManager.enemyCurrentDefense / PlayerStats.defenseCoeficien;
@@ -56,6 +88,22 @@ public class InFightPlayerAction : MonoBehaviour
         Debug.Log("Healing_Query successful! Player Health: " + PlayerHealth.currentHealth);
         playerHealthBar.SetHealth(PlayerHealth.currentHealth);
         FightManager.playerAction = "Kriss utilise Healing_Query()";
+        FightManager.isPlayerTurn = false;
+    }
+
+    void SynergisticBuff()
+    {
+        BuffManager.Buff SynergisticBuff = new BuffManager.Buff("SynergisticBuff", 1.5f, 3+1);  // +50% attaque pour 3 tours
+        CreateBuff("attack","SynergisticBuff", SynergisticBuff);
+        FightManager.playerAction = "Kriss utilise Synergistic Buff";
+        FightManager.isPlayerTurn = false;
+    }
+
+    void FirewallUpgrade()
+    {
+        BuffManager.Buff FirewallUpgrade = new BuffManager.Buff("FirewallUpgrade", 1.5f, 3+1);  // +50% de défense pour 3 tours
+        CreateBuff("defense","FirewallUpgrade", FirewallUpgrade);
+        FightManager.playerAction = "Kriss utilise Firewall Upgrade";
         FightManager.isPlayerTurn = false;
     }
     
