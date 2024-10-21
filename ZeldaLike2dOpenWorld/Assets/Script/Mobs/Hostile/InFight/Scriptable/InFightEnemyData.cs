@@ -7,11 +7,11 @@ public class InFightEnemyData : ScriptableObject
 {
    public string enemyName;
    public string enemyDescription;
-   public int baseHp;
-   public int baseDef;
-   public int baseAttack;
+   public float baseHp;
+   public float baseDef;
+   public float baseAttack;
    public int[] techniques;
-   public int baseSpeed;
+   public float baseSpeed;
    public int mind;
 
 }
