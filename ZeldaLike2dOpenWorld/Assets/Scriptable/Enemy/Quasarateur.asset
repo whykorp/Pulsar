@@ -15,7 +15,7 @@ MonoBehaviour:
   enemyName: Quasarateur
   enemyDescription: vhuihvuizbnipz
   baseHp: 200
-  baseDef: 0.5
+  baseDef: 1
   baseAttack: 1
   techniques: 00000000
   baseSpeed: 1

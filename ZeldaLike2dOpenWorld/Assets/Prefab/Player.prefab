@@ -106,7 +106,6 @@ GameObject:
   - component: {fileID: 7708871505896419035}
   - component: {fileID: 2136361782528191354}
   - component: {fileID: 6256831820354369428}
-  - component: {fileID: 3894555904039776365}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -270,25 +269,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80e67d8dd3c2180468b0304ab4ce4c53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 0
-  damageMaxCooldown: 0.65
-  text: {fileID: 0}
+  playerNbHpText: {fileID: 0}
   transform: {fileID: 5102311281794079978}
   rb: {fileID: 7708871505896419035}
   xDir: 0
   yDir: 0
   healthBar: {fileID: 0}
---- !u!114 &3894555904039776365
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5319701961131445515}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dee3c7416b8604cc88ec1c1880306c82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerLvl: 25
