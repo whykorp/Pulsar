@@ -5,11 +5,14 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed;
-
     public Rigidbody2D rb;
     private Vector3 horizontalVelocity = Vector3.zero;
     private Vector3 verticalVelocity = Vector3.zero;
-
+    public SpriteRenderer spriteRenderer;
+    public Sprite kDown;
+    public Sprite kUp;
+    public Sprite kRight;
+    public Sprite kLeft;
 
     // Start is called before the first frame update
     void Start()
@@ -39,5 +42,32 @@ public class PlayerMovement : MonoBehaviour
         Vector3 targetVelocity = new Vector2(rb.velocity.x, _verticalMovement);
         rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref verticalVelocity, .05f);
         
+    }
+
+    void Update(){
+        if(Input.GetKeyDown(KeyCode.Z)){
+            spriteRenderer.sprite=kUp;
+        }
+        if(Input.GetKeyDown(KeyCode.D)){
+            spriteRenderer.sprite=kRight;
+        }
+        if(Input.GetKeyDown(KeyCode.Q)){
+            spriteRenderer.sprite=kLeft;
+        }
+        if(Input.GetKeyDown(KeyCode.S)){
+            spriteRenderer.sprite=kDown;
+        }
+        if(Input.GetKeyDown(KeyCode.UpArrow)){
+            spriteRenderer.sprite=kUp;
+        }
+        if(Input.GetKeyDown(KeyCode.RightArrow)){
+            spriteRenderer.sprite=kRight;
+        }
+        if(Input.GetKeyDown(KeyCode.LeftArrow)){
+            spriteRenderer.sprite=kLeft;
+        }
+        if(Input.GetKeyDown(KeyCode.DownArrow)){
+            spriteRenderer.sprite=kDown;
+        }
     }
 }
