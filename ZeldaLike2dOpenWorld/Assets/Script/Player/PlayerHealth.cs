@@ -6,11 +6,9 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int maxHealth = 100;
-    public int currentHealth;
-    public float damageMaxCooldown; 
-    private float damageCooldown=0;
-    public Text text;
+    public float maxHealth = 100;
+    public float currentHealth;
+    public Text playerNbHpText;
     public new Transform transform;
     public Rigidbody2D rb;
     public float xDir;
@@ -34,26 +32,19 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        damageCooldown-=Time.deltaTime;
+        if(Input.GetKeyDown(KeyCode.K))
+        {
+            TakeDamage(20);
+        }
     }
 
-    public void TakeDamage(Transform _collision, float _knockbackForce, bool _knockBack=false)
+    public void TakeDamage(float _damage)
     {
-        if(damageCooldown<=0){
-            
-            damageCooldown=damageMaxCooldown;
-            text.text = currentHealth+"/"+maxHealth;
-            if(_knockBack==true)
-            {
-                xDir=(_collision.position.x-transform.position.x)*_knockbackForce;
-                yDir=(_collision.position.y-transform.position.y)*_knockbackForce;
-                Debug.Log("xDir:"+xDir);
-                Debug.Log("yDir:"+yDir);
-                
-                rb.AddForce(new Vector2(xDir, yDir), ForceMode2D.Impulse);
-                
-                
-            }
+        currentHealth-=_damage;
+        if(InFightMainMenu.inFight)
+        {
+            playerNbHpText.text=currentHealth+"/"+maxHealth;
+            healthBar.SetHealth(currentHealth);
         }
     }
 }

@@ -17,5 +17,6 @@ MonoBehaviour:
   baseHp: 124
   baseDef: 1
   baseAttack: 1
-  techniques: []
+  techniques: 00000000
   baseSpeed: 1
+  mind: 0
