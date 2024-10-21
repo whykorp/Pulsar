@@ -15,7 +15,8 @@ MonoBehaviour:
   enemyName: Pipiprout
   enemyDescription: "\xE7a pue tr\xE8s fort"
   baseHp: 350
-  baseDef: 1
+  baseDef: 1.5
   baseAttack: 1
-  techniques: []
+  techniques: 
   baseSpeed: 1
+  mind: 0

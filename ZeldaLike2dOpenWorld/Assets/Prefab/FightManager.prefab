@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4529038463408337513}
   - component: {fileID: 7280485477874608949}
   - component: {fileID: 1538773057319759085}
+  - component: {fileID: 759034481825690643}
   m_Layer: 0
   m_Name: FightManager
   m_TagString: Untagged
@@ -53,7 +54,6 @@ MonoBehaviour:
   enemyHealthText: {fileID: 0}
   enemyLvlText: {fileID: 0}
   playerLvlText: {fileID: 0}
-  playerLeveling: {fileID: 0}
   fightManager: {fileID: 6260007710157149093}
   enemyList:
   - {fileID: 11400000, guid: 0541bf9f0c55a47388e65dc84f52b439, type: 2}
@@ -117,3 +117,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 0}
+--- !u!114 &759034481825690643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843790168172240685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5646cdf4d05bc4533a3ceeee901e3c93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

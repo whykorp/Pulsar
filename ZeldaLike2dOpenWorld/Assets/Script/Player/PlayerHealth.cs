@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public float maxHealth = 100;
-    public float currentHealth;
+    static public float maxHealth = 100;
+    static public float currentHealth;
     public Text playerNbHpText;
     public new Transform transform;
     public Rigidbody2D rb;

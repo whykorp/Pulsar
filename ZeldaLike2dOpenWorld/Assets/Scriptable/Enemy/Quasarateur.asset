@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Quasarateur
   enemyDescription: vhuihvuizbnipz
-  baseHp: 124
-  baseDef: 1
+  baseHp: 200
+  baseDef: 0.5
   baseAttack: 1
   techniques: 00000000
   baseSpeed: 1
