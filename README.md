@@ -6,4 +6,5 @@ Game about code with battles and story<br>
 
 *Made by :* <br>
   *- Whykioh* <br>
-  *- Nahyox*
+  *- Nahyox* <br>
+  *- Caplom*
