@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 7708871505896419035}
   - component: {fileID: 2136361782528191354}
   - component: {fileID: 6256831820354369428}
+  - component: {fileID: 6610249323045772675}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -170,7 +171,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: caefbe0c277c14b4c8248e4bf99554fa, type: 3}
+  m_Sprite: {fileID: -2085663934, guid: 0026c998b26acea44af3e9f4d0f04564, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -195,6 +196,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 250
   rb: {fileID: 7708871505896419035}
+  spriteRenderer: {fileID: 1029504986456511875}
+  kDown: {fileID: -2085663934, guid: 0026c998b26acea44af3e9f4d0f04564, type: 3}
+  kUp: {fileID: -66814858, guid: 0026c998b26acea44af3e9f4d0f04564, type: 3}
+  kRight: {fileID: 1449555364, guid: 0026c998b26acea44af3e9f4d0f04564, type: 3}
+  kLeft: {fileID: -1175594120, guid: 0026c998b26acea44af3e9f4d0f04564, type: 3}
 --- !u!50 &7708871505896419035
 Rigidbody2D:
   serializedVersion: 4
@@ -275,3 +281,24 @@ MonoBehaviour:
   xDir: 0
   yDir: 0
   healthBar: {fileID: 0}
+--- !u!95 &6610249323045772675
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5319701961131445515}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 63440323c90b254489c249b1b0949659, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
