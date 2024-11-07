@@ -11,4 +11,5 @@ public class EnemyTechniques : MonoBehaviour
         playerHealth.TakeDamage(40/PlayerStats.currentPlayerDefense);
         FightManager.enemyAction=_inFightEnemyData.enemyName+" utilise frappe";
     }
+    
 }

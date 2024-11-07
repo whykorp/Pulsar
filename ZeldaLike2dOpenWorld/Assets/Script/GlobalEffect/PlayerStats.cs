@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-    public static int playerlvl;
+    public static int playerlvl=10;
     
     public static float basePlayerAttack=1;
     public static float basePlayerDefense=1;

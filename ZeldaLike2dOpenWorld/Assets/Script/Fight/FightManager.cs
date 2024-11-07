@@ -152,9 +152,9 @@ public class FightManager : MonoBehaviour
             enemyAction = "";  // Réinitialiser l'action de l'ennemi
 
             // Vérification de la santé du joueur après le tour de l'ennemi
-            if (PlayerHealth.currentHealth <= 0)
+            if (PlayerHealth.currentHealth == 0)
             {
-                announcerText.GetComponent<Text>().text = "Un allié a été vaincu";
+                announcerText.GetComponent<Text>().text = "Un ally as been slaid";
                 break;  // Fin du combat si le joueur est vaincu
             }
 
@@ -167,6 +167,10 @@ public class FightManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(3);
 
         // Quitter l'écran de combat
+        if(PlayerHealth.currentHealth==0)
+        {
+            GameOver.PlayerDeath();
+        }
         inFightMainMenu.QuitFight();
     }
 }

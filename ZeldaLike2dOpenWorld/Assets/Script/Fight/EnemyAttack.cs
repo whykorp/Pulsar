@@ -6,6 +6,10 @@ public class EnemyAttack : MonoBehaviour
 {
     int techniquesUtilised;
     public EnemyTechniques enemyTechniques;
+    public HealthBar playerHealthBar;
+
+    
+    
     
     public void EnnemyTurn(InFightEnemyData _inFightEnemyData)
     {
@@ -28,6 +32,13 @@ public class EnemyAttack : MonoBehaviour
 
             
                 
+        }
+
+        if(PlayerHealth.currentHealth<0)
+        {
+            PlayerHealth.currentHealth=0;
+            playerHealthBar.SetHealth(PlayerHealth.currentHealth);
+            Debug.Log("set player health to 0");
         }
     }
 }
