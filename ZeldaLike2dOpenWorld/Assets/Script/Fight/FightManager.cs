@@ -154,7 +154,7 @@ public class FightManager : MonoBehaviour
             // Vérification de la santé du joueur après le tour de l'ennemi
             if (PlayerHealth.currentHealth == 0)
             {
-                announcerText.GetComponent<Text>().text = "Un ally as been slaid";
+                announcerText.GetComponent<Text>().text = "An ally as been slain";
                 break;  // Fin du combat si le joueur est vaincu
             }
 
