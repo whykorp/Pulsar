@@ -61911,6 +61911,7 @@ MonoBehaviour:
   settingsWindow: {fileID: 2559888018275925001}
   mainWindow: {fileID: 3256798530775952109}
   pauseMenu: {fileID: 8800410260307320226}
+  canSaveOnMenu: 0
   mainMenu: MainMenu
 --- !u!1 &8851339242259191040
 GameObject:

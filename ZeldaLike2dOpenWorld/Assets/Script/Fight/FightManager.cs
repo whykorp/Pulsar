@@ -83,22 +83,22 @@ public class FightManager : MonoBehaviour
         if (buffType == "attack")
         {
             PlayerStats.attackCoeficien /= 1.15f;  // Annule l'augmentation d'attaque
-            Debug.Log("Buff d'attaque expiré");
+            Debug.Log("Buff d'attaque expire");
         }
         else if (buffType == "defense")
         {
             PlayerStats.defenseCoeficien /= 1.2f;  // Annule l'augmentation de défense
-            Debug.Log("Buff de défense expiré");
+            Debug.Log("Buff de défense expire");
         }
         else if (buffType == "SynergisticBuff")
         {
             PlayerStats.currentPlayerAttack /= 1.5f;  // Annule l'augmentation du SynergisticBuff
-            Debug.Log("Synergistic Buff expiré");
+            Debug.Log("Synergistic Buff expire");
         }
         else if (buffType == "FirewallUpgrade")
         {
             PlayerStats.currentPlayerDefense /= 1.5f;  // Annule l'augmentation du SynergisticBuff
-            Debug.Log("Firewall Upgrade expiré");
+            Debug.Log("Firewall Upgrade expire");
         }
         // Ajouter d'autres types de buff ici...
     }
@@ -125,7 +125,7 @@ public class FightManager : MonoBehaviour
         while (enemyCurrentHealth > 0 && PlayerHealth.currentHealth > 0)
         {
             // Tour du joueur
-            announcerText.GetComponent<Text>().text = "C'est à Kriss d'agir";
+            announcerText.GetComponent<Text>().text = "C'est a Kriss d'agir";
             isPlayerTurn = true; // Le joueur peut agir
 
             // Attente que le joueur effectue une action
@@ -154,7 +154,7 @@ public class FightManager : MonoBehaviour
             // Vérification de la santé du joueur après le tour de l'ennemi
             if (PlayerHealth.currentHealth == 0)
             {
-                announcerText.GetComponent<Text>().text = "Un ally as been slaid";
+                announcerText.GetComponent<Text>().text = "An ally as been slain";
                 break;  // Fin du combat si le joueur est vaincu
             }
 
@@ -163,7 +163,7 @@ public class FightManager : MonoBehaviour
         }
 
         // Fin du combat : donner l'expérience, items, etc.
-        Debug.Log("Combat terminé");
+        Debug.Log("Combat termine");
         yield return new WaitForSecondsRealtime(3);
 
         // Quitter l'écran de combat
