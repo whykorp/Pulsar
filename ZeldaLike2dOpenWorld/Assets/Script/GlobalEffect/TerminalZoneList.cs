@@ -9,7 +9,7 @@ public class TerminalZoneList : MonoBehaviour
     public Dictionary<string, bool> ZoneList = new Dictionary<string, bool>
     {
         {"palace",false},
-        {"forest",false}
+        {"forest",true}
     };
 }
 
