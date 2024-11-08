@@ -37,6 +37,12 @@ public class PauseMenu : MonoBehaviour
 
     void Update()
     {
+        if(canSaveOnMenu==true){
+            defaultColor = Color.white;
+        }
+        if(canSaveOnMenu==false){
+            defaultColor = Color.gray;
+        }
         // Vérifier si la souris est au-dessus du bouton
         if (IsMouseOverButton())
         {
