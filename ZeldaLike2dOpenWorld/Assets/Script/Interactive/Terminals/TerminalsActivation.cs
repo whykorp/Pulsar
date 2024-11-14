@@ -12,6 +12,8 @@ public class TerminalsActivation : MonoBehaviour
     public Sprite BlueSpriteBase;
     public Sprite BlueSprite1;
     public Sprite BlueSprite2;
+    public EnemyNavMeshPatrol enemyPathFinding;
+    public EnemyPathFindingV2 EnemyNavMeshRoaming;
     public string zoneName;
     public bool refreshEnemyDetection=false;
     public TerminalZoneList terminalZoneList;
@@ -28,8 +30,8 @@ public class TerminalsActivation : MonoBehaviour
                 RedSprite1.sprite=BlueSprite1;
                 RedSprite2.sprite=BlueSprite2;
                 terminalZoneList.ZoneList[zoneName]=true;
-                refreshEnemyDetection=true;
-
+                enemyPathFinding.SetTarget(enemyPathFinding.targetPosition[enemyPathFinding.destpoint], false);
+                EnemyNavMeshRoaming.resetEnemyDestination();
 
             }
         }
