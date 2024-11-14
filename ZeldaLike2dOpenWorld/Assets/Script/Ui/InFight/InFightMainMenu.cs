@@ -31,7 +31,7 @@ public class InFightMainMenu : MonoBehaviour
             }
             else
             {
-                StartFight(enemyList[2],32);
+                StartFight(enemyList[0],1);
             }
         }
         if(Input.GetKeyDown(KeyCode.O))
