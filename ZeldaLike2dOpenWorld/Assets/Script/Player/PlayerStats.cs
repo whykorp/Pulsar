@@ -1,0 +1,24 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerStats : MonoBehaviour
+{
+    static public float playerMaxHealth = 200;
+    static public float playerCurrentHealth;
+
+    public static float playerMoveSpeed;
+
+    public static int playerLvl=10;
+
+    public static float playerBaseAttack=1;
+    public static float playerBaseDefense=1;
+    public static float playerBaseAccuracy=1;
+
+    public static float playerCurrentAttack;
+    public static float playerAttackCoeficien=1;
+    public static float playerCurrentDefense;
+    public static float playerDefenseCoeficien=1;
+    public static float playerCurrentAccuracy;
+
+}

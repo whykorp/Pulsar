@@ -34,10 +34,10 @@ public class EnemyAttack : MonoBehaviour
                 
         }
 
-        if(PlayerHealth.currentHealth<0)
+        if(PlayerStats.playerCurrentHealth<0)
         {
-            PlayerHealth.currentHealth=0;
-            playerHealthBar.SetHealth(PlayerHealth.currentHealth);
+            PlayerStats.playerCurrentHealth=0;
+            playerHealthBar.SetHealth(PlayerStats.playerCurrentHealth);
             Debug.Log("set player health to 0");
         }
     }

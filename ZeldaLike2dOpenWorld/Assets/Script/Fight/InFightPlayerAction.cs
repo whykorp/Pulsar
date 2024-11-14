@@ -39,11 +39,11 @@ public class InFightPlayerAction : MonoBehaviour
         FightManager.activeBuffs.Add(_buffName, _buff);
         if(_buffType=="attack")
         {
-            PlayerStats.currentPlayerAttack *= _buff.value;  // Applique le buff immédiatement
+            PlayerStats.playerCurrentAttack *= _buff.value;  // Applique le buff immédiatement
         }
         else if(_buffType=="defense")
         {
-            PlayerStats.currentPlayerDefense *= _buff.value;  // Applique le buff immédiatement
+            PlayerStats.playerCurrentDefense *= _buff.value;  // Applique le buff immédiatement
         }
 
         Debug.Log("Buff "+ _buff.type+ " appliqué ! "+_buff.value+" % "+_buffType+" pour " +(_buff.duration-1)+ " tours.");
@@ -52,10 +52,10 @@ public class InFightPlayerAction : MonoBehaviour
 
     //SQL:
     //Module 1:
-    //PlayerStats.currentPlayerAttack,InFightMainMenu.enemyCurrentDefense
+    //PlayerStats.playerCurrentAttack,InFightMainMenu.enemyCurrentDefense
     void SimpleAttack()
     {
-        FightManager.enemyCurrentHealth-=20*PlayerStats.currentPlayerAttack*PlayerStats.attackCoeficien/FightManager.enemyCurrentDefense/PlayerStats.defenseCoeficien;
+        FightManager.enemyCurrentHealth-=20*PlayerStats.playerCurrentAttack*PlayerStats.playerAttackCoeficien/FightManager.enemyCurrentDefense/PlayerStats.playerDefenseCoeficien;
         Debug.Log(FightManager.enemyCurrentHealth);
         enemyHealthBar.SetHealth(FightManager.enemyCurrentHealth);
         FightManager.playerAction="Kriss utilise Simple_Attack()";
@@ -67,7 +67,7 @@ public class InFightPlayerAction : MonoBehaviour
         float rand = UnityEngine.Random.Range(0f, 1f);
         if(rand > 0.49f)  // 70% chance to succeed
         {
-            FightManager.enemyCurrentHealth -= 50 * PlayerStats.currentPlayerAttack * PlayerStats.attackCoeficien / FightManager.enemyCurrentDefense / PlayerStats.defenseCoeficien;
+            FightManager.enemyCurrentHealth -= 50 * PlayerStats.playerCurrentAttack * PlayerStats.playerAttackCoeficien / FightManager.enemyCurrentDefense / PlayerStats.playerDefenseCoeficien;
             Debug.Log("Power_Attack successful! Enemy Health: " + FightManager.enemyCurrentHealth);
             enemyHealthBar.SetHealth(FightManager.enemyCurrentHealth);
             FightManager.playerAction = "Kriss utilise Power_Attack()";
@@ -83,10 +83,10 @@ public class InFightPlayerAction : MonoBehaviour
     // Healing Query to restore player health
     void HealingQuery()
     {
-        float healAmount = 0.25f * PlayerHealth.maxHealth;
-        PlayerHealth.currentHealth = Mathf.Min(PlayerHealth.maxHealth, PlayerHealth.currentHealth + healAmount);
-        Debug.Log("Healing_Query successful! Player Health: " + PlayerHealth.currentHealth);
-        playerHealthBar.SetHealth(PlayerHealth.currentHealth);
+        float healAmount = 0.25f * PlayerStats.playerMaxHealth;
+       PlayerStats.playerCurrentHealth = Mathf.Min(PlayerStats.playerMaxHealth,PlayerStats.playerCurrentHealth + healAmount);
+        Debug.Log("Healing_Query successful! Player Health: " +PlayerStats.playerCurrentHealth);
+        playerHealthBar.SetHealth(PlayerStats.playerCurrentHealth);
         FightManager.playerAction = "Kriss utilise Healing_Query()";
         FightManager.isPlayerTurn = false;
     }

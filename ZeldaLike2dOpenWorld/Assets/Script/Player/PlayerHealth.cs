@@ -6,9 +6,8 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    static public float maxHealth = 200;
+    
     public float showHealth;
-    static public float currentHealth;
     public Text playerNbHpText;
     public new Transform transform;
     public Rigidbody2D rb;
@@ -26,8 +25,8 @@ public class PlayerHealth : MonoBehaviour
     }
     void Start()
     {
-        currentHealth=maxHealth;
-        healthBar.SetMaxHeath(maxHealth);
+        PlayerStats.playerCurrentHealth=PlayerStats.playerMaxHealth;
+        healthBar.SetMaxHeath(PlayerStats.playerMaxHealth);
     }
 
     // Update is called once per frame
@@ -38,16 +37,17 @@ public class PlayerHealth : MonoBehaviour
             TakeDamage(20);
         }
 
-        showHealth = currentHealth;
+        showHealth =  PlayerStats.playerCurrentHealth;
     }
 
     public void TakeDamage(float _damage)
     {
-        currentHealth-=_damage;
+         PlayerStats.playerCurrentHealth-=_damage;
         if(InFightMainMenu.inFight)
         {
-            playerNbHpText.text=currentHealth+"/"+maxHealth;
-            healthBar.SetHealth(currentHealth);
+            playerNbHpText.text=PlayerStats.playerCurrentHealth+"/"+PlayerStats.playerMaxHealth;
+            healthBar.SetHealth(PlayerStats.playerCurrentHealth);
+            
         }
     }
 }

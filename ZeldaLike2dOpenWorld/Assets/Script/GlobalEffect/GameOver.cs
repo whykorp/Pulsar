@@ -6,7 +6,7 @@ public class GameOver : MonoBehaviour
 {
     public static void PlayerDeath()
     {
-        PlayerHealth.currentHealth=PlayerHealth.maxHealth;
+       PlayerStats.playerCurrentHealth=PlayerStats.playerMaxHealth;
         Debug.Log("You are Dead");
     }
 }

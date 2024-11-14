@@ -36,8 +36,8 @@ public class Inventory : MonoBehaviour
         }
 
         Item currentItem = content[contentCurrentIndex];
-        PlayerHealth.currentHealth += currentItem.hpGiven;
-        playerMovement.moveSpeed += currentItem.speedGiven;
+       PlayerStats.playerCurrentHealth += currentItem.hpGiven;
+        PlayerStats.playerMoveSpeed += currentItem.speedGiven;
         content.Remove(currentItem);
         GetNextItem();
         UpdateInventoryUI();
