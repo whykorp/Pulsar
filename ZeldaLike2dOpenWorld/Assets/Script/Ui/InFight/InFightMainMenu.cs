@@ -7,6 +7,7 @@ public class InFightMainMenu : MonoBehaviour
 {
     public static bool inFight = false;
     public GameObject inFightMainMenuUi;
+    public GameObject inGameUi;
     public Text enemyNameText;
     public Text enemyHealthText;
     public Text enemyLvlText;
@@ -30,7 +31,7 @@ public class InFightMainMenu : MonoBehaviour
             }
             else
             {
-                StartFight(enemyList[2],32);
+                StartFight(enemyList[0],1);
             }
         }
         if(Input.GetKeyDown(KeyCode.O))
@@ -42,11 +43,12 @@ public class InFightMainMenu : MonoBehaviour
     public void StartFight(InFightEnemyData _inFightEnemyData, int _lvl)
     {
         inFightMainMenuUi.SetActive(true);
+        inGameUi.SetActive(false);
         Time.timeScale = 0;
         inFight = true;
         enemyNameText.text=_inFightEnemyData.enemyName;
         enemyHealthText.text=_inFightEnemyData.baseHp+"/";
-        playerLvlText.text="Lvl "+PlayerStats.playerlvl;
+        playerLvlText.text="Lvl "+PlayerStats.playerLvl;
         enemyLvlText.text="Lvl "+_lvl;
         FightManager.enemyCurrentHealth=_inFightEnemyData.baseHp;
         StartCoroutine(fightManager.FightAnnouncer(_inFightEnemyData));
@@ -59,6 +61,7 @@ public class InFightMainMenu : MonoBehaviour
      public void QuitFight()
     {
         inFightMainMenuUi.SetActive(false);
+        inGameUi.SetActive(true);
         Time.timeScale = 1;
         inFight = false;
     }

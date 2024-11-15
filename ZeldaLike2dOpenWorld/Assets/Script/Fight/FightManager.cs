@@ -48,9 +48,9 @@ public class FightManager : MonoBehaviour
     // Méthode pour réinitialiser les stats du joueur au début du combat
     public static void ResetPlayerStats()
     {
-        PlayerStats.currentPlayerAttack = PlayerStats.basePlayerAttack;     // Attaque de base du joueur
-        PlayerStats.currentPlayerDefense = PlayerStats.basePlayerDefense;   // Défense de base du joueur
-        PlayerStats.currentPlayerAccuracy = PlayerStats.basePlayerAccuracy; // Précision de base du joueur
+        PlayerStats.playerCurrentAttack = PlayerStats.playerBaseAttack;     // Attaque de base du joueur
+        PlayerStats.playerCurrentDefense = PlayerStats.playerBaseDefense;   // Défense de base du joueur
+        PlayerStats.playerCurrentAccuracy = PlayerStats.playerBaseAccuracy; // Précision de base du joueur
     }
 
     void UpdateBuffs()
@@ -82,22 +82,22 @@ public class FightManager : MonoBehaviour
         // En fonction du type de buff, on réinitialise les stats du joueur
         if (buffType == "attack")
         {
-            PlayerStats.attackCoeficien /= 1.15f;  // Annule l'augmentation d'attaque
+            PlayerStats.playerAttackCoeficien /= 1.15f;  // Annule l'augmentation d'attaque
             Debug.Log("Buff d'attaque expire");
         }
         else if (buffType == "defense")
         {
-            PlayerStats.defenseCoeficien /= 1.2f;  // Annule l'augmentation de défense
+            PlayerStats.playerDefenseCoeficien /= 1.2f;  // Annule l'augmentation de défense
             Debug.Log("Buff de défense expire");
         }
         else if (buffType == "SynergisticBuff")
         {
-            PlayerStats.currentPlayerAttack /= 1.5f;  // Annule l'augmentation du SynergisticBuff
+            PlayerStats.playerCurrentAttack /= 1.5f;  // Annule l'augmentation du SynergisticBuff
             Debug.Log("Synergistic Buff expire");
         }
         else if (buffType == "FirewallUpgrade")
         {
-            PlayerStats.currentPlayerDefense /= 1.5f;  // Annule l'augmentation du SynergisticBuff
+            PlayerStats.playerCurrentDefense /= 1.5f;  // Annule l'augmentation du SynergisticBuff
             Debug.Log("Firewall Upgrade expire");
         }
         // Ajouter d'autres types de buff ici...
@@ -109,8 +109,8 @@ public class FightManager : MonoBehaviour
         // Initialisation des barres de vie
         enemyHealthBar.SetMaxHeath(_inFightEnemyData.baseHp);          // Santé maximale de l'ennemi
         enemyHealthBar.SetHealth(_inFightEnemyData.baseHp);            // Santé actuelle de l'ennemi
-        playerHealthBar.SetMaxHeath(PlayerHealth.maxHealth);           // Santé maximale du joueur
-        playerHealthBar.SetHealth(PlayerHealth.currentHealth);         // Santé actuelle du joueur
+        playerHealthBar.SetMaxHeath(PlayerStats.playerMaxHealth);           // Santé maximale du joueur
+        playerHealthBar.SetHealth(PlayerStats.playerCurrentHealth);         // Santé actuelle du joueur
 
         // Affichage du texte d'annonce
         announcerFont.SetActive(true);
@@ -122,7 +122,7 @@ public class FightManager : MonoBehaviour
         yield return new WaitUntil(() => Input.anyKeyDown); // Attente d'une entrée clavier pour commencer
 
         // Boucle principale du combat (basée sur la santé réelle du joueur et de l'ennemi)
-        while (enemyCurrentHealth > 0 && PlayerHealth.currentHealth > 0)
+        while (enemyCurrentHealth > 0 && PlayerStats.playerCurrentHealth > 0)
         {
             // Tour du joueur
             announcerText.GetComponent<Text>().text = "C'est a Kriss d'agir";
@@ -152,7 +152,7 @@ public class FightManager : MonoBehaviour
             enemyAction = "";  // Réinitialiser l'action de l'ennemi
 
             // Vérification de la santé du joueur après le tour de l'ennemi
-            if (PlayerHealth.currentHealth == 0)
+            if (PlayerStats.playerCurrentHealth == 0)
             {
                 announcerText.GetComponent<Text>().text = "An ally as been slain";
                 break;  // Fin du combat si le joueur est vaincu
@@ -167,7 +167,7 @@ public class FightManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(3);
 
         // Quitter l'écran de combat
-        if(PlayerHealth.currentHealth==0)
+        if(PlayerStats.playerCurrentHealth==0)
         {
             GameOver.PlayerDeath();
         }

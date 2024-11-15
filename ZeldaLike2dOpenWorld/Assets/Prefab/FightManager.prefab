@@ -51,15 +51,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inFightMainMenuUi: {fileID: 0}
+  inGameUi: {fileID: 0}
   enemyNameText: {fileID: 0}
   enemyHealthText: {fileID: 0}
   enemyLvlText: {fileID: 0}
   playerLvlText: {fileID: 0}
   fightManager: {fileID: 6260007710157149093}
   enemyList:
-  - {fileID: 11400000, guid: 0541bf9f0c55a47388e65dc84f52b439, type: 2}
-  - {fileID: 11400000, guid: 431530576e262429a816ae11210a7b8f, type: 2}
-  - {fileID: 11400000, guid: c9d2a5d0d4f004e33bd3ad772628a938, type: 2}
+  - {fileID: 11400000, guid: e765ae7f3ff67431db546c5976fc50d3, type: 2}
 --- !u!114 &6260007710157149093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,6 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyTechniques: {fileID: 1538773057319759085}
+  playerHealthBar: {fileID: 0}
 --- !u!114 &7280485477874608949
 MonoBehaviour:
   m_ObjectHideFlags: 0
