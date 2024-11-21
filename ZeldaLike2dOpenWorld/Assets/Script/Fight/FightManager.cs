@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,13 @@ public class FightManager : MonoBehaviour
     public HealthBar enemyHealthBar;       // Barre de vie de l'ennemi
     public HealthBar playerHealthBar;      // Barre de vie du joueur
 
+    public Text enemyAttackDevText;
+    public Text enemyDefenseDevText;
+    public Text enemyHpDevText;
+    public Text playerAttackDevText;
+    public Text playerDefenseDevText;
+    public Text playerHpDevText;
+
     // Variables statiques qui conservent les informations de combat
     public static bool isPlayerTurn = false;   // Indique si c'est au tour du joueur
     public static string playerAction = "";    // Action actuelle du joueur
@@ -26,7 +34,11 @@ public class FightManager : MonoBehaviour
     public static float enemyCurrentAttack;
     public static float enemyCurrentDefense;
 
+    public float statsPerLvlCoeficien;
+
     public static Dictionary<string, BuffManager.Buff> activeBuffs = new Dictionary<string, BuffManager.Buff>();
+
+    public PlayerLeveling playerLeveling;
 
 
     // Méthode appelée au réveil du script
@@ -37,12 +49,25 @@ public class FightManager : MonoBehaviour
         announcerText.SetActive(false);
     }
 
-    // Méthode pour réinitialiser les stats de l'ennemi au début du combat
-    public static void ResetEnemyStats(InFightEnemyData _inFightEnemyData)
+    void Update()
     {
-        enemyCurrentHealth = _inFightEnemyData.baseHp;     // Santé de base de l'ennemi
-        enemyCurrentAttack = _inFightEnemyData.baseAttack; // Attaque de base de l'ennemi
-        enemyCurrentDefense = _inFightEnemyData.baseDef;   // Défense de base de l'ennemi
+        enemyAttackDevText.text= "Atk:"+enemyCurrentAttack;
+        enemyDefenseDevText.text= "Def:"+enemyCurrentDefense;
+        enemyHpDevText.text= "Hp:"+enemyCurrentHealth;
+        playerAttackDevText.text = "Atk:"+PlayerStats.playerCurrentAttack;
+        playerDefenseDevText.text = "Def:"+PlayerStats.playerCurrentDefense;
+        playerHpDevText.text = "Hp:"+PlayerStats.playerCurrentHealth;
+    }
+
+    // Méthode pour réinitialiser les stats de l'ennemi au début du combat
+    public static void ResetEnemyStats(InFightEnemyData _inFightEnemyData, int _lvl, float _statsPerLvlCoeficien)
+    {
+        enemyCurrentHealth = _inFightEnemyData.baseHp*(1+((_lvl-1)*_statsPerLvlCoeficien));     // Santé de base de l'ennemi
+        Debug.Log(_inFightEnemyData.baseHp+"*"+_lvl+"*"+_statsPerLvlCoeficien);
+        enemyCurrentAttack = _inFightEnemyData.baseAttack*(1+((_lvl-1)*_statsPerLvlCoeficien)); // Attaque de base de l'ennemi
+        Debug.Log(_inFightEnemyData.baseAttack+"*"+_lvl+"*"+_statsPerLvlCoeficien);
+        enemyCurrentDefense = _inFightEnemyData.baseDef*(1+((_lvl-1)*_statsPerLvlCoeficien));   // Défense de base de l'ennemi
+        Debug.Log(_inFightEnemyData.baseDef+"*"+_lvl+"*"+_statsPerLvlCoeficien);
     }
 
     // Méthode pour réinitialiser les stats du joueur au début du combat
@@ -104,13 +129,18 @@ public class FightManager : MonoBehaviour
     }
 
     // Coroutine pour gérer le déroulement du combat
-    public IEnumerator FightAnnouncer(InFightEnemyData _inFightEnemyData)
+    public IEnumerator FightAnnouncer(InFightEnemyData _inFightEnemyData,int _enemyLvl)
     {
+        ResetEnemyStats(_inFightEnemyData, _enemyLvl, statsPerLvlCoeficien);
+        ResetPlayerStats();
         // Initialisation des barres de vie
-        enemyHealthBar.SetMaxHeath(_inFightEnemyData.baseHp);          // Santé maximale de l'ennemi
-        enemyHealthBar.SetHealth(_inFightEnemyData.baseHp);            // Santé actuelle de l'ennemi
+        enemyHealthBar.SetMaxHeath(enemyCurrentHealth);          // Santé maximale de l'ennemi
+        Debug.Log(enemyCurrentHealth);
+        enemyHealthBar.SetHealth(enemyCurrentHealth);            // Santé actuelle de l'ennemi
         playerHealthBar.SetMaxHeath(PlayerStats.playerMaxHealth);           // Santé maximale du joueur
+        Debug.Log(PlayerStats.playerMaxHealth);
         playerHealthBar.SetHealth(PlayerStats.playerCurrentHealth);         // Santé actuelle du joueur
+        
 
         // Affichage du texte d'annonce
         announcerFont.SetActive(true);
@@ -137,16 +167,17 @@ public class FightManager : MonoBehaviour
             if (enemyCurrentHealth <= 0)
             {
                 announcerText.GetComponent<Text>().text = "Vous avez vaincu " + _inFightEnemyData.enemyName + " ennemi";
+                playerWin(_inFightEnemyData, _enemyLvl);
                 break;  // Fin du combat si l'ennemi est vaincu
             }
 
             // Pause avant le tour de l'ennemi
-            yield return new WaitForSecondsRealtime(3);
+            yield return new WaitForSecondsRealtime(2);
             announcerText.GetComponent<Text>().text = "C'est au tour de l'ennemi d'agir";
-            yield return new WaitForSecondsRealtime(3);
+            yield return new WaitForSecondsRealtime(2);
 
             // Tour de l'ennemi
-            enemyAttack.EnnemyTurn(_inFightEnemyData);    // L'ennemi effectue une action
+            enemyAttack.EnnemyTurn(_inFightEnemyData, enemyCurrentAttack);    // L'ennemi effectue une action
             yield return new WaitUntil(() => enemyAction != "");   // Attente de l'action de l'ennemi
             announcerText.GetComponent<Text>().text = enemyAction; // Afficher l'action de l'ennemi
             enemyAction = "";  // Réinitialiser l'action de l'ennemi
@@ -159,12 +190,12 @@ public class FightManager : MonoBehaviour
             }
 
             // Pause avant de recommencer la boucle
-            yield return new WaitForSecondsRealtime(3);
+            yield return new WaitForSecondsRealtime(2);
         }
 
         // Fin du combat : donner l'expérience, items, etc.
         Debug.Log("Combat termine");
-        yield return new WaitForSecondsRealtime(3);
+        yield return new WaitForSecondsRealtime(2);
 
         // Quitter l'écran de combat
         if(PlayerStats.playerCurrentHealth==0)
@@ -172,5 +203,12 @@ public class FightManager : MonoBehaviour
             GameOver.PlayerDeath();
         }
         inFightMainMenu.QuitFight();
+    }
+
+    public void playerWin(InFightEnemyData _inFightEnemyData, int _enemyLvl)
+    {
+        Destroy(PlayerTrigger.enemyInFight);
+        float coef=Math.Max(1+((_enemyLvl-PlayerStats.playerLvl)/10*PlayerStats.playerXpGivedCoef),1);
+        playerLeveling.GiveXp(_inFightEnemyData.xpGivedAtDead*coef);
     }
 }

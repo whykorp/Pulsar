@@ -55,7 +55,7 @@ public class InFightPlayerAction : MonoBehaviour
     //PlayerStats.playerCurrentAttack,InFightMainMenu.enemyCurrentDefense
     void SimpleAttack()
     {
-        FightManager.enemyCurrentHealth-=20*PlayerStats.playerCurrentAttack*PlayerStats.playerAttackCoeficien/FightManager.enemyCurrentDefense/PlayerStats.playerDefenseCoeficien;
+        FightManager.enemyCurrentHealth-=100*PlayerStats.playerCurrentAttack*PlayerStats.playerAttackCoeficien/FightManager.enemyCurrentDefense;
         Debug.Log(FightManager.enemyCurrentHealth);
         enemyHealthBar.SetHealth(FightManager.enemyCurrentHealth);
         FightManager.playerAction="Kriss utilise Simple_Attack()";
@@ -67,7 +67,7 @@ public class InFightPlayerAction : MonoBehaviour
         float rand = UnityEngine.Random.Range(0f, 1f);
         if(rand > 0.49f)  // 70% chance to succeed
         {
-            FightManager.enemyCurrentHealth -= 50 * PlayerStats.playerCurrentAttack * PlayerStats.playerAttackCoeficien / FightManager.enemyCurrentDefense / PlayerStats.playerDefenseCoeficien;
+            FightManager.enemyCurrentHealth -= 50 * PlayerStats.playerCurrentAttack * PlayerStats.playerAttackCoeficien / FightManager.enemyCurrentDefense;
             Debug.Log("Power_Attack successful! Enemy Health: " + FightManager.enemyCurrentHealth);
             enemyHealthBar.SetHealth(FightManager.enemyCurrentHealth);
             FightManager.playerAction = "Kriss utilise Power_Attack()";
@@ -83,8 +83,8 @@ public class InFightPlayerAction : MonoBehaviour
     // Healing Query to restore player health
     void HealingQuery()
     {
-        float healAmount = 0.25f * PlayerStats.playerMaxHealth;
-       PlayerStats.playerCurrentHealth = Mathf.Min(PlayerStats.playerMaxHealth,PlayerStats.playerCurrentHealth + healAmount);
+        float healAmount = 1f * PlayerStats.playerMaxHealth;
+        PlayerStats.playerCurrentHealth = Mathf.Min(PlayerStats.playerMaxHealth,PlayerStats.playerCurrentHealth + healAmount);
         Debug.Log("Healing_Query successful! Player Health: " +PlayerStats.playerCurrentHealth);
         playerHealthBar.SetHealth(PlayerStats.playerCurrentHealth);
         FightManager.playerAction = "Kriss utilise Healing_Query()";

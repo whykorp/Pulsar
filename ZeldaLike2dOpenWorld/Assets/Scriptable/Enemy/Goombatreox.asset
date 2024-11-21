@@ -16,7 +16,8 @@ MonoBehaviour:
   enemyDescription: il va te mettre en prison
   baseHp: 150
   baseDef: 1
-  baseAttack: 0.8
+  baseAttack: 1
   techniques: 00000000
   baseSpeed: 1
   mind: 0
+  xpGivedAtDead: 100

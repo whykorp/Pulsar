@@ -10,7 +10,7 @@ public class LosePlayerDetectionNavMeshPatrol : MonoBehaviour
     {
         if (playerDetectionNavhMesh.isAttackingPlayer)
         {
-            Debug.Log("Loosed");
+            //Debug.Log("Loosed");
             playerDetectionNavhMesh.isAttackingPlayer = false;
             enemyPathFinding.SetTarget(enemyPathFinding.targetPosition[enemyPathFinding.destpoint], false);
         }

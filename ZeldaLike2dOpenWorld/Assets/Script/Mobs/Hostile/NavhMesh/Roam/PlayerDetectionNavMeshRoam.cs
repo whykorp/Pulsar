@@ -23,7 +23,7 @@ public class PlayerDetectionNavMeshRoam : MonoBehaviour
         // Vérifie si l'objet détecté est le joueur, et si la zone est activée pour attaquer
         if (collision.CompareTag("Player") && terminalZoneList.ZoneList[zoneName] == false && !isAttackingPlayer)
         {   
-            Debug.Log("Player detected, setting enemy target to player");
+            //Debug.Log("Player detected, setting enemy target to player");
             enemyPathFinding.navMeshAgent.speed = speedWhenPlayerDetected;  // Modifie la vitesse pour poursuite
             enemyPathFinding.waypoint=playerTransform;  // Définit la destination vers le joueur
             isAttackingPlayer = true;
@@ -34,7 +34,7 @@ public class PlayerDetectionNavMeshRoam : MonoBehaviour
     {
         if (collision.CompareTag("Player") && isAttackingPlayer)
         {
-            Debug.Log("Player lost, resetting enemy destination");
+            //Debug.Log("Player lost, resetting enemy destination");
             enemyPathFinding.navMeshAgent.speed = keepedSpeed;
             isAttackingPlayer = false;
             enemyPathFinding.resetEnemyDestination();  // Retourne à la patrouille

@@ -51,9 +51,8 @@ public class InFightMainMenu : MonoBehaviour
         playerLvlText.text="Lvl "+PlayerStats.playerLvl;
         enemyLvlText.text="Lvl "+_lvl;
         FightManager.enemyCurrentHealth=_inFightEnemyData.baseHp;
-        StartCoroutine(fightManager.FightAnnouncer(_inFightEnemyData));
-        FightManager.ResetEnemyStats(_inFightEnemyData);
-        FightManager.ResetPlayerStats();
+        StartCoroutine(fightManager.FightAnnouncer(_inFightEnemyData, _lvl));
+        
         
 
     }

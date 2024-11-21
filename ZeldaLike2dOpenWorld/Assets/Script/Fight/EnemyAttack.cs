@@ -11,7 +11,7 @@ public class EnemyAttack : MonoBehaviour
     
     
     
-    public void EnnemyTurn(InFightEnemyData _inFightEnemyData)
+    public void EnnemyTurn(InFightEnemyData _inFightEnemyData,float _currentEnemyAttack)
     {
         switch(_inFightEnemyData.mind)
         {
@@ -22,7 +22,7 @@ public class EnemyAttack : MonoBehaviour
                 switch(_inFightEnemyData.techniques[techniquesUtilised])
                 {
                     case 0:
-                        enemyTechniques.BaseEnemyAttack(_inFightEnemyData);
+                        enemyTechniques.BaseEnemyAttack(_inFightEnemyData, _currentEnemyAttack);
                         break;
 
 

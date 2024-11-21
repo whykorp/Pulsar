@@ -52,6 +52,6 @@ public class EnemyNavMeshPatrol : MonoBehaviour
         {
             agent.speed = defaultSpeed;
         }
-        Debug.Log("Target Set");
+        //Debug.Log("Target Set");
     }
 }

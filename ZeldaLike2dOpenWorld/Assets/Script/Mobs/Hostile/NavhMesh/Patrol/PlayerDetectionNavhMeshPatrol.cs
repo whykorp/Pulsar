@@ -16,7 +16,7 @@ public class PlayerDetectionNavhMeshPatrol : MonoBehaviour
     {
         if (collision.CompareTag("Player") && terminalZoneList.ZoneList[zoneName] == false && !isAttackingPlayer)
         {   
-            Debug.Log("PLAGTEDUFVUYZVEIDEZ");
+            //Debug.Log("PLAGTEDUFVUYZVEIDEZ");
             enemyPathFinding.SetTarget(playerTransform, true);
             isAttackingPlayer = true;
         }

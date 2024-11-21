@@ -13,5 +13,6 @@ public class InFightEnemyData : ScriptableObject
    public int[] techniques;
    public float baseSpeed;
    public int mind;
+   public float xpGivedAtDead;
 
 }

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4894296699622959709}
   - component: {fileID: 3814131520048726480}
-  - component: {fileID: 7541535987092259340}
+  - component: {fileID: 8462271759767813832}
   m_Layer: 0
   m_Name: PlayerTrigger
   m_TagString: Untagged
@@ -78,7 +78,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.81728494, y: 1}
   m_EdgeRadius: 0
---- !u!114 &7541535987092259340
+--- !u!114 &8462271759767813832
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -87,7 +87,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1715229063383419543}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3127f27637ff4347816945ca06ee06e, type: 3}
+  m_Script: {fileID: 11500000, guid: 0388f1f4ba9c4423bae26d144bd25498, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   inFightMainMenu: {fileID: 0}

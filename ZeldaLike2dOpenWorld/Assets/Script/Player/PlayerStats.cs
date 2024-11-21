@@ -10,6 +10,8 @@ public class PlayerStats : MonoBehaviour
     public static float playerMoveSpeed = 250;
 
     public static int playerLvl=1;
+    public static float playerXp=0;
+    public static float playerXpGivedCoef=1;
 
     public static float playerBaseAttack=1;
     public static float playerBaseDefense=1;

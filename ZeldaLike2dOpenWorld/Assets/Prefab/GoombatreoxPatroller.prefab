@@ -390,7 +390,7 @@ GameObject:
   - component: {fileID: 4118196744400127102}
   m_Layer: 0
   m_Name: Visual
-  m_TagString: Untagged
+  m_TagString: Goombatreox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -480,7 +480,11 @@ MonoBehaviour:
   agent: {fileID: 3003727432492513372}
   playerDetectionNavhMesh: {fileID: 4061650174608737132}
   terminalsActivation: {fileID: 0}
-  targetPosition: []
+  targetPosition:
+  - {fileID: 1498147962148184673}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   destpoint: 0
 --- !u!195 &3003727432492513372
 NavMeshAgent:

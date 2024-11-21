@@ -21,7 +21,7 @@ public class EnnemiAttack : MonoBehaviour
         if(collision.CompareTag("Player"))
         {
             //playerHealth.TakeDamage(transform, knockbackForce, true);
-            Debug.Log("Fight !");
+            //Debug.Log("Fight !");
         }
     }
 }

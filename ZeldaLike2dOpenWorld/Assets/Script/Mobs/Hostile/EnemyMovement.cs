@@ -27,9 +27,9 @@ public class EnemyMovement : MonoBehaviour
         // Si l'ennemi est quasiment arrivé à sa destination
         if(Vector3.Distance(transform.position, target.position) < 0.3f)
         {
-            Debug.Log("WAYPOINT REACHED");
+            //Debug.Log("WAYPOINT REACHED");
             destPoint = (destPoint + 1) % waypoints.Length;
-            Debug.Log("New Waypoint:"+destPoint);
+            //Debug.Log("New Waypoint:"+destPoint);
             target = waypoints[destPoint];
             
         }
@@ -37,9 +37,9 @@ public class EnemyMovement : MonoBehaviour
 
     public void PlayerDetected()
     {
-        Debug.Log("Player Detected");
+        //Debug.Log("Player Detected");
         destPoint = (destPoint + 1) % waypoints.Length;
-        Debug.Log("New Waypoint:"+destPoint);
+        //Debug.Log("New Waypoint:"+destPoint);
         target = waypoints[destPoint];
         speed*=speedWhilePlayerDetected;
     }

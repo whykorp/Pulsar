@@ -78,6 +78,13 @@ MonoBehaviour:
   playerHealth: {fileID: 0}
   enemyHealthBar: {fileID: 0}
   playerHealthBar: {fileID: 0}
+  enemyAttackDevText: {fileID: 0}
+  enemyDefenseDevText: {fileID: 0}
+  enemyHpDevText: {fileID: 0}
+  playerAttackDevText: {fileID: 0}
+  playerDefenseDevText: {fileID: 0}
+  playerHpDevText: {fileID: 0}
+  statsPerLvlCoeficien: 0.1
 --- !u!114 &4529038463408337513
 MonoBehaviour:
   m_ObjectHideFlags: 0
