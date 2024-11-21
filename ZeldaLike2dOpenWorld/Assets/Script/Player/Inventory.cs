@@ -38,6 +38,13 @@ public class Inventory : MonoBehaviour
                 }
             }
         }
+        if(Input.GetKeyDown(KeyCode.Q)){
+            ConsumeItem();
+        }
+    }
+
+    void FixedUpdate(){
+
     }
 
     void Start(){
@@ -51,7 +58,7 @@ public class Inventory : MonoBehaviour
         }
 
         Item currentItem = content[contentCurrentIndex];
-       PlayerStats.playerCurrentHealth += currentItem.hpGiven;
+        PlayerStats.playerCurrentHealth += currentItem.hpGiven;
         PlayerStats.playerMoveSpeed += currentItem.speedGiven;
         content.Remove(currentItem);
         GetNextItem();
