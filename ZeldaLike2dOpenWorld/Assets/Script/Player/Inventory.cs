@@ -16,6 +16,10 @@ public class Inventory : MonoBehaviour
     public Text itemUiName;
     public Sprite emptyItemImage;
 
+    [SerializeField] private CanvasGroup canvasgroup;
+    private bool _fadeout = false;
+    public float timeToFade;
+
     private void Awake(){
         if(instance !=null){
             Debug.LogWarning("Il y plus d'une instance d'inventory dans la scène");
@@ -25,8 +29,19 @@ public class Inventory : MonoBehaviour
         instance = this;
     }
 
+    void Update(){
+        if(_fadeout){
+            if(canvasgroup.alpha >= 0){
+                canvasgroup.alpha -= timeToFade * Time.deltaTime;
+                if(canvasgroup.alpha == 0){
+                    _fadeout = false;
+                }
+            }
+        }
+    }
+
     void Start(){
-        UpdateInventoryUI();
+        StartCoroutine(UpdateInventoryUI());
     }
 
     public void ConsumeItem(){
@@ -40,7 +55,7 @@ public class Inventory : MonoBehaviour
         PlayerStats.playerMoveSpeed += currentItem.speedGiven;
         content.Remove(currentItem);
         GetNextItem();
-        UpdateInventoryUI();
+        StartCoroutine(UpdateInventoryUI());
     }
 
     public void GetNextItem(){
@@ -51,7 +66,7 @@ public class Inventory : MonoBehaviour
         if(contentCurrentIndex > content.Count -1){
             contentCurrentIndex =0;
         }
-        UpdateInventoryUI();
+        StartCoroutine(UpdateInventoryUI());
     }
 
     public void GetPreviousItem(){
@@ -62,13 +77,16 @@ public class Inventory : MonoBehaviour
         if(contentCurrentIndex < 0){
             contentCurrentIndex = content.Count -1;
         }
-        UpdateInventoryUI();
+        StartCoroutine(UpdateInventoryUI());
     }
 
-    public void UpdateInventoryUI(){
+    public IEnumerator UpdateInventoryUI(){
         if(content.Count > 0){
             itemUiImage.sprite = content[contentCurrentIndex].image;
             itemUiName.text = content[contentCurrentIndex].name;
+            canvasgroup.alpha = 1;
+            yield return new WaitForSecondsRealtime(3);
+            FadeOut();
         } else {
             itemUiImage.sprite = emptyItemImage;
             itemUiName.text = "";
@@ -79,6 +97,10 @@ public class Inventory : MonoBehaviour
     public void AddCoins(int count){
         coinsCount += count;
         coinsCountText.text = coinsCount.ToString();
+    }
+
+    public void FadeOut(){
+        _fadeout = true;
     }
 
 }
