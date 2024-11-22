@@ -45,5 +45,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   content: []
+  playerEffect: {fileID: 0}
+  contentCurrentIndex: 0
   coinsCount: 0
   coinsCountText: {fileID: 0}
+  itemUiImage: {fileID: 0}
+  itemUiName: {fileID: 0}
+  emptyItemImage: {fileID: 21300000, guid: 3b590c8f80dc3a94184f74c58835d729, type: 3}
+  canvasgroup: {fileID: 0}
+  timeToFade: 2

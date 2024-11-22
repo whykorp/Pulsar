@@ -6,8 +6,7 @@ using UnityEngine.UI;
 public class Inventory : MonoBehaviour
 {
     public List<Item> content = new List<Item>();
-
-    public PlayerMovement playerMovement;
+    public PlayerEffect playerEffect;
     public int contentCurrentIndex = 0;
     public int coinsCount;
     public Text coinsCountText;
@@ -59,7 +58,7 @@ public class Inventory : MonoBehaviour
 
         Item currentItem = content[contentCurrentIndex];
         PlayerStats.playerCurrentHealth += currentItem.hpGiven;
-        PlayerStats.playerMoveSpeed += currentItem.speedGiven;
+        playerEffect.AddSpeed(currentItem.speedGiven, currentItem.speedDuration);
         content.Remove(currentItem);
         GetNextItem();
         StartCoroutine(UpdateInventoryUI());
