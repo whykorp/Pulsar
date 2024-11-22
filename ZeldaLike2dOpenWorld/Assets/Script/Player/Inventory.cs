@@ -14,6 +14,8 @@ public class Inventory : MonoBehaviour
     public Image itemUiImage;
     public Text itemUiName;
     public Sprite emptyItemImage;
+    public Sprite adviceUseItemImage;
+    public Image adviceUseItem;
 
     [SerializeField] private CanvasGroup canvasgroup;
     private bool _fadeout = false;
@@ -88,6 +90,7 @@ public class Inventory : MonoBehaviour
 
     public IEnumerator UpdateInventoryUI(){
         if(content.Count > 0){
+            adviceUseItem.sprite = adviceUseItemImage;
             itemUiImage.sprite = content[contentCurrentIndex].image;
             itemUiName.text = content[contentCurrentIndex].name;
             canvasgroup.alpha = 1;
@@ -96,6 +99,7 @@ public class Inventory : MonoBehaviour
         } else {
             itemUiImage.sprite = emptyItemImage;
             itemUiName.text = "";
+            adviceUseItem.sprite = emptyItemImage;
         }
         Debug.Log("Bonjour je change d'image voilà");
     }
