@@ -44,13 +44,13 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void Update(){
-        if(Input.GetKeyDown(KeyCode.Z)){
+        if(Input.GetKeyDown(KeyCode.W)){
             spriteRenderer.sprite=kUp;
         }
         if(Input.GetKeyDown(KeyCode.D)){
             spriteRenderer.sprite=kRight;
         }
-        if(Input.GetKeyDown(KeyCode.Q)){
+        if(Input.GetKeyDown(KeyCode.A)){
             spriteRenderer.sprite=kLeft;
         }
         if(Input.GetKeyDown(KeyCode.S)){

@@ -8,20 +8,33 @@ public class InteractUI : MonoBehaviour
     public Text adviceUiText;
     public Image adviceUiImage;
 
+    [SerializeField] private CanvasGroup canvasgroup;
+    private bool _fadeout = false;
+    public float timeToFade;
+
     void Awake()
     {
-        HideUiInteract();
+        canvasgroup.alpha = 0;
     }   
 
+    void Update(){
+        if(_fadeout){
+            if(canvasgroup.alpha >= 0){
+                canvasgroup.alpha -= timeToFade * Time.deltaTime;
+                if(canvasgroup.alpha == 0){
+                    _fadeout = false;
+                }
+            }
+        }
+    }
+
     public void ShowUiInteract(){
-        adviceUiText.enabled = true;
-        adviceUiImage.enabled = true;
+        canvasgroup.alpha = 1;
     }
 
     public void HideUiInteract()
     {
-        adviceUiText.enabled = false;
-        adviceUiImage.enabled = false;
+        FadeOut();
     }
 
     public void ChangeImageInteractUi(Sprite _sprite)
@@ -32,5 +45,9 @@ public class InteractUI : MonoBehaviour
     public void ChangeTextInteractUi(string _text)
     {
         adviceUiText.text=_text;
+    }
+
+    public void FadeOut(){
+        _fadeout = true;
     }
 }

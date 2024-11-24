@@ -17,5 +17,5 @@ MonoBehaviour:
   description: Permet de marcher plus vite
   image: {fileID: 21300000, guid: 3dbad0b7f06b30e48aebc1af4750c38b, type: 3}
   hpGiven: 0
-  speedGiven: 50
+  speedGiven: 150
   speedDuration: 10
