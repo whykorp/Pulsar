@@ -9,9 +9,12 @@ public class FightManager : MonoBehaviour
     // Références des objets dans la scène
     public GameObject announcerFont;       // Le fond de texte pour les annonces de combat
     public GameObject announcerText;       // Le texte des annonces de combat
+    public GameObject modulePanelUI;
+    public GameObject attackPanelUI;
     public InFightMainMenu inFightMainMenu; // Référence au menu principal du combat
     public EnemyAttack enemyAttack;        // Comportement de l'ennemi
     public PlayerHealth playerHealth;      // Comportement de la santé du joueur
+    public AttackButton attackButton;
 
     // Références aux barres de vie
     public HealthBar enemyHealthBar;       // Barre de vie de l'ennemi
@@ -78,7 +81,7 @@ public class FightManager : MonoBehaviour
         PlayerStats.playerCurrentAccuracy = PlayerStats.playerBaseAccuracy; // Précision de base du joueur
     }
 
-    void UpdateBuffs()
+    public void UpdateBuffs()
     {
         List<string> buffsToRemove = new List<string>();
 
@@ -102,7 +105,7 @@ public class FightManager : MonoBehaviour
         }
     }
 
-    void RemoveBuffEffect(string buffType)
+    public void RemoveBuffEffect(string buffType)
     {
         // En fonction du type de buff, on réinitialise les stats du joueur
         if (buffType == "attack")
@@ -156,10 +159,12 @@ public class FightManager : MonoBehaviour
         {
             // Tour du joueur
             announcerText.GetComponent<Text>().text = "C'est a Kriss d'agir";
+            yield return new WaitForSecondsRealtime(1);
             isPlayerTurn = true; // Le joueur peut agir
 
             // Attente que le joueur effectue une action
             yield return new WaitUntil(() => playerAction != "");
+            attackButton.ResetPanel();
             announcerText.GetComponent<Text>().text = playerAction;   // Afficher l'action du joueur
             playerAction = ""; // Réinitialiser l'action du joueur
             UpdateBuffs();
@@ -210,5 +215,20 @@ public class FightManager : MonoBehaviour
         Destroy(PlayerTrigger.enemyInFight);
         float coef=Math.Max(1+((_enemyLvl-PlayerStats.playerLvl)/10*PlayerStats.playerXpGivedCoef),1);
         playerLeveling.GiveXp(_inFightEnemyData.xpGivedAtDead*coef);
+    }
+
+    public void LeakCaller()
+    {
+        if(isPlayerTurn==true)
+        {
+            StartCoroutine(Leak());
+        }
+    }
+    public IEnumerator Leak()
+    {
+        announcerText.GetComponent<Text>().text = "Kriss fuis le combat...";
+        yield return new WaitForSecondsRealtime(1.5f);
+        inFightMainMenu.QuitFight();
+        Destroy(PlayerTrigger.enemyInFight);
     }
 }

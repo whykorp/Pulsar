@@ -17,6 +17,7 @@ public class BuffManager : MonoBehaviour
         this.duration = duration;
         }
     }   
+    
 
     
 }

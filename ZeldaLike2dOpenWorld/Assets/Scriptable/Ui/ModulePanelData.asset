@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a7c2148cb17c47ebad8b93548e4842a, type: 3}
+  m_Name: ModulePanelData
+  m_EditorClassIdentifier: 
+  textSlot1: Base SQL
+  textSlot2: None
+  textSlot3: None
+  textSlot4: None
+  fonctionSlot1: {fileID: 11400000, guid: 76d5459b5c13a41c28b05c554a1cd270, type: 2}
+  fonctionSlot2: {fileID: 0}
+  fonctionSlot3: {fileID: 0}
+  fonctionSlot4: {fileID: 0}
