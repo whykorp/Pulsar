@@ -21,3 +21,4 @@ MonoBehaviour:
   baseSpeed: 1
   mind: 0
   xpGivedAtDead: 100
+  enemySprite: {fileID: 21300000, guid: 80dfcd5771fdd4370b31c73f8a403943, type: 3}
