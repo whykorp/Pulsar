@@ -12,9 +12,9 @@ public class BuffManager : MonoBehaviour
 
         public Buff(string type, float value, int duration)
         {
-        this.type = type;
-        this.value = value;
-        this.duration = duration;
+            this.type = type;
+            this.value = value;
+            this.duration = duration;
         }
     }   
     

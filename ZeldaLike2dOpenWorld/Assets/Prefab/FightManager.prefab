@@ -16,6 +16,11 @@ GameObject:
   - component: {fileID: 1538773057319759085}
   - component: {fileID: 759034481825690643}
   - component: {fileID: 3158794426515774003}
+  - component: {fileID: 1333175271205105116}
+  - component: {fileID: 4400903339717998810}
+  - component: {fileID: 3438360287315130193}
+  - component: {fileID: 7727968040754235944}
+  - component: {fileID: 220076577203003828}
   m_Layer: 0
   m_Name: FightManager
   m_TagString: Untagged
@@ -52,10 +57,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inFightMainMenuUi: {fileID: 0}
   inGameUi: {fileID: 0}
+  announcerFont: {fileID: 0}
+  announcerText: {fileID: 0}
+  modulePanelUI: {fileID: 0}
+  attackPanelUI: {fileID: 0}
   enemyNameText: {fileID: 0}
   enemyHealthText: {fileID: 0}
   enemyLvlText: {fileID: 0}
   playerLvlText: {fileID: 0}
+  enemySpriteSlot: {fileID: 0}
   fightManager: {fileID: 6260007710157149093}
   enemyList:
   - {fileID: 11400000, guid: e765ae7f3ff67431db546c5976fc50d3, type: 2}
@@ -73,9 +83,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   announcerFont: {fileID: 0}
   announcerText: {fileID: 0}
+  modulePanelUI: {fileID: 0}
+  attackPanelUI: {fileID: 0}
   inFightMainMenu: {fileID: 7841120147468029306}
   enemyAttack: {fileID: 4529038463408337513}
   playerHealth: {fileID: 0}
+  attackButton: {fileID: 3438360287315130193}
   enemyHealthBar: {fileID: 0}
   playerHealthBar: {fileID: 0}
   enemyAttackDevText: {fileID: 0}
@@ -85,6 +98,7 @@ MonoBehaviour:
   playerDefenseDevText: {fileID: 0}
   playerHpDevText: {fileID: 0}
   statsPerLvlCoeficien: 0.1
+  playerLeveling: {fileID: 0}
 --- !u!114 &4529038463408337513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,5 +163,84 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3575f951dcda74adb933f74266cd741e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1333175271205105116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843790168172240685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be9ec2919531c471ca03e5cd1071e519, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modulePanel: {fileID: 11400000, guid: dd4ae53fb38c24905b156a3312af813b, type: 2}
+  textModuleButton1: {fileID: 0}
+  textModuleButton2: {fileID: 0}
+  textModuleButton3: {fileID: 0}
+  textModuleButton4: {fileID: 0}
+--- !u!114 &4400903339717998810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843790168172240685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50ce45d63cf0a40d781b537af5a432b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modulePanel: {fileID: 11400000, guid: dd4ae53fb38c24905b156a3312af813b, type: 2}
+  inFightPlayerAction: {fileID: 7280485477874608949}
+  textAttackButton1: {fileID: 0}
+  textAttackButton2: {fileID: 0}
+  textAttackButton3: {fileID: 0}
+  textAttackButton4: {fileID: 0}
+  modulePanelUi: {fileID: 0}
+  attackPanelUi: {fileID: 0}
+--- !u!114 &3438360287315130193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843790168172240685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91c541d45fa814215b48d85907b22365, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  announcerFont: {fileID: 0}
+  announcerText: {fileID: 0}
+  modulePanelUI: {fileID: 0}
+  attackPanelUI: {fileID: 0}
+  attackButtonText: {fileID: 0}
+  attackButtonTogle: 0
+--- !u!114 &7727968040754235944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843790168172240685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd829f4cfd4d48cbb9fbca098963fe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &220076577203003828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843790168172240685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b28e94a9850b348e281281a343d3d067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

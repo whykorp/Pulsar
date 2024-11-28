@@ -69,7 +69,7 @@ public class InFightMainMenu : MonoBehaviour
         playerLvlText.text="Lvl "+PlayerStats.playerLvl;
         enemyLvlText.text="Lvl "+_lvl;
         FightManager.enemyCurrentHealth=_inFightEnemyData.baseHp;
-        //enemySpriteSlot.sourceImage=_inFightEnemyData.enemySprite;
+        enemySpriteSlot.sprite=_inFightEnemyData.enemySprite;
         StartCoroutine(fightManager.FightAnnouncer(_inFightEnemyData, _lvl));
         
         
