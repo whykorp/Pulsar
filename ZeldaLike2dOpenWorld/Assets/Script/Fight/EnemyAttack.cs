@@ -25,10 +25,13 @@ public class EnemyAttack : MonoBehaviour
                         enemyTechniques.BaseEnemyAttack(_inFightEnemyData, _currentEnemyAttack);
                         break;
 
-
+                    case 1:
+                        enemyTechniques.Branling(_inFightEnemyData, _currentEnemyAttack);
+                        break;
                     
                 }
                 break;
+
 
             
                 
