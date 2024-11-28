@@ -40,6 +40,8 @@ public class FightManager : MonoBehaviour
     public float statsPerLvlCoeficien;
 
     public static Dictionary<string, BuffManager.Buff> activeBuffs = new Dictionary<string, BuffManager.Buff>();
+    public static List<DotManager.DOT> activeDOTs = new List<DotManager.DOT>();
+
 
     public PlayerLeveling playerLeveling;
 
@@ -105,6 +107,35 @@ public class FightManager : MonoBehaviour
         }
     }
 
+    public void UpdateDOTs()
+    {
+        List<DotManager.DOT> expiredDOTs = new List<DotManager.DOT>();
+
+        foreach (DotManager.DOT dot in activeDOTs)
+        {
+             // Applique les dégâts du DOT
+            enemyCurrentHealth -= dot.damagePerTurn;
+            Debug.Log($"DOT {dot.name} inflige {dot.damagePerTurn} dégâts. Tours restants : {dot.remainingTurns}");
+
+            // Réduit la durée du DOT
+            dot.remainingTurns--;
+
+            // Si le DOT n'a plus de tours restants, marque-le pour suppression
+            if (dot.remainingTurns <= 0)
+            {
+            expiredDOTs.Add(dot);
+            }
+        }
+
+        // Supprime les DOT expirés
+        foreach (DotManager.DOT expired in expiredDOTs)
+        {
+            activeDOTs.Remove(expired);
+            Debug.Log($"DOT {expired.name} a expiré.");
+        }
+    }
+
+
     public void RemoveBuffEffect(string buffType)
     {
         // En fonction du type de buff, on réinitialise les stats du joueur
@@ -159,6 +190,8 @@ public class FightManager : MonoBehaviour
         {
             // Tour du joueur
             announcerText.GetComponent<Text>().text = "C'est a Kriss d'agir";
+            // Juste avant l'action du joueur
+            UpdateDOTs();
             yield return new WaitForSecondsRealtime(1);
             isPlayerTurn = true; // Le joueur peut agir
 

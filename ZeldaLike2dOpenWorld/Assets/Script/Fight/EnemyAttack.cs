@@ -28,6 +28,10 @@ public class EnemyAttack : MonoBehaviour
                     case 1:
                         enemyTechniques.Branling(_inFightEnemyData, _currentEnemyAttack);
                         break;
+
+                    case 2:
+                        enemyTechniques.AtomicProut(_inFightEnemyData, _currentEnemyAttack);
+                        break;
                     
                 }
                 break;

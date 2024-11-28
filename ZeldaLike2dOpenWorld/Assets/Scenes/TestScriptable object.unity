@@ -475,10 +475,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2910608455684956154, guid: d5025abe44978464ba912ac7d4a9189f, type: 3}
-      propertyPath: interactUI
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2910608455684956154, guid: d5025abe44978464ba912ac7d4a9189f, type: 3}
       propertyPath: enemyPathFinding
       value: 
       objectReference: {fileID: 8627724348155740272}
@@ -596,32 +592,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1371129028}
     - target: {fileID: 8462271759767813832, guid: d4ce8baf424154a9c86ee0bb471fe5b0, type: 3}
-      propertyPath: facility
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 8462271759767813832, guid: d4ce8baf424154a9c86ee0bb471fe5b0, type: 3}
-      propertyPath: difficulty
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8462271759767813832, guid: d4ce8baf424154a9c86ee0bb471fe5b0, type: 3}
       propertyPath: inFightMainMenu
       value: 
       objectReference: {fileID: 382357477}
-    - target: {fileID: 8462271759767813832, guid: d4ce8baf424154a9c86ee0bb471fe5b0, type: 3}
-      propertyPath: enemyList.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8462271759767813832, guid: d4ce8baf424154a9c86ee0bb471fe5b0, type: 3}
-      propertyPath: enemyList.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: e765ae7f3ff67431db546c5976fc50d3, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5319701961131445515, guid: d4ce8baf424154a9c86ee0bb471fe5b0, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 334344645}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4ce8baf424154a9c86ee0bb471fe5b0, type: 3}
 --- !u!1 &334344629 stripped
 GameObject:
@@ -644,11 +621,10 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5102311281794079978, guid: d4ce8baf424154a9c86ee0bb471fe5b0, type: 3}
   m_PrefabInstance: {fileID: 334344628}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &334344645
+--- !u!114 &334344645 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 2243499431123766578, guid: d4ce8baf424154a9c86ee0bb471fe5b0, type: 3}
+  m_PrefabInstance: {fileID: 334344628}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 334344629}
   m_Enabled: 1
@@ -2074,6 +2050,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 382357487}
+    - target: {fileID: 4144463856204083078, guid: 8bae22f1477864f23a651458f9c08dc7, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4144463856204083078, guid: 8bae22f1477864f23a651458f9c08dc7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4306119983353187409, guid: 8bae22f1477864f23a651458f9c08dc7, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -2090,6 +2074,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 382357495}
+    - target: {fileID: 6533422145939072659, guid: 8bae22f1477864f23a651458f9c08dc7, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6533422145939072659, guid: 8bae22f1477864f23a651458f9c08dc7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7374850731644122330, guid: 8bae22f1477864f23a651458f9c08dc7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
