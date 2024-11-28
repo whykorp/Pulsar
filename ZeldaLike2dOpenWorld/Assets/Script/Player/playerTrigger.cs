@@ -19,4 +19,10 @@ public class PlayerTrigger : MonoBehaviour
             inFightMainMenu.StartFight(enemyList[0], Random.Range(Mathf.Max(PlayerStats.playerLvl-facility,1),PlayerStats.playerLvl+difficulty));
         }
     } 
+
+    void Update(){
+        if(Input.GetKeyDown(KeyCode.N)){
+            inFightMainMenu.StartFight(enemyList[1], Random.Range(Mathf.Max(PlayerStats.playerLvl-facility,1),PlayerStats.playerLvl+difficulty));
+        }
+    }
 }

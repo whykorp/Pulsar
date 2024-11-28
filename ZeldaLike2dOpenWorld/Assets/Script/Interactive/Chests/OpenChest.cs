@@ -9,6 +9,7 @@ public class OpenChest : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public Sprite BlueOpenedChest;
     public InteractUI interactUI;
+    public Item item;
 
     void Update()
     {
@@ -47,5 +48,6 @@ public class OpenChest : MonoBehaviour
     public void OnChestOpened(){
         Debug.Log("chest openede");
         spriteRenderer.sprite=BlueOpenedChest;
+        Inventory.instance.content.Add(item);
     }
 }
