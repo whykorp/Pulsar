@@ -91,7 +91,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inFightMainMenu: {fileID: 0}
-  Goombatreox: {fileID: 11400000, guid: e765ae7f3ff67431db546c5976fc50d3, type: 2}
+  enemyList:
+  - {fileID: 11400000, guid: e765ae7f3ff67431db546c5976fc50d3, type: 2}
+  difficulty: 3
+  facility: 100
 --- !u!1 &4976373133085919455
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,6 +203,7 @@ GameObject:
   - component: {fileID: 6256831820354369428}
   - component: {fileID: 6610249323045772675}
   - component: {fileID: 3620447566029249406}
+  - component: {fileID: 2243499431123766578}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -409,3 +413,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 1919364131559458480}
+--- !u!114 &2243499431123766578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5319701961131445515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01cc9b2e89f334fc0982c914ea2a1b11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

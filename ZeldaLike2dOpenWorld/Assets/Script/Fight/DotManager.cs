@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class DotManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public class DOT
+{
+    public string name;          // Nom ou identifiant unique du DOT
+    public float damagePerTurn;  // Dégâts par tour
+    public int remainingTurns;   // Nombre de tours restants
 
-    // Update is called once per frame
-    void Update()
+    public DOT(string dotName, float damage, int turns)
     {
-        
+        name = dotName;
+        damagePerTurn = damage;
+        remainingTurns = turns;
     }
+    
+}
 }

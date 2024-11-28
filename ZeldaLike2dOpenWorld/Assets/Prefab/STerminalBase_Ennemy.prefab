@@ -397,6 +397,8 @@ MonoBehaviour:
   BlueSpriteBase: {fileID: 21300000, guid: 98571a42a65e4458c9656907fcb27310, type: 3}
   BlueSprite1: {fileID: 21300000, guid: 7dbbdf68060e848c9b2cbfbabe62bf8e, type: 3}
   BlueSprite2: {fileID: 21300000, guid: 2ca354661d9f64d8193c0cabb52cd315, type: 3}
+  enemyPathFinding: {fileID: 0}
+  EnemyNavMeshRoaming: {fileID: 0}
   zoneName: palace
   refreshEnemyDetection: 0
   terminalZoneList: {fileID: 0}
