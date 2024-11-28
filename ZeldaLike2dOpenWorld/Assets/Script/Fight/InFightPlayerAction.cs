@@ -53,7 +53,7 @@ public class InFightPlayerAction : MonoBehaviour
     //SQL:
     //Module 1:
     //PlayerStats.playerCurrentAttack,InFightMainMenu.enemyCurrentDefense
-    void SimpleAttack()
+    public void SimpleAttack()
     {
         FightManager.enemyCurrentHealth-=100*PlayerStats.playerCurrentAttack*PlayerStats.playerAttackCoeficien/FightManager.enemyCurrentDefense;
         Debug.Log(FightManager.enemyCurrentHealth);
@@ -62,10 +62,10 @@ public class InFightPlayerAction : MonoBehaviour
         FightManager.isPlayerTurn=false;
     }
 
-    void PowerAttack()
+    public void PowerAttack()
     {
         float rand = UnityEngine.Random.Range(0f, 1f);
-        if(rand > 0.49f)  // 70% chance to succeed
+        if(rand > 0.49f)  // 50% chance to succeed
         {
             FightManager.enemyCurrentHealth -= 50 * PlayerStats.playerCurrentAttack * PlayerStats.playerAttackCoeficien / FightManager.enemyCurrentDefense;
             Debug.Log("Power_Attack successful! Enemy Health: " + FightManager.enemyCurrentHealth);
@@ -81,9 +81,9 @@ public class InFightPlayerAction : MonoBehaviour
     }
 
     // Healing Query to restore player health
-    void HealingQuery()
+    public void HealingQuery()
     {
-        float healAmount = 1f * PlayerStats.playerMaxHealth;
+        float healAmount = 0.25f * PlayerStats.playerMaxHealth;
         PlayerStats.playerCurrentHealth = Mathf.Min(PlayerStats.playerMaxHealth,PlayerStats.playerCurrentHealth + healAmount);
         Debug.Log("Healing_Query successful! Player Health: " +PlayerStats.playerCurrentHealth);
         playerHealthBar.SetHealth(PlayerStats.playerCurrentHealth);
@@ -91,7 +91,7 @@ public class InFightPlayerAction : MonoBehaviour
         FightManager.isPlayerTurn = false;
     }
 
-    void SynergisticBuff()
+    public void SynergisticBuff()
     {
         BuffManager.Buff SynergisticBuff = new BuffManager.Buff("SynergisticBuff", 1.5f, 3+1);  // +50% attaque pour 3 tours
         CreateBuff("attack","SynergisticBuff", SynergisticBuff);
@@ -99,7 +99,7 @@ public class InFightPlayerAction : MonoBehaviour
         FightManager.isPlayerTurn = false;
     }
 
-    void FirewallUpgrade()
+    public void FirewallUpgrade()
     {
         BuffManager.Buff FirewallUpgrade = new BuffManager.Buff("FirewallUpgrade", 1.5f, 3+1);  // +50% de défense pour 3 tours
         CreateBuff("defense","FirewallUpgrade", FirewallUpgrade);

@@ -8,6 +8,12 @@ public class InFightMainMenu : MonoBehaviour
     public static bool inFight = false;
     public GameObject inFightMainMenuUi;
     public GameObject inGameUi;
+    
+    public GameObject announcerFont;       // Le fond de texte pour les annonces de combat
+    public GameObject announcerText;       // Le texte des annonces de combat
+    public GameObject modulePanelUI;
+    public GameObject attackPanelUI;
+
     public Text enemyNameText;
     public Text enemyHealthText;
     public Text enemyLvlText;
@@ -16,10 +22,16 @@ public class InFightMainMenu : MonoBehaviour
 
     public FightManager fightManager;
     public InFightEnemyData[] enemyList;
+    
+    
 
     void Awake()
     {
         inFightMainMenuUi.SetActive(false);
+        announcerFont.SetActive(false);
+        announcerText.SetActive(false);
+        modulePanelUI.SetActive(false);
+        modulePanelUI.SetActive(false);
     }
     void Update()
     {
@@ -44,6 +56,10 @@ public class InFightMainMenu : MonoBehaviour
     {
         inFightMainMenuUi.SetActive(true);
         inGameUi.SetActive(false);
+        announcerFont.SetActive(true);
+        announcerText.SetActive(true);
+        modulePanelUI.SetActive(false);
+        attackPanelUI.SetActive(false);
         Time.timeScale = 0;
         inFight = true;
         enemyNameText.text=_inFightEnemyData.enemyName;
@@ -57,7 +73,7 @@ public class InFightMainMenu : MonoBehaviour
 
     }
 
-     public void QuitFight()
+    public void QuitFight()
     {
         inFightMainMenuUi.SetActive(false);
         inGameUi.SetActive(true);
