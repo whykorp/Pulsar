@@ -21,8 +21,9 @@ public class EnemyTechniques : MonoBehaviour
 
     public void AtomicProut(InFightEnemyData _inFightEnemyData, float currentEnemyAttack)
     {
+        Debug.Log($"current enemy attack: {currentEnemyAttack}");
         playerHealth.TakeDamage(20/PlayerStats.playerCurrentDefense*currentEnemyAttack);
-        dotManager.ApplyDOT("proutPoison",10f,5);
+        dotManager.ApplyDOT("proutPoison",10f*currentEnemyAttack,5);
         FightManager.enemyAction=_inFightEnemyData.enemyName+" utilise AtomicProut";
     }
 

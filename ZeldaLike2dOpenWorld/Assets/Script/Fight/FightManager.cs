@@ -44,6 +44,7 @@ public class FightManager : MonoBehaviour
 
 
     public PlayerLeveling playerLeveling;
+    public bool hadPlayerTakedDamageFromDot=false;
 
 
     // Méthode appelée au réveil du script
@@ -81,6 +82,10 @@ public class FightManager : MonoBehaviour
         PlayerStats.playerCurrentAttack = PlayerStats.playerBaseAttack;     // Attaque de base du joueur
         PlayerStats.playerCurrentDefense = PlayerStats.playerBaseDefense;   // Défense de base du joueur
         PlayerStats.playerCurrentAccuracy = PlayerStats.playerBaseAccuracy; // Précision de base du joueur
+
+        activeBuffs = new Dictionary<string, BuffManager.Buff>();
+        activeDOTs = new List<DotManager.DOT>();
+        
     }
 
     public void UpdateBuffs()
@@ -98,6 +103,7 @@ public class FightManager : MonoBehaviour
                 buffsToRemove.Add(buff.Key);
                 RemoveBuffEffect(buff.Key);
             }
+            
         }
 
         // Supprimer les buffs expirés
@@ -114,7 +120,7 @@ public class FightManager : MonoBehaviour
         foreach (DotManager.DOT dot in activeDOTs)
         {
              // Applique les dégâts du DOT
-            enemyCurrentHealth -= dot.damagePerTurn;
+            playerHealth.TakeDamage(dot.damagePerTurn/PlayerStats.playerCurrentDefense);
             Debug.Log($"DOT {dot.name} inflige {dot.damagePerTurn} dégâts. Tours restants : {dot.remainingTurns}");
 
             // Réduit la durée du DOT
@@ -125,6 +131,7 @@ public class FightManager : MonoBehaviour
             {
             expiredDOTs.Add(dot);
             }
+            hadPlayerTakedDamageFromDot=true;
         }
 
         // Supprime les DOT expirés
@@ -188,11 +195,17 @@ public class FightManager : MonoBehaviour
         // Boucle principale du combat (basée sur la santé réelle du joueur et de l'ennemi)
         while (enemyCurrentHealth > 0 && PlayerStats.playerCurrentHealth > 0)
         {
-            // Tour du joueur
-            announcerText.GetComponent<Text>().text = "C'est a Kriss d'agir";
             // Juste avant l'action du joueur
             UpdateDOTs();
-            yield return new WaitForSecondsRealtime(1);
+            if(hadPlayerTakedDamageFromDot)
+            {
+                announcerText.GetComponent<Text>().text = "Kriss souffre du poison";
+                yield return new WaitForSecondsRealtime(1);
+                hadPlayerTakedDamageFromDot=false;
+            }
+
+            // Tour du joueur
+            announcerText.GetComponent<Text>().text = "C'est a Kriss d'agir";
             isPlayerTurn = true; // Le joueur peut agir
 
             // Attente que le joueur effectue une action
@@ -223,6 +236,7 @@ public class FightManager : MonoBehaviour
             // Vérification de la santé du joueur après le tour de l'ennemi
             if (PlayerStats.playerCurrentHealth == 0)
             {
+                yield return new WaitForSecondsRealtime(1);
                 announcerText.GetComponent<Text>().text = "An ally as been slain";
                 break;  // Fin du combat si le joueur est vaincu
             }

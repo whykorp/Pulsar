@@ -16,8 +16,8 @@ MonoBehaviour:
   enemyDescription: "attention il va te faire exploser avec son zyiklon b int\xE9gr\xE9e"
   baseHp: 80
   baseDef: 2
-  baseAttack: 1
-  techniques: 
+  baseAttack: 3
+  techniques: 020000000000000001000000
   baseSpeed: 1
   mind: 0
   xpGivedAtDead: 200
