@@ -93,6 +93,8 @@ MonoBehaviour:
   inFightMainMenu: {fileID: 0}
   enemyList:
   - {fileID: 11400000, guid: e765ae7f3ff67431db546c5976fc50d3, type: 2}
+  - {fileID: 11400000, guid: 66734cbc529f52e43aff926d36778560, type: 2}
+  - {fileID: 11400000, guid: 48a9739ac92cf43e48d74a50e99b856e, type: 2}
   difficulty: 3
   facility: 100
 --- !u!1 &4976373133085919455

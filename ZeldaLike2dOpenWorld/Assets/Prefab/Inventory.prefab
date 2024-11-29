@@ -52,5 +52,7 @@ MonoBehaviour:
   itemUiImage: {fileID: 0}
   itemUiName: {fileID: 0}
   emptyItemImage: {fileID: 21300000, guid: 3b590c8f80dc3a94184f74c58835d729, type: 3}
+  adviceUseItemImage: {fileID: 21300000, guid: 0c7b1c6c1e76b56469242fe0262f4984, type: 2}
+  adviceUseItem: {fileID: 0}
   canvasgroup: {fileID: 0}
   timeToFade: 2
