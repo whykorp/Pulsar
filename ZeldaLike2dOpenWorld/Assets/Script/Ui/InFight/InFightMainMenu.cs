@@ -37,21 +37,7 @@ public class InFightMainMenu : MonoBehaviour
     }
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.P))
-        {
-            if(inFight)
-            {
-                QuitFight();
-            }
-            else
-            {
-                StartFight(enemyList[0],1);
-            }
-        }
-        if(Input.GetKeyDown(KeyCode.O))
-        {
-            StartFight(enemyList[0],3);
-        }
+        
     }
 
     public void StartFight(InFightEnemyData _inFightEnemyData, int _lvl)

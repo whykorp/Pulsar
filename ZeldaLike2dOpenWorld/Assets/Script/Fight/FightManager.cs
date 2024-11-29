@@ -101,7 +101,7 @@ public class FightManager : MonoBehaviour
             if (buff.Value.duration <= 0)
             {
                 buffsToRemove.Add(buff.Key);
-                RemoveBuffEffect(buff.Key);
+                RemoveBuffEffect(buff.Key, buff.Value);
             }
             
         }
@@ -143,7 +143,7 @@ public class FightManager : MonoBehaviour
     }
 
 
-    public void RemoveBuffEffect(string buffType)
+    public void RemoveBuffEffect(string buffType, BuffManager.Buff _buff)
     {
         // En fonction du type de buff, on réinitialise les stats du joueur
         if (buffType == "attack")
@@ -158,12 +158,12 @@ public class FightManager : MonoBehaviour
         }
         else if (buffType == "SynergisticBuff")
         {
-            PlayerStats.playerCurrentAttack /= 1.5f;  // Annule l'augmentation du SynergisticBuff
+            PlayerStats.playerCurrentAttack /= _buff.value;  // Annule l'augmentation du SynergisticBuff
             Debug.Log("Synergistic Buff expire");
         }
         else if (buffType == "FirewallUpgrade")
         {
-            PlayerStats.playerCurrentDefense /= 1.5f;  // Annule l'augmentation du SynergisticBuff
+            PlayerStats.playerCurrentDefense /= _buff.value;  // Annule l'augmentation du SynergisticBuff
             Debug.Log("Firewall Upgrade expire");
         }
         // Ajouter d'autres types de buff ici...

@@ -95,16 +95,16 @@ public class ChooseModule : MonoBehaviour
         switch(_attackId)
         {
             case 1:
-                inFightPlayerAction.SimpleAttack();
+                StartCoroutine(inFightPlayerAction.SimpleAttack());
                 break;
             case 2:
-                inFightPlayerAction.PowerAttack();
+                StartCoroutine(inFightPlayerAction.PowerAttack());
                 break;
             case 3:
-                inFightPlayerAction.HealingQuery();
+                StartCoroutine(inFightPlayerAction.HealingQuery());
                 break;
             case 4:
-                inFightPlayerAction.SynergisticBuff();
+                StartCoroutine(inFightPlayerAction.SynergisticBuff());
                 break;
         }
     }

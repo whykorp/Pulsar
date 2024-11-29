@@ -18,7 +18,9 @@ public class EnemyAttack : MonoBehaviour
             case 0:
             
 
-                techniquesUtilised=Random.Range(0,_inFightEnemyData.techniques.Length-1);
+                techniquesUtilised=Random.Range(0,_inFightEnemyData.techniques.Length);
+                Debug.Log($"technique utilisée{techniquesUtilised}");
+                Debug.Log(_inFightEnemyData.techniques.Length);
                 switch(_inFightEnemyData.techniques[techniquesUtilised])
                 {
                     case 0:

@@ -14,10 +14,7 @@ public class AttackButton : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Q))
-        {
-            OnAttackButtonPressed();
-        }
+    
     }
     public void OnAttackButtonPressed()
     {

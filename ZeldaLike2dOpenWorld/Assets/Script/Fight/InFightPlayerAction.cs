@@ -1,37 +1,56 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InFightPlayerAction : MonoBehaviour
 {
     public FightManager fightManager;
     public HealthBar enemyHealthBar;
     public HealthBar playerHealthBar;
+    public GameObject inputField;
+    public Text inputFieldResult;
+    public Text inputFieldPlaceholder;
+    public string inputFieldContent;
+    public float typingTimer;
+    public float typingDuration;
+    bool isEnterPressed;
+    bool isGoodLineEnter;
+    public float critDificulty=5;
 
-    // Update is called once per frame
+    void Awake()
+    {
+        inputField.SetActive(false);
+    }
+
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.R)&&FightManager.isPlayerTurn==true)
+        typingTimer+=0.01666666666f;
+        isEnterPressed=Input.GetKeyDown(KeyCode.Return);
+        
+    }
+    public IEnumerator GetPlayerCommandLine(string commandLineToType)
+    {
+        Debug.Log("démarééé");
+        Debug.Log(commandLineToType);
+        inputField.SetActive(true);
+        inputFieldPlaceholder.text=commandLineToType;
+        
+        typingTimer=0;
+        yield return new WaitUntil(()=>isEnterPressed==true);
+        typingDuration=typingTimer;
+        if(inputFieldResult.text==commandLineToType)
         {
-            SimpleAttack();
+            isGoodLineEnter=true;
         }
-        if(Input.GetKeyDown(KeyCode.T)&&FightManager.isPlayerTurn==true)
+        else
         {
-            PowerAttack();
+            isGoodLineEnter=false;
         }
-        if(Input.GetKeyDown(KeyCode.Y)&&FightManager.isPlayerTurn==true)
-        {
-            HealingQuery();
-        }
-        if(Input.GetKeyDown(KeyCode.U)&&FightManager.isPlayerTurn==true)
-        {
-            SynergisticBuff();
-        }
-        if(Input.GetKeyDown(KeyCode.I)&&FightManager.isPlayerTurn==true)
-        {
-            FirewallUpgrade();
-        }
+        inputField.GetComponent<InputField>().text="";
+        inputField.SetActive(false);
     }
 
     void CreateBuff(string _buffType, string _buffName, BuffManager.Buff _buff)
@@ -53,50 +72,132 @@ public class InFightPlayerAction : MonoBehaviour
     //SQL:
     //Module 1:
     //PlayerStats.playerCurrentAttack,InFightMainMenu.enemyCurrentDefense
-    public void SimpleAttack()
+    public IEnumerator SimpleAttack()
     {
-        FightManager.enemyCurrentHealth-=100*PlayerStats.playerCurrentAttack*PlayerStats.playerAttackCoeficien/FightManager.enemyCurrentDefense;
-        Debug.Log(FightManager.enemyCurrentHealth);
-        enemyHealthBar.SetHealth(FightManager.enemyCurrentHealth);
-        FightManager.playerAction="Kriss utilise Simple_Attack()";
-        FightManager.isPlayerTurn=false;
-    }
-
-    public void PowerAttack()
-    {
-        float rand = UnityEngine.Random.Range(0f, 1f);
-        if(rand > 0.49f)  // 50% chance to succeed
+        Debug.Log("coroutine started");
+        StartCoroutine(GetPlayerCommandLine("simple_attack()"));
+        yield return new WaitUntil(()=>isEnterPressed);
+        if(isGoodLineEnter)
         {
-            FightManager.enemyCurrentHealth -= 50 * PlayerStats.playerCurrentAttack * PlayerStats.playerAttackCoeficien / FightManager.enemyCurrentDefense;
-            Debug.Log("Power_Attack successful! Enemy Health: " + FightManager.enemyCurrentHealth);
+            if(typingDuration<critDificulty)
+            {
+                FightManager.enemyCurrentHealth-=45*PlayerStats.playerCurrentAttack*PlayerStats.playerAttackCoeficien/FightManager.enemyCurrentDefense;
+                FightManager.playerAction="Kriss utilise Simple_Attack(), coup critique!";
+            }
+            else
+            {
+                FightManager.enemyCurrentHealth-=30*PlayerStats.playerCurrentAttack*PlayerStats.playerAttackCoeficien/FightManager.enemyCurrentDefense;
+                FightManager.playerAction="Kriss utilise Simple_Attack()";
+            }
+            //Debug.Log(FightManager.enemyCurrentHealth);
             enemyHealthBar.SetHealth(FightManager.enemyCurrentHealth);
-            FightManager.playerAction = "Kriss utilise Power_Attack()";
+            
+            FightManager.isPlayerTurn=false;
         }
         else
         {
-            Debug.Log("Power_Attack failed!");
-            FightManager.playerAction = "Kriss a échoué Power_Attack()";
+            FightManager.playerAction="Kriss a échoué simple Attack()";
+            FightManager.isPlayerTurn=false;
         }
-        FightManager.isPlayerTurn = false;
+        
+    }
+
+    public IEnumerator PowerAttack()
+    {
+        StartCoroutine(GetPlayerCommandLine("power_attack()"));
+        yield return new WaitUntil(()=>isEnterPressed);
+        if(isGoodLineEnter)
+        {
+            float rand = UnityEngine.Random.Range(0f, 1f);
+            if(rand > 0.49f)  // 50% chance to succeed
+            {
+                if(typingDuration<critDificulty)
+                {
+                    FightManager.enemyCurrentHealth -= 100 * PlayerStats.playerCurrentAttack * PlayerStats.playerAttackCoeficien / FightManager.enemyCurrentDefense;
+                    FightManager.playerAction = "Kriss utilise Power_Attack(), coup critique!";
+                }
+                else
+                {
+                    FightManager.enemyCurrentHealth -= 75 * PlayerStats.playerCurrentAttack * PlayerStats.playerAttackCoeficien / FightManager.enemyCurrentDefense;
+                    FightManager.playerAction = "Kriss utilise Power_Attack()";
+                }
+                
+                Debug.Log("Power_Attack successful! Enemy Health: " + FightManager.enemyCurrentHealth);
+                enemyHealthBar.SetHealth(FightManager.enemyCurrentHealth);
+                
+            }
+            else
+            {
+                Debug.Log("Power_Attack failed!");
+                FightManager.playerAction = "Kriss a échoué Power_Attack()";
+            }
+            FightManager.isPlayerTurn = false;
+        }
+        else
+        {
+            FightManager.playerAction="Kriss a échoué Power_Attack()";
+            FightManager.isPlayerTurn=false;
+        }
+        
     }
 
     // Healing Query to restore player health
-    public void HealingQuery()
+    public IEnumerator HealingQuery()
     {
-        float healAmount = 0.25f * PlayerStats.playerMaxHealth;
-        PlayerStats.playerCurrentHealth = Mathf.Min(PlayerStats.playerMaxHealth,PlayerStats.playerCurrentHealth + healAmount);
-        Debug.Log("Healing_Query successful! Player Health: " +PlayerStats.playerCurrentHealth);
-        playerHealthBar.SetHealth(PlayerStats.playerCurrentHealth);
-        FightManager.playerAction = "Kriss utilise Healing_Query()";
-        FightManager.isPlayerTurn = false;
+        StartCoroutine(GetPlayerCommandLine("healing_query()"));
+        yield return new WaitUntil(()=>isEnterPressed);
+        if(isGoodLineEnter)
+        {
+            if(typingDuration<critDificulty)
+            {
+                float healAmount = 0.40f * PlayerStats.playerMaxHealth;
+                PlayerStats.playerCurrentHealth = Mathf.Min(PlayerStats.playerMaxHealth,PlayerStats.playerCurrentHealth + healAmount);
+                FightManager.playerAction = "Kriss utilise Healing_Query(), coup critique!";
+            }
+            else
+            {
+                float healAmount = 0.25f * PlayerStats.playerMaxHealth;
+                PlayerStats.playerCurrentHealth = Mathf.Min(PlayerStats.playerMaxHealth,PlayerStats.playerCurrentHealth + healAmount);
+                FightManager.playerAction = "Kriss utilise Healing_Query()";
+            }
+            
+            playerHealthBar.SetHealth(PlayerStats.playerCurrentHealth);
+            FightManager.isPlayerTurn = false;
+        }
+        else
+        {
+            FightManager.playerAction="Kriss a échoué Healing_Query()";
+            FightManager.isPlayerTurn=false;
+        }
+        
     }
 
-    public void SynergisticBuff()
+    public IEnumerator SynergisticBuff()
     {
-        BuffManager.Buff SynergisticBuff = new BuffManager.Buff("SynergisticBuff", 1.5f, 3+1);  // +50% attaque pour 3 tours
-        CreateBuff("attack","SynergisticBuff", SynergisticBuff);
-        FightManager.playerAction = "Kriss utilise Synergistic Buff";
-        FightManager.isPlayerTurn = false;
+        StartCoroutine(GetPlayerCommandLine("synergistic_buff()"));
+        yield return new WaitUntil(()=>isEnterPressed);
+        if(isGoodLineEnter)
+        {
+            if(typingDuration<critDificulty)
+            {
+                BuffManager.Buff SynergisticBuffCrit = new BuffManager.Buff("SynergisticBuff", 1.7f, 3+1);  // +50% attaque pour 3 tours
+                CreateBuff("attack","SynergisticBuff", SynergisticBuffCrit);
+                FightManager.playerAction = "Kriss utilise Synergistic Buff, coup critique!";
+            }
+            else
+            {
+                BuffManager.Buff SynergisticBuff = new BuffManager.Buff("SynergisticBuff", 1.5f, 3+1);  // +50% attaque pour 3 tours
+                CreateBuff("attack","SynergisticBuff", SynergisticBuff);
+                FightManager.playerAction = "Kriss utilise Synergistic Buff";
+            }
+            FightManager.isPlayerTurn = false;
+        }
+        else
+        {
+            FightManager.playerAction="Kriss a échoué Synergistic_Buff()";
+            FightManager.isPlayerTurn=false;
+        }
+        
     }
 
     public void FirewallUpgrade()
