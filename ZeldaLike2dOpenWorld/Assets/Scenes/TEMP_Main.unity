@@ -58433,6 +58433,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 415952270}
   BlueOpenedChest: {fileID: 21300000, guid: 6a79246bc86318c498a1ab933a160969, type: 3}
   interactUI: {fileID: 1438929102}
+  item: {fileID: 11400000, guid: 3faae46a0e377204f95570713383ae0a, type: 2}
 --- !u!4 &433036150 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2099381487289760353, guid: 6d78cbaefc0baa94c83120ee97aa7863, type: 3}
