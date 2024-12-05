@@ -17,7 +17,7 @@ MonoBehaviour:
   baseHp: 80
   baseDef: 2
   baseAttack: 3
-  techniques: 020000000000000001000000
+  techniques: 000000000100000002000000
   baseSpeed: 1
   mind: 0
   xpGivedAtDead: 200

@@ -207,5 +207,10 @@ public class InFightPlayerAction : MonoBehaviour
         FightManager.playerAction = "Kriss utilise Firewall Upgrade";
         FightManager.isPlayerTurn = false;
     }
+
+
+    //SQL:
+    //Module 2:
+    
     
 }

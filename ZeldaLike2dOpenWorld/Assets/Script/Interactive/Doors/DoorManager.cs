@@ -7,8 +7,8 @@ public class DoorManager : MonoBehaviour
     public bool isOpen;
     private bool isInRange=false;
     public InteractUI interactUI;
-    private GameObject openedDoor;
-    private GameObject closedDoor;
+    public GameObject openedDoor;
+    public GameObject closedDoor;
 
     void Awake()
     {
