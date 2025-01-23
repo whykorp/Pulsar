@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TerminalsActivation : MonoBehaviour
 {
-
+    private bool isActivated=false;
     private bool isInRange;
     public SpriteRenderer RedSpriteBase;
     public SpriteRenderer RedSprite1;
@@ -18,6 +18,7 @@ public class TerminalsActivation : MonoBehaviour
     public bool refreshEnemyDetection=false;
     public TerminalZoneList terminalZoneList;
     public InteractUI interactUI;
+    public TerminalGui terminalGui;
 
     void Update()
     {
@@ -25,14 +26,21 @@ public class TerminalsActivation : MonoBehaviour
         {
             if(Input.GetKeyDown(KeyCode.E))
             {
-                Debug.Log("you saved your game");
-                RedSpriteBase.sprite=BlueSpriteBase;
-                RedSprite1.sprite=BlueSprite1;
-                RedSprite2.sprite=BlueSprite2;
-                terminalZoneList.ZoneList[zoneName]=true;
-                enemyPathFinding.SetTarget(enemyPathFinding.targetPosition[enemyPathFinding.destpoint], false);
-                EnemyNavMeshRoaming.resetEnemyDestination();
-
+                if(isActivated==false)
+                {
+                    Debug.Log("you saved your game");
+                    RedSpriteBase.sprite=BlueSpriteBase;
+                    RedSprite1.sprite=BlueSprite1;
+                    RedSprite2.sprite=BlueSprite2;
+                    terminalZoneList.ZoneList[zoneName]=true;
+                    enemyPathFinding.SetTarget(enemyPathFinding.targetPosition[enemyPathFinding.destpoint], false);
+                    EnemyNavMeshRoaming.resetEnemyDestination();
+                    isActivated=true;
+                }
+                else
+                {
+                    terminalGui.OpenTerminalUi();
+                }
             }
         }
     }
