@@ -6,6 +6,7 @@ public class PickUpItem : MonoBehaviour
     private bool isInRange;
     public InteractUI interactUI;
     public Item item;
+    public NewItemUI newItemUI;
     // public AudioClip soundToPlay;
 
     void Update()
@@ -20,6 +21,7 @@ public class PickUpItem : MonoBehaviour
     {
         Inventory.instance.content.Add(item);
         StartCoroutine(Inventory.instance.UpdateInventoryUI());
+        StartCoroutine(newItemUI.ShowNewItemUI(item));
         // AudioManager.instance.PlayClipAt(soundToPlay, transform.position);
         interactUI.HideUiInteract();
         Destroy(gameObject);

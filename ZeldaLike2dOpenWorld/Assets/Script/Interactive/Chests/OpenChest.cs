@@ -9,7 +9,9 @@ public class OpenChest : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public Sprite BlueOpenedChest;
     public InteractUI interactUI;
-    public Item item;
+    public Item itemGiven;
+    public int coinsGiven;
+    public NewItemUI newItemUI;
 
     void Update()
     {
@@ -52,6 +54,9 @@ public class OpenChest : MonoBehaviour
     public void OnChestOpened(){
         Debug.Log("chest openede");
         spriteRenderer.sprite=BlueOpenedChest;
-        Inventory.instance.content.Add(item);
+        StartCoroutine(newItemUI.ShowNewItemUI(itemGiven));
+        Inventory.instance.content.Add(itemGiven);
+        Inventory.instance.AddCoins(coinsGiven);
+        StartCoroutine(Inventory.instance.UpdateInventoryUI());
     }
 }
