@@ -14,7 +14,9 @@ public class TerminalGui : MonoBehaviour
     public GameObject choosedModuleIndicator2;
     public GameObject choosedModuleIndicator3;
     public GameObject choosedModuleIndicator4;
+    public ModulePanelData modulePanelData;
     public int choosedModuleSlot;
+    public AttackPanelData[] attackPanelDatas;
 
     void Awake()
     {
@@ -36,6 +38,28 @@ public class TerminalGui : MonoBehaviour
     {
         chooseModuleMenu.SetActive(true);
         accesMenu.SetActive(false);
+    }
+
+    public void AssignModuleToSlot(int _moduleNumber)
+    {
+        switch(choosedModuleSlot){
+            case 1:
+                Debug.Log("Module "+_moduleNumber+" assigned to slot 1");
+                break;
+            
+            case 2:
+                Debug.Log("Module "+_moduleNumber+" assigned to slot 2");
+                break;
+
+            case 3:
+                Debug.Log("Module "+_moduleNumber+" assigned to slot 3");
+                break;
+
+            case 4:
+                Debug.Log("Module "+_moduleNumber+" assigned to slot 4");
+                break;
+                //A FINIRRRRRRRR
+        }
     }
 
     public void OnChoosingModuleSlot(int _slotNumber)

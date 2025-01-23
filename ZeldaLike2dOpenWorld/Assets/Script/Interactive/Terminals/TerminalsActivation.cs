@@ -39,6 +39,7 @@ public class TerminalsActivation : MonoBehaviour
                 }
                 else
                 {
+                    Debug.Log("you already saved your game");
                     terminalGui.OpenTerminalUi();
                 }
             }
