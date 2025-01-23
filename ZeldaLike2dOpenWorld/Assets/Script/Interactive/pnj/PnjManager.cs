@@ -26,6 +26,7 @@ public class PnjManager : MonoBehaviour
         {   
             interactUI.ShowUiInteract();
             isInRange = true;
+            
         }
     }
 
@@ -35,6 +36,9 @@ public class PnjManager : MonoBehaviour
         {
             interactUI.HideUiInteract();
             isInRange = false;
+            StopAllCoroutines(); // Stop any ongoing dialogue coroutine
+            pnjDialogue.SetActive(false); // Hide the dialogue box
+            Time.timeScale = 1; // Reset time scale
         }
     }
 
@@ -42,10 +46,10 @@ public class PnjManager : MonoBehaviour
     {
         if(isInRange==true)
         {
-            if(Input.GetKeyDown(KeyCode.E))
+            if(Input.GetKeyDown(KeyCode.E) && !pnjDialogue.activeSelf)
             {
                     StartCoroutine(OnPnjTrigger());
-                    interactUI.HideUiInteract();
+                    //interactUI.HideUiInteract();
             }     
         }
     }
@@ -53,7 +57,8 @@ public class PnjManager : MonoBehaviour
 
     public IEnumerator OnPnjTrigger()
     {
-        Time.timeScale=0;
+        interactUI.HideUiInteract();
+        //Time.timeScale=0;
         pnjDialogue.SetActive(true);
         pnjNameText.text=pnjName;
         int i =0;
@@ -68,7 +73,10 @@ public class PnjManager : MonoBehaviour
             Debug.Log("Touched");
         }
         pnjDialogue.SetActive(false);
-        Time.timeScale=1;
+        //Time.timeScale=1;
+        isInRange=true;
+        interactUI.ShowUiInteract();
+        yield break;
     }
 
 }
