@@ -454,7 +454,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Base Binary
+  m_Text: Binary
 --- !u!222 &214441891
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -791,7 +791,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Base Batch
+  m_Text: Python
 --- !u!222 &368851424
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -809,6 +809,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f156219e6a4204a428b9a05ae1c94ece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &412842223 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4784968706891775411, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
+  m_PrefabInstance: {fileID: 3908265935548849512}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &414470474
@@ -9110,7 +9121,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 450068175}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 648467250}
+        m_TargetAssemblyTypeName: TerminalGui, Assembly-CSharp
+        m_MethodName: AssignModuleToSlot
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 7
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &450068175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9247,7 +9270,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 709.3001}
+  m_AnchoredPosition: {x: 0, y: 472.4}
   m_SizeDelta: {x: 942.9, y: 236.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &534004704
@@ -9293,7 +9316,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 534004705}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 648467250}
+        m_TargetAssemblyTypeName: TerminalGui, Assembly-CSharp
+        m_MethodName: AssignModuleToSlot
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &534004705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9505,9 +9540,22 @@ MonoBehaviour:
   choosedModuleIndicator2: {fileID: 1219188622}
   choosedModuleIndicator3: {fileID: 262297787}
   choosedModuleIndicator4: {fileID: 1126831306}
-  modulePanelData: {fileID: 0}
+  modulePanelData: {fileID: 11400000, guid: dd4ae53fb38c24905b156a3312af813b, type: 2}
   choosedModuleSlot: 0
-  attackPanelDatas: []
+  attackPanelDatas:
+  - {fileID: 11400000, guid: 76d5459b5c13a41c28b05c554a1cd270, type: 2}
+  - {fileID: 11400000, guid: d679d36b9fafb42afb503a17b328fcb9, type: 2}
+  - {fileID: 11400000, guid: 4b9ed390241c0403d947cc54c70bc33e, type: 2}
+  - {fileID: 11400000, guid: 60f99ea3278324f50bcfd6ce1659f67e, type: 2}
+  - {fileID: 11400000, guid: 9474e12a99cf4448692149e26d3a3dc4, type: 2}
+  - {fileID: 11400000, guid: d651f352552394c2d80bb8c77e7f7221, type: 2}
+  - {fileID: 11400000, guid: 05c8b5c52c5204d1cbc609bb8319a7d1, type: 2}
+  - {fileID: 11400000, guid: 010083509b976472986f3fd5cf405e86, type: 2}
+  - {fileID: 11400000, guid: 33c45160ff573491eb9fbc118317aafc, type: 2}
+  textModuleSlot1: {fileID: 1450045779}
+  textModuleSlot2: {fileID: 1449426232}
+  textModuleSlot3: {fileID: 412842223}
+  textModuleSlot4: {fileID: 2002687122}
 --- !u!1 &662682161
 GameObject:
   m_ObjectHideFlags: 0
@@ -9626,7 +9674,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 699697540}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 648467250}
+        m_TargetAssemblyTypeName: TerminalGui, Assembly-CSharp
+        m_MethodName: AssignModuleToSlot
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 8
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &699697540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9822,10 +9882,10 @@ RectTransform:
   - {fileID: 1814046909}
   - {fileID: 1242280089}
   - {fileID: 534004703}
-  - {fileID: 1819704266}
   - {fileID: 1288169464}
   - {fileID: 1787451388}
   - {fileID: 1541354733}
+  - {fileID: 1819704266}
   - {fileID: 450068173}
   - {fileID: 699697538}
   m_Father: {fileID: 975200377}
@@ -10384,7 +10444,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -475.19995}
+  m_AnchoredPosition: {x: 0, y: 709.30005}
   m_SizeDelta: {x: 942.9, y: 236.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1242280090
@@ -10430,7 +10490,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1242280091}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 648467250}
+        m_TargetAssemblyTypeName: TerminalGui, Assembly-CSharp
+        m_MethodName: AssignModuleToSlot
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1242280091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10556,7 +10628,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1288169466}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 648467250}
+        m_TargetAssemblyTypeName: TerminalGui, Assembly-CSharp
+        m_MethodName: AssignModuleToSlot
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1288169466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10665,7 +10749,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Base Assembly
+  m_Text: Assembly
 --- !u!222 &1296019415
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10835,7 +10919,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Base PHP (html)
+  m_Text: Batch
 --- !u!222 &1425787685
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10914,7 +10998,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Base C
+  m_Text: C
 --- !u!222 &1445615404
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10923,6 +11007,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1445615401}
   m_CullTransparentMesh: 1
+--- !u!114 &1449426232 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 686545993536646759, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
+  m_PrefabInstance: {fileID: 3908265935548849512}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1450045779 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6504660694323961401, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
+  m_PrefabInstance: {fileID: 3908265935548849512}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1541354732
 GameObject:
   m_ObjectHideFlags: 0
@@ -11005,7 +11111,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1541354735}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 648467250}
+        m_TargetAssemblyTypeName: TerminalGui, Assembly-CSharp
+        m_MethodName: AssignModuleToSlot
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1541354735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11341,7 +11459,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Base SQL
+  m_Text: SQL
 --- !u!222 &1751759597
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11432,7 +11550,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1787451390}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 648467250}
+        m_TargetAssemblyTypeName: TerminalGui, Assembly-CSharp
+        m_MethodName: AssignModuleToSlot
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1787451390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11642,7 +11772,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1814046911}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 648467250}
+        m_TargetAssemblyTypeName: TerminalGui, Assembly-CSharp
+        m_MethodName: AssignModuleToSlot
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1814046911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11751,7 +11893,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Base Python
+  m_Text: PHP
 --- !u!222 &1818225152
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11796,7 +11938,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 472.4002}
+  m_AnchoredPosition: {x: 0, y: -475.2}
   m_SizeDelta: {x: 942.9, y: 236.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1819704267
@@ -11842,7 +11984,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1819704268}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 648467250}
+        m_TargetAssemblyTypeName: TerminalGui, Assembly-CSharp
+        m_MethodName: AssignModuleToSlot
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 6
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1819704268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11951,7 +12105,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Base Java
+  m_Text: Java
 --- !u!222 &1855833759
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12021,6 +12175,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7447dbe9e0431e343861cfa6d22f64e9, type: 3}
+--- !u!114 &2002687122 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6243389304301020952, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
+  m_PrefabInstance: {fileID: 3908265935548849512}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2230779507714676009 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4666040168760362257, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
@@ -12045,6 +12210,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 686545993536646759, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 686545993536646759, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 686545993536646759, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 686545993536646759, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: b45189abecf3fe04284c9d9f0ed32c41, type: 3}
+    - target: {fileID: 686545993536646759, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 89
+      objectReference: {fileID: 0}
+    - target: {fileID: 686545993536646759, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 686545993536646759, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 58
+      objectReference: {fileID: 0}
     - target: {fileID: 1108518886573665120, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -12128,6 +12321,90 @@ PrefabInstance:
     - target: {fileID: 3891310551529496737, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4784968706891775411, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4784968706891775411, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4784968706891775411, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4784968706891775411, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: b45189abecf3fe04284c9d9f0ed32c41, type: 3}
+    - target: {fileID: 4784968706891775411, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 89
+      objectReference: {fileID: 0}
+    - target: {fileID: 4784968706891775411, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4784968706891775411, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 58
+      objectReference: {fileID: 0}
+    - target: {fileID: 6243389304301020952, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6243389304301020952, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6243389304301020952, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6243389304301020952, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: b45189abecf3fe04284c9d9f0ed32c41, type: 3}
+    - target: {fileID: 6243389304301020952, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 89
+      objectReference: {fileID: 0}
+    - target: {fileID: 6243389304301020952, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6243389304301020952, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 58
+      objectReference: {fileID: 0}
+    - target: {fileID: 6504660694323961401, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6504660694323961401, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6504660694323961401, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6504660694323961401, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: b45189abecf3fe04284c9d9f0ed32c41, type: 3}
+    - target: {fileID: 6504660694323961401, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 89
+      objectReference: {fileID: 0}
+    - target: {fileID: 6504660694323961401, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6504660694323961401, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 58
       objectReference: {fileID: 0}
     - target: {fileID: 7678756741237204570, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
       propertyPath: playerHealth
