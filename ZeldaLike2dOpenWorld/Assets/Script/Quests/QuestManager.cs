@@ -32,33 +32,54 @@ public class QuestManager : MonoBehaviour
         GameObject newQuestPanel = Instantiate(questPanelTemplate, questPanelParent);
         newQuestPanel.transform.Find("QuestName").GetComponent<Text>().text = quest.name;
         newQuestPanel.transform.Find("QuestLocation").GetComponent<Text>().text = quest.location;
-        if (quest.isPrincipal == true){
+
+        if (quest.isPrincipal)
+        {
             newQuestPanel.transform.Find("QuestType").GetComponent<Text>().text = "Principal";
             newQuestPanel.transform.Find("QuestType").GetComponent<Text>().color = Color.red;
         }
-        else{
+        else
+        {
             newQuestPanel.transform.Find("QuestType").GetComponent<Text>().text = "Annexe";
             newQuestPanel.transform.Find("QuestType").GetComponent<Text>().color = Color.blue;
         }
-        int questCount = questPanelParent.transform.childCount; // Compte des éléments dans le parent
+
+        // Récupération du bouton et assignation correcte de la quête
+        Button questButton = newQuestPanel.GetComponent<Button>();
+        Quests questCopy = quest; // Fixe la quête pour éviter le problème de référence
+        if (questButton != null)
+        {
+            questButton.onClick.AddListener(() => OpenQuestPanel(questCopy));
+        }
+
+        // Ajustement de la position
+        int questCount = questPanelParent.childCount;
         if (questCount > 1) 
         {
-            newQuestPanel.transform.localPosition = new Vector3(491, 325 - (questCount * 225), 0); // Déplace vers le bas de 100px à partir du 2ème élément
+            newQuestPanel.transform.localPosition = new Vector3(491, 325 - (questCount * 225), 0);
         }
+
     }
 
     public void OpenQuestPanel(Quests quest)
     {
+        Debug.Log("Ouverture du panneau pour la quête : " + quest.name); // Debug pour vérifier
+
         questInfoNameText.text = quest.name;
         questInfoLocationText.text = quest.location;
-        if (quest.isPrincipal == true){
+
+        if (quest.isPrincipal)
+        {
             questInfoTypeText.text = "Principal";
             questInfoTypeText.color = Color.red;
         }
-        else{
+        else
+        {
             questInfoTypeText.text = "Annexe";
             questInfoTypeText.color = Color.blue;
         }
+
         questInfoDescriptionText.text = quest.description;
     }
+
 }
