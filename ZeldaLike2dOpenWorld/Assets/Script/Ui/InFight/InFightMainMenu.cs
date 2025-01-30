@@ -22,6 +22,7 @@ public class InFightMainMenu : MonoBehaviour
     
 
     public FightManager fightManager;
+    public AssignFightButton assignFightButton;
     public InFightEnemyData[] enemyList;
     
     
@@ -50,6 +51,7 @@ public class InFightMainMenu : MonoBehaviour
         attackPanelUI.SetActive(false);
         Time.timeScale = 0;
         inFight = true;
+        assignFightButton.UpdateModuleButton();
         enemyNameText.text=_inFightEnemyData.enemyName;
         enemyHealthText.text=_inFightEnemyData.baseHp+"/";
         playerLvlText.text="Lvl "+PlayerStats.playerLvl;

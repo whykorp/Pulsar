@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59a9f7c3ce50143c6b40692089c6ca2b, type: 3}
+  m_Name: Binaire
+  m_EditorClassIdentifier: 
+  textSlot1: Binary 1
+  textSlot2: Binary 2
+  textSlot3: Binary 3
+  textSlot4: Binary 4
+  fonctionSlot1: 0
+  fonctionSlot2: 0
+  fonctionSlot3: 0
+  fonctionSlot4: 0

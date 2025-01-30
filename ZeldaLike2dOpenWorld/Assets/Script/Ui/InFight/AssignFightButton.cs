@@ -11,7 +11,7 @@ public class AssignFightButton : MonoBehaviour
     public Text textModuleButton3;
     public Text textModuleButton4;
     
-    void Awake()
+    public void UpdateModuleButton()
     {
         textModuleButton1.text=modulePanel.textSlot1;
         textModuleButton2.text=modulePanel.textSlot2;

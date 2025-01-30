@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TerminalGui : MonoBehaviour
 {
@@ -17,6 +18,10 @@ public class TerminalGui : MonoBehaviour
     public ModulePanelData modulePanelData;
     public int choosedModuleSlot;
     public AttackPanelData[] attackPanelDatas;
+    public Text textModuleSlot1;
+    public Text textModuleSlot2;
+    public Text textModuleSlot3;
+    public Text textModuleSlot4;
 
     void Awake()
     {
@@ -26,12 +31,28 @@ public class TerminalGui : MonoBehaviour
         choosedModuleIndicator4.SetActive(false);
         terminalUI.SetActive(false);
     }
+
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            CloseTerminalUi();
+        }
+    }
     public void OpenTerminalUi()
     {
         inGameUI.SetActive(false);
         terminalUI.SetActive(true);
         chooseModuleMenu.SetActive(false);
         Time.timeScale=0;
+    }   
+
+    public void CloseTerminalUi()
+    {
+        inGameUI.SetActive(true);
+        terminalUI.SetActive(false);
+        chooseModuleMenu.SetActive(false);
+        Time.timeScale=1;
     }   
 
     public void OnAccesChooseModuleMenuButtonClicked()
@@ -45,20 +66,31 @@ public class TerminalGui : MonoBehaviour
         switch(choosedModuleSlot){
             case 1:
                 Debug.Log("Module "+_moduleNumber+" assigned to slot 1");
+                textModuleSlot1.text = attackPanelDatas[_moduleNumber].name;
+                modulePanelData.textSlot1=attackPanelDatas[_moduleNumber].name;
+                modulePanelData.fonctionSlot1=attackPanelDatas[_moduleNumber];
                 break;
             
             case 2:
                 Debug.Log("Module "+_moduleNumber+" assigned to slot 2");
+                textModuleSlot2.text = attackPanelDatas[_moduleNumber].name;
+                modulePanelData.textSlot2=attackPanelDatas[_moduleNumber].name;
+                modulePanelData.fonctionSlot2=attackPanelDatas[_moduleNumber];
                 break;
 
             case 3:
                 Debug.Log("Module "+_moduleNumber+" assigned to slot 3");
+                textModuleSlot3.text = attackPanelDatas[_moduleNumber].name;
+                modulePanelData.textSlot3=attackPanelDatas[_moduleNumber].name;
+                modulePanelData.fonctionSlot3=attackPanelDatas[_moduleNumber];
                 break;
 
             case 4:
                 Debug.Log("Module "+_moduleNumber+" assigned to slot 4");
+                textModuleSlot4.text = attackPanelDatas[_moduleNumber].name;
+                modulePanelData.textSlot4=attackPanelDatas[_moduleNumber].name;
+                modulePanelData.fonctionSlot4=attackPanelDatas[_moduleNumber];
                 break;
-                //A FINIRRRRRRRR
         }
     }
 
