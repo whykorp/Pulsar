@@ -31,12 +31,28 @@ public class TerminalGui : MonoBehaviour
         choosedModuleIndicator4.SetActive(false);
         terminalUI.SetActive(false);
     }
+
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            CloseTerminalUi();
+        }
+    }
     public void OpenTerminalUi()
     {
         inGameUI.SetActive(false);
         terminalUI.SetActive(true);
         chooseModuleMenu.SetActive(false);
         Time.timeScale=0;
+    }   
+
+    public void CloseTerminalUi()
+    {
+        inGameUI.SetActive(true);
+        terminalUI.SetActive(false);
+        chooseModuleMenu.SetActive(false);
+        Time.timeScale=1;
     }   
 
     public void OnAccesChooseModuleMenuButtonClicked()

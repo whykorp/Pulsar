@@ -72,22 +72,22 @@ public class InFightPlayerAction : MonoBehaviour
     //SQL:
     //Module 1:
     //PlayerStats.playerCurrentAttack,InFightMainMenu.enemyCurrentDefense
-    public IEnumerator SimpleAttack()
+    public IEnumerator SQLinjection()
     {
         Debug.Log("coroutine started");
-        StartCoroutine(GetPlayerCommandLine("simple_attack()"));
+        StartCoroutine(GetPlayerCommandLine("OR IF 1=1 THEN PASS"));
         yield return new WaitUntil(()=>isEnterPressed);
         if(isGoodLineEnter)
         {
             if(typingDuration<critDificulty)
             {
                 FightManager.enemyCurrentHealth-=45*PlayerStats.playerCurrentAttack*PlayerStats.playerAttackCoeficien/FightManager.enemyCurrentDefense;
-                FightManager.playerAction="Kriss utilise Simple_Attack(), coup critique!";
+                FightManager.playerAction="L'injection SQL est un succès, coup critique!";
             }
             else
             {
                 FightManager.enemyCurrentHealth-=30*PlayerStats.playerCurrentAttack*PlayerStats.playerAttackCoeficien/FightManager.enemyCurrentDefense;
-                FightManager.playerAction="Kriss utilise Simple_Attack()";
+                FightManager.playerAction="L'injection SQL est un succès!";
             }
             //Debug.Log(FightManager.enemyCurrentHealth);
             enemyHealthBar.SetHealth(FightManager.enemyCurrentHealth);
@@ -96,15 +96,15 @@ public class InFightPlayerAction : MonoBehaviour
         }
         else
         {
-            FightManager.playerAction="Kriss a échoué simple Attack()";
+            FightManager.playerAction="L'injection SQL a échoué";
             FightManager.isPlayerTurn=false;
         }
         
     }
 
-    public IEnumerator PowerAttack()
+    public IEnumerator DeleteDatabase()
     {
-        StartCoroutine(GetPlayerCommandLine("power_attack()"));
+        StartCoroutine(GetPlayerCommandLine("FROM DATABASE DROP *"));
         yield return new WaitUntil(()=>isEnterPressed);
         if(isGoodLineEnter)
         {
@@ -114,12 +114,12 @@ public class InFightPlayerAction : MonoBehaviour
                 if(typingDuration<critDificulty)
                 {
                     FightManager.enemyCurrentHealth -= 100 * PlayerStats.playerCurrentAttack * PlayerStats.playerAttackCoeficien / FightManager.enemyCurrentDefense;
-                    FightManager.playerAction = "Kriss utilise Power_Attack(), coup critique!";
+                    FightManager.playerAction = "La base de données a été supprimée, coup critique!";
                 }
                 else
                 {
                     FightManager.enemyCurrentHealth -= 75 * PlayerStats.playerCurrentAttack * PlayerStats.playerAttackCoeficien / FightManager.enemyCurrentDefense;
-                    FightManager.playerAction = "Kriss utilise Power_Attack()";
+                    FightManager.playerAction = "la base de données a été supprimée!";
                 }
                 
                 Debug.Log("Power_Attack successful! Enemy Health: " + FightManager.enemyCurrentHealth);
@@ -129,13 +129,13 @@ public class InFightPlayerAction : MonoBehaviour
             else
             {
                 Debug.Log("Power_Attack failed!");
-                FightManager.playerAction = "Kriss a échoué Power_Attack()";
+                FightManager.playerAction = "ERROR 1045 (28000): Access denied for user 'Kriss'@'Pulsar' (using password: YES)";
             }
             FightManager.isPlayerTurn = false;
         }
         else
         {
-            FightManager.playerAction="Kriss a échoué Power_Attack()";
+            FightManager.playerAction="Echec de la suppression de la base de données";
             FightManager.isPlayerTurn=false;
         }
         
@@ -144,7 +144,7 @@ public class InFightPlayerAction : MonoBehaviour
     // Healing Query to restore player health
     public IEnumerator HealingQuery()
     {
-        StartCoroutine(GetPlayerCommandLine("healing_query()"));
+        StartCoroutine(GetPlayerCommandLine("SET hp = hp + 25%"));
         yield return new WaitUntil(()=>isEnterPressed);
         if(isGoodLineEnter)
         {
@@ -152,13 +152,13 @@ public class InFightPlayerAction : MonoBehaviour
             {
                 float healAmount = 0.40f * PlayerStats.playerMaxHealth;
                 PlayerStats.playerCurrentHealth = Mathf.Min(PlayerStats.playerMaxHealth,PlayerStats.playerCurrentHealth + healAmount);
-                FightManager.playerAction = "Kriss utilise Healing_Query(), coup critique!";
+                FightManager.playerAction = "La requête de soin a réussi, coup critique!";
             }
             else
             {
                 float healAmount = 0.25f * PlayerStats.playerMaxHealth;
                 PlayerStats.playerCurrentHealth = Mathf.Min(PlayerStats.playerMaxHealth,PlayerStats.playerCurrentHealth + healAmount);
-                FightManager.playerAction = "Kriss utilise Healing_Query()";
+                FightManager.playerAction = "La requête de soin a réussi!";
             }
             
             playerHealthBar.SetHealth(PlayerStats.playerCurrentHealth);
@@ -166,15 +166,15 @@ public class InFightPlayerAction : MonoBehaviour
         }
         else
         {
-            FightManager.playerAction="Kriss a échoué Healing_Query()";
+            FightManager.playerAction="La requête de soin a échoué";
             FightManager.isPlayerTurn=false;
         }
         
     }
 
-    public IEnumerator SynergisticBuff()
+    public IEnumerator Overload()
     {
-        StartCoroutine(GetPlayerCommandLine("synergistic_buff()"));
+        StartCoroutine(GetPlayerCommandLine("OVERLOAD"));
         yield return new WaitUntil(()=>isEnterPressed);
         if(isGoodLineEnter)
         {
@@ -182,19 +182,19 @@ public class InFightPlayerAction : MonoBehaviour
             {
                 BuffManager.Buff SynergisticBuffCrit = new BuffManager.Buff("SynergisticBuff", 1.7f, 3+1);  // +50% attaque pour 3 tours
                 CreateBuff("attack","SynergisticBuff", SynergisticBuffCrit);
-                FightManager.playerAction = "Kriss utilise Synergistic Buff, coup critique!";
+                FightManager.playerAction = "Kriss utilise Overload, coup critique!";
             }
             else
             {
                 BuffManager.Buff SynergisticBuff = new BuffManager.Buff("SynergisticBuff", 1.5f, 3+1);  // +50% attaque pour 3 tours
                 CreateBuff("attack","SynergisticBuff", SynergisticBuff);
-                FightManager.playerAction = "Kriss utilise Synergistic Buff";
+                FightManager.playerAction = "Kriss utilise Overload";
             }
             FightManager.isPlayerTurn = false;
         }
         else
         {
-            FightManager.playerAction="Kriss a échoué Synergistic_Buff()";
+            FightManager.playerAction="L'overload a échoué";
             FightManager.isPlayerTurn=false;
         }
         
