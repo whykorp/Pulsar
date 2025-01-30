@@ -64,6 +64,14 @@ public class InFightPlayerAction : MonoBehaviour
         {
             PlayerStats.playerCurrentDefense *= _buff.value;  // Applique le buff immédiatement
         }
+        else if(_buffType=="enemyAttack")
+        {
+            FightManager.enemyCurrentAttack *= _buff.value;  // Applique le buff immédiatement
+        }
+        else if(_buffType=="enemyDefense")
+        {
+            FightManager.enemyCurrentDefense *= _buff.value;  // Applique le buff immédiatement
+        }
 
         Debug.Log("Buff "+ _buff.type+ " appliqué ! "+_buff.value+" % "+_buffType+" pour " +(_buff.duration-1)+ " tours.");
     }
@@ -180,14 +188,14 @@ public class InFightPlayerAction : MonoBehaviour
         {
             if(typingDuration<critDificulty)
             {
-                BuffManager.Buff SynergisticBuffCrit = new BuffManager.Buff("SynergisticBuff", 1.7f, 3+1);  // +50% attaque pour 3 tours
-                CreateBuff("attack","SynergisticBuff", SynergisticBuffCrit);
+                BuffManager.Buff OverloadEnemyNerfcrit = new BuffManager.Buff("OverloadEnemyNerfcrit", 0.5f, 3+1);  // +50% attaque pour 3 tours
+                CreateBuff("enemyAttack","OverloadEnemyNerfcrit", OverloadEnemyNerfcrit);
                 FightManager.playerAction = "Kriss utilise Overload, coup critique!";
             }
             else
             {
-                BuffManager.Buff SynergisticBuff = new BuffManager.Buff("SynergisticBuff", 1.5f, 3+1);  // +50% attaque pour 3 tours
-                CreateBuff("attack","SynergisticBuff", SynergisticBuff);
+                BuffManager.Buff OverloadEnemyNerf = new BuffManager.Buff("OverloadEnemyNerf", 0.3f, 3+1);  // +50% attaque pour 3 tours
+                CreateBuff("enemyAttack","OverloadEnemyNerf", OverloadEnemyNerf);
                 FightManager.playerAction = "Kriss utilise Overload";
             }
             FightManager.isPlayerTurn = false;
