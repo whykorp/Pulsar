@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,6 +12,8 @@ public class QuestManager : MonoBehaviour
     public Text questInfoLocationText;
     public Text questInfoTypeText;
     public Text questInfoDescriptionText;
+    public Button followQuestButton;
+    public Quests questFollowed;
 
     public void AddQuest(Quests quest)
     {
@@ -49,11 +52,19 @@ public class QuestManager : MonoBehaviour
         {
             newQuestPanel.transform.localPosition = new Vector3(491, 325 - (questCount * 225), 0);
         }
+        Button buttonComponent = newQuestPanel.GetComponent<Button>();
+
+        if (quest.isDone) {
+            buttonComponent.interactable = false;
+        }
+
+        buttonComponent.onClick.AddListener(() => OpenQuestPanel(quest.id));
     }
 
     public void OpenQuestPanel(int questID)
     {
         Quests quest = quests.Find(q => q.id == questID);
+        questFollowed = quest;
         Debug.Log("Ouverture du panneau pour la quête : " + quest.name);
 
         questInfoNameText.text = quest.name;
@@ -70,5 +81,30 @@ public class QuestManager : MonoBehaviour
             questInfoTypeText.text = "Annexe";
             questInfoTypeText.color = Color.blue;
         }
+    }
+
+    public void FollowQuest()
+    {
+        Quests quest = quests.Find(q => q.id == questFollowed.id);
+
+        switch (quest.isFollowed)
+        {
+            case true:
+                Debug.Log("Ne plus suivre la quête : " + quest.name);
+                quest.isFollowed = false;
+                followQuestButton.GetComponentInChildren<Text>().text = "Suivre";
+                break;
+            case false:
+                Debug.Log("Suivre la quête : " + quest.name);
+                quest.isFollowed = true;
+                followQuestButton.GetComponentInChildren<Text>().text = "Ne plus suivre";
+                break;
+        }
+    }
+
+    public void DoQuest(int questID){
+        Quests quest = quests.Find(q => q.id == questFollowed.id);
+        quest.isDone = true;
+        Debug.Log("Quête terminée : " + quest.name);
     }
 }
