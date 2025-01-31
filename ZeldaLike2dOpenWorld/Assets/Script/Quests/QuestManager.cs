@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -33,40 +32,33 @@ public class QuestManager : MonoBehaviour
         newQuestPanel.transform.Find("QuestName").GetComponent<Text>().text = quest.name;
         newQuestPanel.transform.Find("QuestLocation").GetComponent<Text>().text = quest.location;
 
+        Text questTypeText = newQuestPanel.transform.Find("QuestType").GetComponent<Text>();
         if (quest.isPrincipal)
         {
-            newQuestPanel.transform.Find("QuestType").GetComponent<Text>().text = "Principal";
-            newQuestPanel.transform.Find("QuestType").GetComponent<Text>().color = Color.red;
+            questTypeText.text = "Principal";
+            questTypeText.color = Color.red;
         }
         else
         {
-            newQuestPanel.transform.Find("QuestType").GetComponent<Text>().text = "Annexe";
-            newQuestPanel.transform.Find("QuestType").GetComponent<Text>().color = Color.blue;
+            questTypeText.text = "Annexe";
+            questTypeText.color = Color.blue;
         }
 
-        // Récupération du bouton et assignation correcte de la quête
-        Button questButton = newQuestPanel.GetComponent<Button>();
-        Quests questCopy = quest; // Fixe la quête pour éviter le problème de référence
-        if (questButton != null)
-        {
-            questButton.onClick.AddListener(() => OpenQuestPanel(questCopy));
-        }
-
-        // Ajustement de la position
         int questCount = questPanelParent.childCount;
         if (questCount > 1) 
         {
             newQuestPanel.transform.localPosition = new Vector3(491, 325 - (questCount * 225), 0);
         }
-
     }
 
-    public void OpenQuestPanel(Quests quest)
+    public void OpenQuestPanel(int questID)
     {
-        Debug.Log("Ouverture du panneau pour la quête : " + quest.name); // Debug pour vérifier
+        Quests quest = quests.Find(q => q.id == questID);
+        Debug.Log("Ouverture du panneau pour la quête : " + quest.name);
 
         questInfoNameText.text = quest.name;
         questInfoLocationText.text = quest.location;
+        questInfoDescriptionText.text = quest.description;
 
         if (quest.isPrincipal)
         {
@@ -78,8 +70,5 @@ public class QuestManager : MonoBehaviour
             questInfoTypeText.text = "Annexe";
             questInfoTypeText.color = Color.blue;
         }
-
-        questInfoDescriptionText.text = quest.description;
     }
-
 }
