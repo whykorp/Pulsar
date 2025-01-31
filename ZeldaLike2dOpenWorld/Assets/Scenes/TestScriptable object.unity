@@ -771,7 +771,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -9234,6 +9234,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73263671f1f63694a809b0c6a17e34df, type: 3}
+--- !u!114 &512228495 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7875351795951462251, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
+  m_PrefabInstance: {fileID: 3908265935548849512}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be9ec2919531c471ca03e5cd1071e519, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &534004702
 GameObject:
   m_ObjectHideFlags: 0
@@ -9955,7 +9966,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 0.24528301, g: 0.24528301, b: 0.24528301, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -9996,7 +10007,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -10336,7 +10347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -11212,7 +11223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.08982198, g: 0, b: 0.46226418, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -11439,7 +11450,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -11873,7 +11884,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -12085,7 +12096,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -12211,16 +12222,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 686545993536646759, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
+      propertyPath: m_Text
+      value: Module 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 686545993536646759, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 686545993536646759, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 686545993536646759, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
       propertyPath: m_Color.r
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 686545993536646759, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
       propertyPath: m_FontData.m_Font
@@ -12250,6 +12265,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 648467250}
+    - target: {fileID: 1376971571340871629, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
+      propertyPath: assignFightButton
+      value: 
+      objectReference: {fileID: 512228495}
     - target: {fileID: 1801547462933141997, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -12323,16 +12342,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4784968706891775411, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
+      propertyPath: m_Text
+      value: Module 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4784968706891775411, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4784968706891775411, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4784968706891775411, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
       propertyPath: m_Color.r
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4784968706891775411, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
       propertyPath: m_FontData.m_Font
@@ -12351,16 +12374,20 @@ PrefabInstance:
       value: 58
       objectReference: {fileID: 0}
     - target: {fileID: 6243389304301020952, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
+      propertyPath: m_Text
+      value: Module 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6243389304301020952, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6243389304301020952, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6243389304301020952, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
       propertyPath: m_Color.r
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6243389304301020952, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
       propertyPath: m_FontData.m_Font
@@ -12379,16 +12406,20 @@ PrefabInstance:
       value: 58
       objectReference: {fileID: 0}
     - target: {fileID: 6504660694323961401, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
+      propertyPath: m_Text
+      value: Module 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6504660694323961401, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6504660694323961401, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6504660694323961401, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
       propertyPath: m_Color.r
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6504660694323961401, guid: c14ed55d806de47bab0366dcf7ccc61b, type: 3}
       propertyPath: m_FontData.m_Font

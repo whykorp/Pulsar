@@ -166,6 +166,14 @@ public class FightManager : MonoBehaviour
             PlayerStats.playerCurrentDefense /= _buff.value;  // Annule l'augmentation du SynergisticBuff
             Debug.Log("Firewall Upgrade expire");
         }
+        else if (buffType == "enemyAttack")
+        {
+            enemyCurrentAttack /= _buff.value;  // Annule l'augmentation de l'attaque de l'ennemi
+        }
+        else if (buffType == "enemyDefense")
+        {
+            enemyCurrentDefense /= _buff.value;  // Annule l'augmentation de la défense de l'ennemi
+        }  
         // Ajouter d'autres types de buff ici...
     }
 

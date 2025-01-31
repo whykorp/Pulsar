@@ -33,7 +33,7 @@ public class InFightPlayerAction : MonoBehaviour
     }
     public IEnumerator GetPlayerCommandLine(string commandLineToType)
     {
-        Debug.Log("démarééé");
+        Debug.Log("demareee");
         Debug.Log(commandLineToType);
         inputField.SetActive(true);
         inputFieldPlaceholder.text=commandLineToType;
@@ -58,22 +58,22 @@ public class InFightPlayerAction : MonoBehaviour
         FightManager.activeBuffs.Add(_buffName, _buff);
         if(_buffType=="attack")
         {
-            PlayerStats.playerCurrentAttack *= _buff.value;  // Applique le buff immédiatement
+            PlayerStats.playerCurrentAttack *= _buff.value;  // Applique le buff immediatement
         }
         else if(_buffType=="defense")
         {
-            PlayerStats.playerCurrentDefense *= _buff.value;  // Applique le buff immédiatement
+            PlayerStats.playerCurrentDefense *= _buff.value;  // Applique le buff immediatement
         }
         else if(_buffType=="enemyAttack")
         {
-            FightManager.enemyCurrentAttack *= _buff.value;  // Applique le buff immédiatement
+            FightManager.enemyCurrentAttack *= _buff.value;  // Applique le buff immediatement
         }
         else if(_buffType=="enemyDefense")
         {
-            FightManager.enemyCurrentDefense *= _buff.value;  // Applique le buff immédiatement
+            FightManager.enemyCurrentDefense *= _buff.value;  // Applique le buff immediatement
         }
 
-        Debug.Log("Buff "+ _buff.type+ " appliqué ! "+_buff.value+" % "+_buffType+" pour " +(_buff.duration-1)+ " tours.");
+        Debug.Log("Buff "+ _buff.type+ " applique ! "+_buff.value+" % "+_buffType+" pour " +(_buff.duration-1)+ " tours.");
     }
 
 
@@ -104,7 +104,7 @@ public class InFightPlayerAction : MonoBehaviour
         }
         else
         {
-            FightManager.playerAction="L'injection SQL a échoué";
+            FightManager.playerAction="L'injection SQL a echoue";
             FightManager.isPlayerTurn=false;
         }
         
@@ -122,12 +122,12 @@ public class InFightPlayerAction : MonoBehaviour
                 if(typingDuration<critDificulty)
                 {
                     FightManager.enemyCurrentHealth -= 100 * PlayerStats.playerCurrentAttack * PlayerStats.playerAttackCoeficien / FightManager.enemyCurrentDefense;
-                    FightManager.playerAction = "La base de données a été supprimée, coup critique!";
+                    FightManager.playerAction = "La base de donnees a ete supprimee, coup critique!";
                 }
                 else
                 {
                     FightManager.enemyCurrentHealth -= 75 * PlayerStats.playerCurrentAttack * PlayerStats.playerAttackCoeficien / FightManager.enemyCurrentDefense;
-                    FightManager.playerAction = "la base de données a été supprimée!";
+                    FightManager.playerAction = "la base de donnees a ete supprimee!";
                 }
                 
                 Debug.Log("Power_Attack successful! Enemy Health: " + FightManager.enemyCurrentHealth);
@@ -143,7 +143,7 @@ public class InFightPlayerAction : MonoBehaviour
         }
         else
         {
-            FightManager.playerAction="Echec de la suppression de la base de données";
+            FightManager.playerAction="Echec de la suppression de la base de donnees";
             FightManager.isPlayerTurn=false;
         }
         
@@ -152,7 +152,7 @@ public class InFightPlayerAction : MonoBehaviour
     // Healing Query to restore player health
     public IEnumerator HealingQuery()
     {
-        StartCoroutine(GetPlayerCommandLine("SET hp = hp + 25%"));
+        StartCoroutine(GetPlayerCommandLine("SET HP = HP + 25%"));
         yield return new WaitUntil(()=>isEnterPressed);
         if(isGoodLineEnter)
         {
@@ -160,13 +160,13 @@ public class InFightPlayerAction : MonoBehaviour
             {
                 float healAmount = 0.40f * PlayerStats.playerMaxHealth;
                 PlayerStats.playerCurrentHealth = Mathf.Min(PlayerStats.playerMaxHealth,PlayerStats.playerCurrentHealth + healAmount);
-                FightManager.playerAction = "La requête de soin a réussi, coup critique!";
+                FightManager.playerAction = "La requête de soin a reussi, coup critique!";
             }
             else
             {
                 float healAmount = 0.25f * PlayerStats.playerMaxHealth;
                 PlayerStats.playerCurrentHealth = Mathf.Min(PlayerStats.playerMaxHealth,PlayerStats.playerCurrentHealth + healAmount);
-                FightManager.playerAction = "La requête de soin a réussi!";
+                FightManager.playerAction = "La requête de soin a reussi!";
             }
             
             playerHealthBar.SetHealth(PlayerStats.playerCurrentHealth);
@@ -174,7 +174,7 @@ public class InFightPlayerAction : MonoBehaviour
         }
         else
         {
-            FightManager.playerAction="La requête de soin a échoué";
+            FightManager.playerAction="La requête de soin a echoue";
             FightManager.isPlayerTurn=false;
         }
         
@@ -188,13 +188,13 @@ public class InFightPlayerAction : MonoBehaviour
         {
             if(typingDuration<critDificulty)
             {
-                BuffManager.Buff OverloadEnemyNerfcrit = new BuffManager.Buff("OverloadEnemyNerfcrit", 0.5f, 3+1);  // +50% attaque pour 3 tours
+                BuffManager.Buff OverloadEnemyNerfcrit = new BuffManager.Buff("OverloadEnemyNerfcrit", 0.7f, 3+1);  // +50% attaque pour 3 tours
                 CreateBuff("enemyAttack","OverloadEnemyNerfcrit", OverloadEnemyNerfcrit);
                 FightManager.playerAction = "Kriss utilise Overload, coup critique!";
             }
             else
             {
-                BuffManager.Buff OverloadEnemyNerf = new BuffManager.Buff("OverloadEnemyNerf", 0.3f, 3+1);  // +50% attaque pour 3 tours
+                BuffManager.Buff OverloadEnemyNerf = new BuffManager.Buff("OverloadEnemyNerf", 0.5f, 3+1);  // +50% attaque pour 3 tours
                 CreateBuff("enemyAttack","OverloadEnemyNerf", OverloadEnemyNerf);
                 FightManager.playerAction = "Kriss utilise Overload";
             }
@@ -202,7 +202,7 @@ public class InFightPlayerAction : MonoBehaviour
         }
         else
         {
-            FightManager.playerAction="L'overload a échoué";
+            FightManager.playerAction="L'overload a echoue";
             FightManager.isPlayerTurn=false;
         }
         
@@ -210,7 +210,7 @@ public class InFightPlayerAction : MonoBehaviour
 
     public void FirewallUpgrade()
     {
-        BuffManager.Buff FirewallUpgrade = new BuffManager.Buff("FirewallUpgrade", 1.5f, 3+1);  // +50% de défense pour 3 tours
+        BuffManager.Buff FirewallUpgrade = new BuffManager.Buff("FirewallUpgrade", 1.5f, 3+1);  // +50% de defense pour 3 tours
         CreateBuff("defense","FirewallUpgrade", FirewallUpgrade);
         FightManager.playerAction = "Kriss utilise Firewall Upgrade";
         FightManager.isPlayerTurn = false;

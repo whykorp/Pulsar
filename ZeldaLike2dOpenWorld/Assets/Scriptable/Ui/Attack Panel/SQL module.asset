@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59a9f7c3ce50143c6b40692089c6ca2b, type: 3}
   m_Name: SQL module
   m_EditorClassIdentifier: 
-  textSlot1: Simple Attack()
-  textSlot2: PowerAttack()
-  textSlot3: HealingQuery()
-  textSlot4: SynergisticBuff()
+  textSlot1: SQL injection
+  textSlot2: Delete Database
+  textSlot3: Healing Query
+  textSlot4: Overloads
   fonctionSlot1: 1
   fonctionSlot2: 2
   fonctionSlot3: 3
