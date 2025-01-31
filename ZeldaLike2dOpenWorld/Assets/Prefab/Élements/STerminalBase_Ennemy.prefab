@@ -312,6 +312,7 @@ GameObject:
   - component: {fileID: 4617003436678649894}
   - component: {fileID: 7240376039170383517}
   - component: {fileID: 2910608455684956154}
+  - component: {fileID: 3943029331519340280}
   m_Layer: 0
   m_Name: Terminal
   m_TagString: Untagged
@@ -403,3 +404,40 @@ MonoBehaviour:
   refreshEnemyDetection: 0
   terminalZoneList: {fileID: 0}
   interactUI: {fileID: 0}
+  terminalGui: {fileID: 3943029331519340280}
+--- !u!114 &3943029331519340280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7794663091771564207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e162d278739e45dd87aa210c5a41cf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inGameUI: {fileID: 0}
+  terminalUI: {fileID: 0}
+  accesMenu: {fileID: 0}
+  chooseModuleMenu: {fileID: 0}
+  choosedModuleIndicator1: {fileID: 0}
+  choosedModuleIndicator2: {fileID: 0}
+  choosedModuleIndicator3: {fileID: 0}
+  choosedModuleIndicator4: {fileID: 0}
+  modulePanelData: {fileID: 11400000, guid: dd4ae53fb38c24905b156a3312af813b, type: 2}
+  choosedModuleSlot: 0
+  attackPanelDatas:
+  - {fileID: 11400000, guid: 76d5459b5c13a41c28b05c554a1cd270, type: 2}
+  - {fileID: 11400000, guid: d679d36b9fafb42afb503a17b328fcb9, type: 2}
+  - {fileID: 11400000, guid: 4b9ed390241c0403d947cc54c70bc33e, type: 2}
+  - {fileID: 11400000, guid: 60f99ea3278324f50bcfd6ce1659f67e, type: 2}
+  - {fileID: 11400000, guid: 9474e12a99cf4448692149e26d3a3dc4, type: 2}
+  - {fileID: 11400000, guid: d651f352552394c2d80bb8c77e7f7221, type: 2}
+  - {fileID: 11400000, guid: 05c8b5c52c5204d1cbc609bb8319a7d1, type: 2}
+  - {fileID: 11400000, guid: 010083509b976472986f3fd5cf405e86, type: 2}
+  - {fileID: 11400000, guid: 33c45160ff573491eb9fbc118317aafc, type: 2}
+  textModuleSlot1: {fileID: 0}
+  textModuleSlot2: {fileID: 0}
+  textModuleSlot3: {fileID: 0}
+  textModuleSlot4: {fileID: 0}

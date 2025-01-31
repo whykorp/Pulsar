@@ -33,8 +33,8 @@ public class TerminalsActivation : MonoBehaviour
                     RedSprite1.sprite=BlueSprite1;
                     RedSprite2.sprite=BlueSprite2;
                     terminalZoneList.ZoneList[zoneName]=true;
-                    enemyPathFinding.SetTarget(enemyPathFinding.targetPosition[enemyPathFinding.destpoint], false);
-                    EnemyNavMeshRoaming.resetEnemyDestination();
+                    //enemyPathFinding.SetTarget(enemyPathFinding.targetPosition[enemyPathFinding.destpoint], false);
+                    //EnemyNavMeshRoaming.resetEnemyDestination();
                     isActivated=true;
                 }
                 else
