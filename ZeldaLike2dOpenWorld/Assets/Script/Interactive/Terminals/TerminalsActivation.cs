@@ -12,8 +12,7 @@ public class TerminalsActivation : MonoBehaviour
     public Sprite BlueSpriteBase;
     public Sprite BlueSprite1;
     public Sprite BlueSprite2;
-    public EnemyNavMeshPatrol enemyPathFinding;
-    public EnemyPathFindingV2 EnemyNavMeshRoaming;
+    
     public string zoneName;
     public bool refreshEnemyDetection=false;
     public TerminalZoneList terminalZoneList;

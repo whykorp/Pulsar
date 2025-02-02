@@ -10,7 +10,7 @@ public class EnemyPathFindingV2 : MonoBehaviour
     public NavMeshAgent navMeshAgent;
     Vector3 targetPosition;
     public PlayerDetectionNavMeshRoam playerDetectionNavhMesh;
-    public TerminalsActivation terminalsActivation;
+    //public TerminalsActivation terminalsActivation;
     private Vector2 testposition;
     public Transform waypoint;
     Transform waypointTrue;

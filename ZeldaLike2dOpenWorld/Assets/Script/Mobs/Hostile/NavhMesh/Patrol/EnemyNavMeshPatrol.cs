@@ -7,7 +7,7 @@ public class EnemyNavMeshPatrol : MonoBehaviour
 {
     public NavMeshAgent agent;
     public PlayerDetectionNavhMeshPatrol playerDetectionNavhMesh;
-    public TerminalsActivation terminalsActivation;
+    
     public Transform[] targetPosition;
     Transform target;
     public int destpoint = 0;
@@ -31,11 +31,11 @@ public class EnemyNavMeshPatrol : MonoBehaviour
     private void Update()
     {
         agent.SetDestination(target.position);
-        if ((Vector3.Distance(transform.position, target.position) < 1f && !playerDetectionNavhMesh.isAttackingPlayer) || terminalsActivation.refreshEnemyDetection)
+        if (Vector3.Distance(transform.position, target.position) < 1f && !playerDetectionNavhMesh.isAttackingPlayer)
         {
             destpoint = (destpoint + 1) % targetPosition.Length;
             SetTarget(targetPosition[destpoint], false);
-            terminalsActivation.refreshEnemyDetection = false;
+            
         }
     }
 
