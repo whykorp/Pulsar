@@ -400,7 +400,7 @@ MonoBehaviour:
   BlueSprite2: {fileID: 21300000, guid: 2ca354661d9f64d8193c0cabb52cd315, type: 3}
   enemyPathFinding: {fileID: 0}
   EnemyNavMeshRoaming: {fileID: 0}
-  zoneName: palace
+  zoneName: starter
   refreshEnemyDetection: 0
   terminalZoneList: {fileID: 0}
   interactUI: {fileID: 0}

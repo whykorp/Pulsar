@@ -4121,7 +4121,7 @@ GameObject:
   - component: {fileID: 1325999446009121047}
   - component: {fileID: 6504660694323961401}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: Text Slot Module 1 Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5227,7 +5227,7 @@ GameObject:
   - component: {fileID: 4612943042954341472}
   - component: {fileID: 686545993536646759}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: Text Slot Module 2 Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5594,7 +5594,7 @@ GameObject:
   - component: {fileID: 3246615680889130988}
   - component: {fileID: 6243389304301020952}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: Text Slot Module 4 Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6322,7 +6322,7 @@ GameObject:
   - component: {fileID: 8971982788533054559}
   - component: {fileID: 4784968706891775411}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: Text Slot Module 3 Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1601,7 +1601,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eca97b31f182ef7408383ce6a1df75d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToLoad: TestScriptable object
+  levelToLoad: TEMP_Main
   settingsWindow: {fileID: 4771034863266798852}
   mainWindow: {fileID: 5513227806528687072}
 --- !u!224 &1902081164773153984
