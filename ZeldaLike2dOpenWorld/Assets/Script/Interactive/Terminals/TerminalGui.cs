@@ -57,6 +57,7 @@ public class TerminalGui : MonoBehaviour
 
     public void OnAccesChooseModuleMenuButtonClicked()
     {
+        Debug.Log("AccesChooseModuleMenuButtonClicked");
         chooseModuleMenu.SetActive(true);
         accesMenu.SetActive(false);
     }
