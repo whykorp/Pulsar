@@ -6,13 +6,15 @@ using UnityEngine.UI;
 public class InventoryUI : MonoBehaviour
 {
     public List<Button> inventoryButtons = new List<Button>();
+    public List<int> itemInInventoryButtons;
     public List<Button> fastSlot = new List<Button>();
     public List<Item> itemInFastSlot = new List<Item>() { null, null, null, null, null, null, null, null, null };
     public Inventory inventory;
-    public int fastSlotIndex = 0;
+    public int fastSlotIndex = 10;
 
     void Start()
     {
+        itemInInventoryButtons = new List<int>(new int[inventoryButtons.Count]);
         LoadInventoryUI();
     }
 
@@ -46,13 +48,10 @@ public class InventoryUI : MonoBehaviour
                             buttonText.text = kvp.Value.ToString();
                         }
                     }
+                    itemInInventoryButtons[index] = kvp.Key.id;
 
                     inventoryButtons[index].gameObject.SetActive(true);
                     index++;
-                }
-                else
-                {
-                    break;
                 }
             }
         }
@@ -75,6 +74,38 @@ public class InventoryUI : MonoBehaviour
                     Color color = buttonImage.color;
                     color.a = 0;
                     buttonImage.color = color;
+                }
+            }
+        }
+
+        // Load images and texts for fast slots
+        for (int i = 0; i < itemInFastSlot.Count; i++)
+        {
+            if (itemInFastSlot[i] != null)
+            {
+                // Find the child object named "Image" and get its Image component
+                Transform imageTransform = fastSlot[i].transform.Find("Image");
+                if (imageTransform != null)
+                {
+                    Image buttonImage = imageTransform.GetComponent<Image>();
+                    if (buttonImage != null)
+                    {
+                        buttonImage.sprite = itemInFastSlot[i].image;
+                        Color color = buttonImage.color;
+                        color.a = 1;
+                        buttonImage.color = color;
+                    }
+                }
+
+                // Find the child object named "Text (Legacy)" and set its text to the item count
+                Transform textTransform = fastSlot[i].transform.Find("Text (Legacy)");
+                if (textTransform != null)
+                {
+                    Text buttonText = textTransform.GetComponent<Text>();
+                    if (buttonText != null)
+                    {
+                        buttonText.text = inventory.content[itemInFastSlot[i]].ToString();
+                    }
                 }
             }
         }
@@ -116,8 +147,9 @@ public class InventoryUI : MonoBehaviour
         }
     }
 
-    public void AddItemToFastSlot(int itemID)
+    public void AddItemToFastSlot(int slotNb)
     {
+        int itemID = itemInInventoryButtons[slotNb];
         if (itemID < 0 || itemID >= inventory.listOfItem.Count)
         {
             Debug.LogWarning("Index out of range");

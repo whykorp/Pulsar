@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ItemEffect : MonoBehaviour
 {
+    public InventoryUI inventoryUI;
+    public Inventory inventory;
     public void UseItem(int itemID)
     {
         switch(itemID)
@@ -17,6 +19,8 @@ public class ItemEffect : MonoBehaviour
                 StartCoroutine(PlayerEffect.AffectMoveSpeed(500, 10));
                 break;
         }
+        inventory.content[inventory.listOfItem[itemID]]--;
+        inventoryUI.LoadInventoryUI();
     }
 
     void Update()
