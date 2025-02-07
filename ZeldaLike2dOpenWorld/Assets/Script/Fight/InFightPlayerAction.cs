@@ -89,12 +89,12 @@ public class InFightPlayerAction : MonoBehaviour
         {
             if(typingDuration<critDificulty)
             {
-                FightManager.enemyCurrentHealth-=45*PlayerStats.playerCurrentAttack*PlayerStats.playerAttackCoeficien/FightManager.enemyCurrentDefense;
+                FightManager.enemyCurrentHealth-=90*PlayerStats.playerCurrentAttack*PlayerStats.playerAttackCoeficien/FightManager.enemyCurrentDefense;
                 FightManager.playerAction="L'injection SQL est un succès, coup critique!";
             }
             else
             {
-                FightManager.enemyCurrentHealth-=30*PlayerStats.playerCurrentAttack*PlayerStats.playerAttackCoeficien/FightManager.enemyCurrentDefense;
+                FightManager.enemyCurrentHealth-=60*PlayerStats.playerCurrentAttack*PlayerStats.playerAttackCoeficien/FightManager.enemyCurrentDefense;
                 FightManager.playerAction="L'injection SQL est un succès!";
             }
             //Debug.Log(FightManager.enemyCurrentHealth);
@@ -121,12 +121,12 @@ public class InFightPlayerAction : MonoBehaviour
             {
                 if(typingDuration<critDificulty)
                 {
-                    FightManager.enemyCurrentHealth -= 100 * PlayerStats.playerCurrentAttack * PlayerStats.playerAttackCoeficien / FightManager.enemyCurrentDefense;
+                    FightManager.enemyCurrentHealth -= 180 * PlayerStats.playerCurrentAttack * PlayerStats.playerAttackCoeficien / FightManager.enemyCurrentDefense;
                     FightManager.playerAction = "La base de donnees a ete supprimee, coup critique!";
                 }
                 else
                 {
-                    FightManager.enemyCurrentHealth -= 75 * PlayerStats.playerCurrentAttack * PlayerStats.playerAttackCoeficien / FightManager.enemyCurrentDefense;
+                    FightManager.enemyCurrentHealth -= 120 * PlayerStats.playerCurrentAttack * PlayerStats.playerAttackCoeficien / FightManager.enemyCurrentDefense;
                     FightManager.playerAction = "la base de donnees a ete supprimee!";
                 }
                 

@@ -32,8 +32,8 @@ public class NewItemUI : MonoBehaviour
         _fadeout = true;
     }
 
-    public IEnumerator ShowNewItemUI(Item item){
-        Item currentItem = item;
+    public IEnumerator ShowNewItemUI(int itemID){
+        Item currentItem = Inventory.instance.listOfItem[itemID];
         newItemSprite.sprite = currentItem.image;
         newItemText.text = "+ " + currentItem.name;
         canvasgroup.alpha = 1;

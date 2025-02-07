@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class OpenChest : MonoBehaviour
 {
-    /*private bool isInRange;
+    private bool isInRange;
     private bool isOpen=false;
     public SpriteRenderer spriteRenderer;
     public Sprite BlueOpenedChest;
     public InteractUI interactUI;
-    public Item itemGiven;
-    public int coinsGiven;
+    public int itemGivenID;
     public NewItemUI newItemUI;
+    Inventory inventory;
 
     void Update()
     {
@@ -54,9 +54,7 @@ public class OpenChest : MonoBehaviour
     public void OnChestOpened(){
         Debug.Log("chest openede");
         spriteRenderer.sprite=BlueOpenedChest;
-        StartCoroutine(newItemUI.ShowNewItemUI(itemGiven));
-        Inventory.instance.content.Add(itemGiven);
-        Inventory.instance.AddCoins(coinsGiven);
-        StartCoroutine(Inventory.instance.UpdateInventoryUI());
-    }*/
+        StartCoroutine(newItemUI.ShowNewItemUI(itemGivenID));
+        Inventory.instance.AddItem(itemGivenID);
+    }
 }

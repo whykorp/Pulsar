@@ -5,6 +5,7 @@ using System.IO;
 
 public class SaveGame : MonoBehaviour
 {
+    /*
     public PlayerStats playerStats;
     public Transform playerTransform;
     public List<InventoryItem> playerInventory;
@@ -67,8 +68,10 @@ public class SaveGame : MonoBehaviour
             Debug.LogWarning("Save file not found");
         }
     }
+    */
 }
 
+/*
 [System.Serializable]
 public class AllData
 {
@@ -122,3 +125,4 @@ public class InventoryItem
         quantity = qty;
     }
 }
+*/

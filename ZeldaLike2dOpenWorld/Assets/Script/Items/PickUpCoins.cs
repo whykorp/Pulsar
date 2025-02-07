@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class PickUpCoins : MonoBehaviour
 {
-    /*private void  OnTriggerEnter2D(Collider2D collision){
+    public Inventory inventory;
+    private void  OnTriggerEnter2D(Collider2D collision){
         if(collision.CompareTag("Player")){
-            Inventory.instance.AddCoins(1);
+            PlayerStats.playerCoins += 1;
             Destroy(gameObject);
         }
-    }*/
+    }
 }

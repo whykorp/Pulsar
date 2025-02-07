@@ -10,6 +10,10 @@ public class InventoryUI : MonoBehaviour
     public List<Button> fastSlot = new List<Button>();
     public List<Item> itemInFastSlot = new List<Item>() { null, null, null, null, null, null, null, null, null };
     public Inventory inventory;
+    public Text coinsCountText;
+    public Slider healthBar;
+    public Text currentHealthText;
+    public Text maxHealthText;
     public int fastSlotIndex = 10;
 
     void Start()
@@ -109,6 +113,15 @@ public class InventoryUI : MonoBehaviour
                 }
             }
         }
+
+        // Load the coins count
+        coinsCountText.text = PlayerStats.playerCoins.ToString();
+        
+        // Load the health bar
+        healthBar.maxValue = PlayerStats.playerMaxHealth;
+        healthBar.value = PlayerStats.playerCurrentHealth;
+        currentHealthText.text = PlayerStats.playerCurrentHealth.ToString();
+        maxHealthText.text = "/" + PlayerStats.playerMaxHealth.ToString();
     }
 
     private Color originalColor;

@@ -22,7 +22,7 @@ public class PickUpItem : MonoBehaviour
     void TakeItem()
     {
         Inventory.instance.AddItem(itemID);
-        StartCoroutine(newItemUI.ShowNewItemUI(Inventory.instance.listOfItem[itemID]));
+        StartCoroutine(newItemUI.ShowNewItemUI(itemID));
         // AudioManager.instance.PlayClipAt(soundToPlay, transform.position);
         interactUI.HideUiInteract();
         Destroy(gameObject);
