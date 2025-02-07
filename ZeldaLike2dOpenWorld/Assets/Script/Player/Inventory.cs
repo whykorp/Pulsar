@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
-    public List<Item> content = new List<Item>();
+    public List<Item> listOfItem = new List<Item>();
+    public Dictionary<Item, int> content = new Dictionary<Item, int>();
     public PlayerEffect playerEffect;
     public int contentCurrentIndex = 0;
     public int coinsCount;
@@ -30,11 +32,21 @@ public class Inventory : MonoBehaviour
 
         instance = this;
         
-        public Dictionary<Item, int> itemDictionary = new Dictionary<Item, int>{};
+        foreach (var item in listOfItem)
+        {
+            content.Add(item, 0);
+        }
 
     }
 
     void Update(){
+        if(Input.GetKeyDown(KeyCode.O)){
+            Debug.Log("Inventory content:");
+            foreach (var kvp in content)
+            {
+                Debug.Log($"{kvp.Key.name}: {kvp.Value}");
+            }
+        }
         if(_fadeout){
             if(canvasgroup.alpha >= 0){
                 canvasgroup.alpha -= timeToFade * Time.deltaTime;
@@ -43,12 +55,31 @@ public class Inventory : MonoBehaviour
                 }
             }
         }
-        if(Input.GetKeyDown(KeyCode.Q)){
-            ConsumeItem();
+        //if(Input.GetKeyDown(KeyCode.Q)){
+            //ConsumeItem();
+        //}
+    }
+
+    public void AddItem(int itemID)
+    {
+        if (itemID < 0 || itemID >= listOfItem.Count)
+        {
+            Debug.LogWarning("Index out of range");
+            return;
+        }
+
+        Item itemToAdd = listOfItem[itemID];
+        if (content.ContainsKey(itemToAdd))
+        {
+            content[itemToAdd]++;
+        }
+        else
+        {
+            Debug.LogWarning("Item not found in inventory");
         }
     }
 
-    void FixedUpdate(){
+    /*void FixedUpdate(){
 
     }
 
@@ -116,5 +147,7 @@ public class Inventory : MonoBehaviour
     public void FadeOut(){
         _fadeout = true;
     }
+
+    */
 
 }

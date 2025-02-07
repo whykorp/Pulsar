@@ -3,9 +3,11 @@ using UnityEngine.UI;
 
 public class PickUpItem : MonoBehaviour
 {
+    
     private bool isInRange;
     public InteractUI interactUI;
-    public Item item;
+    public int itemID;
+    public Inventory inventory;
     public NewItemUI newItemUI;
     // public AudioClip soundToPlay;
 
@@ -19,9 +21,8 @@ public class PickUpItem : MonoBehaviour
 
     void TakeItem()
     {
-        Inventory.instance.content.Add(item);
-        StartCoroutine(Inventory.instance.UpdateInventoryUI());
-        StartCoroutine(newItemUI.ShowNewItemUI(item));
+        Inventory.instance.AddItem(itemID);
+        StartCoroutine(newItemUI.ShowNewItemUI(Inventory.instance.listOfItem[itemID]));
         // AudioManager.instance.PlayClipAt(soundToPlay, transform.position);
         interactUI.HideUiInteract();
         Destroy(gameObject);
@@ -46,4 +47,5 @@ public class PickUpItem : MonoBehaviour
             isInRange = false;
         }
     }
+    
 }

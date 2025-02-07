@@ -9,7 +9,4 @@ public class Item : ScriptableObject
     public new string name;
     public string description;
     public Sprite image;
-    public int hpGiven;
-    public int speedGiven;
-    public float speedDuration;
 }

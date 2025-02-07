@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class OpenChest : MonoBehaviour
 {
-    private bool isInRange;
+    /*private bool isInRange;
     private bool isOpen=false;
     public SpriteRenderer spriteRenderer;
     public Sprite BlueOpenedChest;
@@ -58,5 +58,5 @@ public class OpenChest : MonoBehaviour
         Inventory.instance.content.Add(itemGiven);
         Inventory.instance.AddCoins(coinsGiven);
         StartCoroutine(Inventory.instance.UpdateInventoryUI());
-    }
+    }*/
 }
