@@ -8,6 +8,7 @@ public class OpenUI : MonoBehaviour
     public GameObject gameMenu;
     private bool isPauseMenuOpen = false;
     private bool isGameMenuOpen = false;
+    public InventoryUI inventoryUI;
 
     void Update()
     {
@@ -30,6 +31,7 @@ public class OpenUI : MonoBehaviour
             if (!isGameMenuOpen)
             {
                 gameMenu.SetActive(true);
+                inventoryUI.LoadInventoryUI();
                 isGameMenuOpen = true;
             }
             else

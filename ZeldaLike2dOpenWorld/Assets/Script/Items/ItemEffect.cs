@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemEffect : MonoBehaviour
 {
-    static public void useItem(int itemID)
+    public void UseItem(int itemID)
     {
         switch(itemID)
         {
@@ -14,7 +14,7 @@ public class ItemEffect : MonoBehaviour
                 break;
             case 1:
                 Debug.Log("You used a Speed Potion");
-                PlayerEffect.AffectMoveSpeed(500, 50);
+                StartCoroutine(PlayerEffect.AffectMoveSpeed(500, 10));
                 break;
         }
     }
@@ -23,11 +23,11 @@ public class ItemEffect : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.H))
         {
-            useItem(0);
+            UseItem(0);
         }
         if (Input.GetKeyDown(KeyCode.K))
         {
-            useItem(1);
+            UseItem(1);
         }
     }
 }

@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1457495533459919851}
   - component: {fileID: 1633448206722915946}
+  - component: {fileID: 7364504614552455270}
+  - component: {fileID: 3053076027780460807}
   m_Layer: 0
   m_Name: Inventory
   m_TagString: Untagged
@@ -44,7 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e970b90479ad8bb43af3b74b1f575908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  content: []
+  listOfItem:
+  - {fileID: 11400000, guid: 3faae46a0e377204f95570713383ae0a, type: 2}
+  - {fileID: 11400000, guid: 4eea597654641bb41ab41682383f1900, type: 2}
   playerEffect: {fileID: 0}
   contentCurrentIndex: 0
   coinsCount: 0
@@ -56,3 +60,104 @@ MonoBehaviour:
   adviceUseItem: {fileID: 0}
   canvasgroup: {fileID: 0}
   timeToFade: 2
+--- !u!114 &7364504614552455270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7915861773881029360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84bd9a604b84647dcb76e2caefab3d63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3053076027780460807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7915861773881029360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89e281e9baea44036ae5710b0aa5e152, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryButtons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  fastSlot:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  itemInFastSlot:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  inventory: {fileID: 1633448206722915946}
+  fastSlotIndex: 0
