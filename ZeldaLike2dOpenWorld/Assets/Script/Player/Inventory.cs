@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -28,6 +29,9 @@ public class Inventory : MonoBehaviour
         }
 
         instance = this;
+        
+        public Dictionary<Item, int> itemDictionary = new Dictionary<Item, int>{};
+
     }
 
     void Update(){
