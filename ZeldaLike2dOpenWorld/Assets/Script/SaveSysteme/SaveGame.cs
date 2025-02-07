@@ -7,6 +7,7 @@ public class SaveGame : MonoBehaviour
 {
     public PlayerStats playerStats;
     public Transform playerTransform;
+    public List<InventoryItem> playerInventory;
 
     private string saveFilePath;
 
@@ -29,7 +30,7 @@ public class SaveGame : MonoBehaviour
 
     public void SavePlayerData()
     {
-        AllData data = new AllData(playerStats, playerTransform);
+        AllData data = new AllData(playerStats, playerTransform, playerInventory);
         string json = JsonUtility.ToJson(data, true);
         File.WriteAllText(saveFilePath, json);
         Debug.Log("Game Saved");
@@ -57,6 +58,7 @@ public class SaveGame : MonoBehaviour
             PlayerStats.playerDefenseCoeficien = data.playerDefenseCoeficien;
             PlayerStats.playerCurrentAccuracy = data.playerCurrentAccuracy;
             playerTransform.position = new Vector3(data.playerPosition[0], data.playerPosition[1], data.playerPosition[2]);
+            playerInventory = data.playerInventory;
 
             Debug.Log("Game Loaded");
         }
@@ -85,8 +87,9 @@ public class AllData
     public float playerDefenseCoeficien;
     public float playerCurrentAccuracy;
     public float[] playerPosition;
+    public List<InventoryItem> playerInventory;
 
-    public AllData(PlayerStats playerStats, Transform playerTransform)
+    public AllData(PlayerStats playerStats, Transform playerTransform, List<InventoryItem> inventory)
     {
         playerMaxHealth = PlayerStats.playerMaxHealth;
         playerCurrentHealth = PlayerStats.playerCurrentHealth;
@@ -103,5 +106,19 @@ public class AllData
         playerDefenseCoeficien = PlayerStats.playerDefenseCoeficien;
         playerCurrentAccuracy = PlayerStats.playerCurrentAccuracy;
         playerPosition = new float[3] { playerTransform.position.x, playerTransform.position.y, playerTransform.position.z };
+        playerInventory = inventory;
+    }
+}
+
+[System.Serializable]
+public class InventoryItem
+{
+    public string itemName;
+    public int quantity;
+
+    public InventoryItem(string name, int qty)
+    {
+        itemName = name;
+        quantity = qty;
     }
 }
