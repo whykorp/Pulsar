@@ -23,7 +23,7 @@ public class DoorManager : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {   
-            interactUI.ShowUiInteract();
+            interactUI.ShowUiInteract(true);
             isInRange=true;
         }
     }

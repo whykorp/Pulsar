@@ -33,7 +33,7 @@ public class PickUpItem : MonoBehaviour
         if(collision.CompareTag("Player"))
         {
             Debug.Log("IN RANGE");
-            interactUI.ShowUiInteract();
+            interactUI.ShowUiInteract(true);
             isInRange = true;
         }
     }

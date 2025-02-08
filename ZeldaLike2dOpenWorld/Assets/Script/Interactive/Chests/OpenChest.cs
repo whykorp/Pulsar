@@ -36,7 +36,7 @@ public class OpenChest : MonoBehaviour
         if (collision.CompareTag("Player"))
         {   
             if(isOpen==false){
-                interactUI.ShowUiInteract();
+                interactUI.ShowUiInteract(true);
             } 
             isInRange = true;
         }

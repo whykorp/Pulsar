@@ -226,6 +226,7 @@ public class FightManager : MonoBehaviour
             if (enemyCurrentHealth <= 0)
             {
                 announcerText.GetComponent<Text>().text = "Vous avez vaincu " + _inFightEnemyData.enemyName + " ennemi";
+                yield return new WaitForSecondsRealtime(1);
                 playerWin(_inFightEnemyData, _enemyLvl);
                 break;  // Fin du combat si l'ennemi est vaincu
             }

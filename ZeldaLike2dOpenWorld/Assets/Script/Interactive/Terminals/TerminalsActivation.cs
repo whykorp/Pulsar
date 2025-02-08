@@ -50,7 +50,7 @@ public class TerminalsActivation : MonoBehaviour
         Debug.Log("IN RANGE");
         if (collision.CompareTag("Player"))
         {
-            interactUI.ShowUiInteract();
+            interactUI.ShowUiInteract(true);
             isInRange = true;
         }
     }
