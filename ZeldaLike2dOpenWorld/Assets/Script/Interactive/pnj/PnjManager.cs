@@ -24,7 +24,7 @@ public class PnjManager : MonoBehaviour
         Debug.Log("IN RANGE");
         if (collision.CompareTag("Player"))
         {   
-            interactUI.ShowUiInteract();
+            interactUI.ShowUiInteract(true);
             isInRange = true;
             
         }
@@ -75,7 +75,7 @@ public class PnjManager : MonoBehaviour
         pnjDialogue.SetActive(false);
         //Time.timeScale=1;
         isInRange=true;
-        interactUI.ShowUiInteract();
+        interactUI.ShowUiInteract(true);
         yield break;
     }
 

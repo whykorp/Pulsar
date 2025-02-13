@@ -37,7 +37,7 @@ public class EndTest : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            interactUI.ShowUiInteract();
+            interactUI.ShowUiInteract(true);
             isInRange = true;
         }
     }
