@@ -4,69 +4,51 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public Rigidbody2D rb;
-    private Vector3 horizontalVelocity = Vector3.zero;
-    private Vector3 verticalVelocity = Vector3.zero;
-    public SpriteRenderer spriteRenderer;
-    public Sprite kDown;
-    public Sprite kUp;
-    public Sprite kRight;
-    public Sprite kLeft;
+    public float speed = 5f;
+    Rigidbody2D rb;
+    Vector2 dir;
+    Animator anim;
 
-    // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        float horizontalMovement = Input.GetAxis("Horizontal") * PlayerStats.playerMoveSpeed * Time.deltaTime;
-        float verticalMovement = Input.GetAxis("Vertical") * PlayerStats.playerMoveSpeed * Time.deltaTime;
-
-        MovePlayerHorizontal(horizontalMovement);
-        MovePlayerVertical(verticalMovement);
-    }
-
-    void MovePlayerHorizontal(float _horizontalMovement)
-    {
-        Vector3 targetVelocity = new Vector2(_horizontalMovement, rb.velocity.y);
-        rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref horizontalVelocity, .05f);
+        dir.x = Input.GetAxisRaw("Horizontal");
+        dir.y = Input.GetAxisRaw("Vertical");
+        rb.MovePosition(rb.position + dir * speed * Time.fixedDeltaTime);
         
+        SetParam();
     }
 
-    void MovePlayerVertical(float _verticalMovement)
-    {
-        Vector3 targetVelocity = new Vector2(rb.velocity.x, _verticalMovement);
-        rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref verticalVelocity, .05f);
-        
-    }
-
-    void Update(){
-        if(Input.GetKeyDown(KeyCode.W)){
-            spriteRenderer.sprite=kUp;
+    void SetParam(){
+        if(dir.x == 0 && dir.y == 0) //idle
+        {
+            anim.SetInteger("dir", 0);
+            GetComponent<SpriteRenderer>().flipX = false;
         }
-        if(Input.GetKeyDown(KeyCode.D)){
-            spriteRenderer.sprite=kRight;
+        else if(dir.x > 0) //right side
+        {
+            anim.SetInteger("dir", 2);
+            GetComponent<SpriteRenderer>().flipX = false;
         }
-        if(Input.GetKeyDown(KeyCode.A)){
-            spriteRenderer.sprite=kLeft;
+        else if(dir.x < 0) //left side
+        {
+            anim.SetInteger("dir", 2);
+            GetComponent<SpriteRenderer>().flipX = true;
         }
-        if(Input.GetKeyDown(KeyCode.S)){
-            spriteRenderer.sprite=kDown;
+        else if(dir.y > 0) //up side
+        {
+            anim.SetInteger("dir", 1);
+            GetComponent<SpriteRenderer>().flipX = false;
         }
-        if(Input.GetKeyDown(KeyCode.UpArrow)){
-            spriteRenderer.sprite=kUp;
-        }
-        if(Input.GetKeyDown(KeyCode.RightArrow)){
-            spriteRenderer.sprite=kRight;
-        }
-        if(Input.GetKeyDown(KeyCode.LeftArrow)){
-            spriteRenderer.sprite=kLeft;
-        }
-        if(Input.GetKeyDown(KeyCode.DownArrow)){
-            spriteRenderer.sprite=kDown;
+        else if(dir.y < 0) //down side
+        {
+            anim.SetInteger("dir", 3);
+            GetComponent<SpriteRenderer>().flipX = false;
         }
     }
 }
