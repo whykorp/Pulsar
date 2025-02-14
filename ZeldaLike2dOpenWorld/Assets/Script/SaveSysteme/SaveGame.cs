@@ -5,124 +5,176 @@ using System.IO;
 
 public class SaveGame : MonoBehaviour
 {
-    /*
-    public PlayerStats playerStats;
-    public Transform playerTransform;
-    public List<InventoryItem> playerInventory;
 
-    private string saveFilePath;
-
-    void Start()
-    {
-        saveFilePath = Path.Combine(Application.persistentDataPath, "savegame.json");
-    }
-
+    public Inventory inventory;
+    public GameObject player;
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            Debug.Log("Save");
+            Save();
+        }
         if (Input.GetKeyDown(KeyCode.L))
         {
-            SavePlayerData();
+            Debug.Log("Load");
+            Load();
         }
-        if (Input.GetKeyDown(KeyCode.M))
+    }
+
+    [System.Serializable]
+    public class PlayerData
+    {
+        public float playerMaxHealth;
+        public float playerCurrentHealth;
+        public float playerMoveSpeed;
+        public int playerLvl;
+        public float playerXp;
+        public float playerXpGivedCoef;
+        public int playerCoins;
+        public float playerBaseAttack;
+        public float playerBaseDefense;
+        public float playerBaseAccuracy;
+        public float playerCurrentAttack;
+        public float playerAttackCoeficien;
+        public float playerCurrentDefense;
+        public float playerDefenseCoeficien;
+        public float playerCurrentAccuracy;
+
+        // Add player position data
+        public float playerPositionX;
+        public float playerPositionY;
+        public float playerPositionZ;
+
+        // Add inventory data
+        public List<int> inventoryItemIds;
+        public List<int> inventoryItemCounts;
+
+        
+    }
+
+    [System.Serializable]
+    public class WorldData
+    {
+        // Add chest states
+        public List<int> openedChests;
+        public List<int> closedChests;
+    }
+
+    public void Save()
+    {
+        PlayerData playerData = new PlayerData
         {
-            LoadPlayerData();
-        }
-    }
+            playerMaxHealth = PlayerStats.playerMaxHealth,
+            playerCurrentHealth = PlayerStats.playerCurrentHealth,
+            playerMoveSpeed = PlayerStats.playerMoveSpeed,
+            playerLvl = PlayerStats.playerLvl,
+            playerXp = PlayerStats.playerXp,
+            playerXpGivedCoef = PlayerStats.playerXpGivedCoef,
+            playerCoins = PlayerStats.playerCoins,
+            playerBaseAttack = PlayerStats.playerBaseAttack,
+            playerBaseDefense = PlayerStats.playerBaseDefense,
+            playerBaseAccuracy = PlayerStats.playerBaseAccuracy,
+            playerCurrentAttack = PlayerStats.playerCurrentAttack,
+            playerAttackCoeficien = PlayerStats.playerAttackCoeficien,
+            playerCurrentDefense = PlayerStats.playerCurrentDefense,
+            playerDefenseCoeficien = PlayerStats.playerDefenseCoeficien,
+            playerCurrentAccuracy = PlayerStats.playerCurrentAccuracy,
 
-    public void SavePlayerData()
-    {
-        AllData data = new AllData(playerStats, playerTransform, playerInventory);
-        string json = JsonUtility.ToJson(data, true);
-        File.WriteAllText(saveFilePath, json);
-        Debug.Log("Game Saved");
-    }
+            // Save player position
+            playerPositionX = player.transform.position.x,
+            playerPositionY = player.transform.position.y,
+            playerPositionZ = player.transform.position.z,
 
-    public void LoadPlayerData()
-    {
-        if (File.Exists(saveFilePath))
+            // Save inventory data
+            inventoryItemIds = new List<int>(),
+            inventoryItemCounts = new List<int>()
+        };
+
+        foreach (var kvp in inventory.content)
         {
-            string json = File.ReadAllText(saveFilePath);
-            AllData data = JsonUtility.FromJson<AllData>(json);
-
-            PlayerStats.playerMaxHealth = data.playerMaxHealth;
-            PlayerStats.playerCurrentHealth = data.playerCurrentHealth;
-            PlayerStats.playerMoveSpeed = data.playerMoveSpeed;
-            PlayerStats.playerLvl = data.playerLvl;
-            PlayerStats.playerXp = data.playerXp;
-            PlayerStats.playerXpGivedCoef = data.playerXpGivedCoef;
-            PlayerStats.playerBaseAttack = data.playerBaseAttack;
-            PlayerStats.playerBaseDefense = data.playerBaseDefense;
-            PlayerStats.playerBaseAccuracy = data.playerBaseAccuracy;
-            PlayerStats.playerCurrentAttack = data.playerCurrentAttack;
-            PlayerStats.playerAttackCoeficien = data.playerAttackCoeficien;
-            PlayerStats.playerCurrentDefense = data.playerCurrentDefense;
-            PlayerStats.playerDefenseCoeficien = data.playerDefenseCoeficien;
-            PlayerStats.playerCurrentAccuracy = data.playerCurrentAccuracy;
-            playerTransform.position = new Vector3(data.playerPosition[0], data.playerPosition[1], data.playerPosition[2]);
-            playerInventory = data.playerInventory;
-
-            Debug.Log("Game Loaded");
+            playerData.inventoryItemIds.Add(kvp.Key.id);
+            playerData.inventoryItemCounts.Add(kvp.Value);
         }
-        else
+
+        WorldData worldData = new WorldData
         {
-            Debug.LogWarning("Save file not found");
+            openedChests = new List<int>(),
+            closedChests = new List<int>()
+        };
+
+        foreach (var chest in FindObjectsOfType<OpenChest>())
+        {
+            if (chest.isOpen)
+            {
+                worldData.openedChests.Add(chest.GetInstanceID());
+                Debug.Log(chest.GetInstanceID());
+            }
+            else
+            {
+                worldData.closedChests.Add(chest.GetInstanceID());
+            }
+        }
+
+        string playerJson = JsonUtility.ToJson(playerData);
+        File.WriteAllText(Application.persistentDataPath + "/playerSavefile.json", playerJson);
+
+        string worldJson = JsonUtility.ToJson(worldData);
+        File.WriteAllText(Application.persistentDataPath + "/worldSavefile.json", worldJson);
+    }
+
+    public void Load()
+    {
+        if (File.Exists(Application.persistentDataPath + "/playerSavefile.json"))
+        {
+            string playerJson = File.ReadAllText(Application.persistentDataPath + "/playerSavefile.json");
+            PlayerData playerData = JsonUtility.FromJson<PlayerData>(playerJson);
+
+            PlayerStats.playerMaxHealth = playerData.playerMaxHealth;
+            PlayerStats.playerCurrentHealth = playerData.playerCurrentHealth;
+            PlayerStats.playerMoveSpeed = playerData.playerMoveSpeed;
+            PlayerStats.playerLvl = playerData.playerLvl;
+            PlayerStats.playerXp = playerData.playerXp;
+            PlayerStats.playerXpGivedCoef = playerData.playerXpGivedCoef;
+            PlayerStats.playerCoins = playerData.playerCoins;
+            PlayerStats.playerBaseAttack = playerData.playerBaseAttack;
+            PlayerStats.playerBaseDefense = playerData.playerBaseDefense;
+            PlayerStats.playerBaseAccuracy = playerData.playerBaseAccuracy;
+            PlayerStats.playerCurrentAttack = playerData.playerCurrentAttack;
+            PlayerStats.playerAttackCoeficien = playerData.playerAttackCoeficien;
+            PlayerStats.playerCurrentDefense = playerData.playerCurrentDefense;
+            PlayerStats.playerDefenseCoeficien = playerData.playerDefenseCoeficien;
+            PlayerStats.playerCurrentAccuracy = playerData.playerCurrentAccuracy;
+
+            // Load player position
+            player.transform.position = new Vector3(playerData.playerPositionX, playerData.playerPositionY, playerData.playerPositionZ);
+
+            // Load inventory data
+            inventory.content.Clear();
+            for (int i = 0; i < playerData.inventoryItemIds.Count; i++)
+            {
+                Item item = inventory.GetItemFromID(playerData.inventoryItemIds[i]);
+                inventory.content[item] = playerData.inventoryItemCounts[i];
+            }
+        }
+
+        if (File.Exists(Application.persistentDataPath + "/worldSavefile.json"))
+        {
+            string worldJson = File.ReadAllText(Application.persistentDataPath + "/worldSavefile.json");
+            WorldData worldData = JsonUtility.FromJson<WorldData>(worldJson);
+
+            // Load chest states
+            foreach (var chest in FindObjectsOfType<OpenChest>())
+            {
+                if (worldData.openedChests.Contains(chest.GetInstanceID()))
+                {
+                    chest.SetChestState(true);
+                }
+                if (worldData.closedChests.Contains(chest.GetInstanceID()))
+                {
+                    chest.SetChestState(false);
+                }
+            }
         }
     }
-    */
 }
-
-/*
-[System.Serializable]
-public class AllData
-{
-    public float playerMaxHealth;
-    public float playerCurrentHealth;
-    public float playerMoveSpeed;
-    public int playerLvl;
-    public float playerXp;
-    public float playerXpGivedCoef;
-    public float playerBaseAttack;
-    public float playerBaseDefense;
-    public float playerBaseAccuracy;
-    public float playerCurrentAttack;
-    public float playerAttackCoeficien;
-    public float playerCurrentDefense;
-    public float playerDefenseCoeficien;
-    public float playerCurrentAccuracy;
-    public float[] playerPosition;
-    public List<InventoryItem> playerInventory;
-
-    public AllData(PlayerStats playerStats, Transform playerTransform, List<InventoryItem> inventory)
-    {
-        playerMaxHealth = PlayerStats.playerMaxHealth;
-        playerCurrentHealth = PlayerStats.playerCurrentHealth;
-        playerMoveSpeed = PlayerStats.playerMoveSpeed;
-        playerLvl = PlayerStats.playerLvl;
-        playerXp = PlayerStats.playerXp;
-        playerXpGivedCoef = PlayerStats.playerXpGivedCoef;
-        playerBaseAttack = PlayerStats.playerBaseAttack;
-        playerBaseDefense = PlayerStats.playerBaseDefense;
-        playerBaseAccuracy = PlayerStats.playerBaseAccuracy;
-        playerCurrentAttack = PlayerStats.playerCurrentAttack;
-        playerAttackCoeficien = PlayerStats.playerAttackCoeficien;
-        playerCurrentDefense = PlayerStats.playerCurrentDefense;
-        playerDefenseCoeficien = PlayerStats.playerDefenseCoeficien;
-        playerCurrentAccuracy = PlayerStats.playerCurrentAccuracy;
-        playerPosition = new float[3] { playerTransform.position.x, playerTransform.position.y, playerTransform.position.z };
-        playerInventory = inventory;
-    }
-}
-
-[System.Serializable]
-public class InventoryItem
-{
-    public string itemName;
-    public int quantity;
-
-    public InventoryItem(string name, int qty)
-    {
-        itemName = name;
-        quantity = qty;
-    }
-}
-*/

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed = 5f;
     Rigidbody2D rb;
     Vector2 dir;
     Animator anim;
@@ -19,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     {
         dir.x = Input.GetAxisRaw("Horizontal");
         dir.y = Input.GetAxisRaw("Vertical");
-        rb.MovePosition(rb.position + dir * speed * Time.fixedDeltaTime);
+        rb.MovePosition(rb.position + dir * PlayerStats.playerMoveSpeed * Time.fixedDeltaTime);
         
         SetParam();
     }

@@ -22,7 +22,7 @@ public class ItemEffect : MonoBehaviour
                 break;
             case 1:
                 Debug.Log("You used a Speed Potion");
-                StartCoroutine(PlayerEffect.AffectMoveSpeed(500, 10));
+                StartCoroutine(PlayerEffect.AffectMoveSpeed(10f, 10));
                 break;
             case 2:
                 Debug.Log("Cet Item n'est pas utilisable");
