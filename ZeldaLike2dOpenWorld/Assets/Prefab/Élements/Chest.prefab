@@ -144,11 +144,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d89e18d7d431064c969667fe381fbf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isOpen: 0
   spriteRenderer: {fileID: 3012646319960513538}
+  BlueClosedChest: {fileID: 21300000, guid: 2b437a6ac402eda488f6dff0d1337803, type: 3}
   BlueOpenedChest: {fileID: 21300000, guid: 6a79246bc86318c498a1ab933a160969, type: 3}
   interactUI: {fileID: 0}
-  itemGiven: {fileID: 11400000, guid: 3faae46a0e377204f95570713383ae0a, type: 2}
-  coinsGiven: 5
+  itemGivenID: 0
+  newItemUI: {fileID: 0}
 --- !u!61 &6733423741044468005
 BoxCollider2D:
   m_ObjectHideFlags: 0

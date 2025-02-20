@@ -79,6 +79,11 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    public Item GetItemFromID(int itemID)
+    {
+        return listOfItem[itemID];
+    }
+
     
 
 }

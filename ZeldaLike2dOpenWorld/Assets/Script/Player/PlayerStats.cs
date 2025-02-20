@@ -7,7 +7,7 @@ public class PlayerStats : MonoBehaviour
     static public float playerMaxHealth = 200;
     static public float playerCurrentHealth;
 
-    public static float playerMoveSpeed = 125;
+    public static float playerMoveSpeed = 4f;
 
     public static int playerLvl=1;
     public static float playerXp=0;

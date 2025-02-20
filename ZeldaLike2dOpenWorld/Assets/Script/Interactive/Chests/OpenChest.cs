@@ -5,8 +5,9 @@ using UnityEngine;
 public class OpenChest : MonoBehaviour
 {
     private bool isInRange;
-    private bool isOpen=false;
+    public bool isOpen=false;
     public SpriteRenderer spriteRenderer;
+    public Sprite BlueClosedChest;
     public Sprite BlueOpenedChest;
     public InteractUI interactUI;
     public int itemGivenID;
@@ -56,5 +57,19 @@ public class OpenChest : MonoBehaviour
         spriteRenderer.sprite=BlueOpenedChest;
         StartCoroutine(newItemUI.ShowNewItemUI(itemGivenID));
         Inventory.instance.AddItem(itemGivenID);
+    }
+
+    public void SetChestState(bool isOpen)
+    {
+        this.isOpen = isOpen;
+        if (isOpen)
+        {
+            spriteRenderer.sprite = BlueOpenedChest;
+            interactUI.HideUiInteract();
+        }
+        else
+        {
+            spriteRenderer.sprite = BlueClosedChest;
+        }
     }
 }
